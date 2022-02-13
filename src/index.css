@@ -1,3 +1,23 @@
+/*@font-face {
+  font-family: 'Circe';
+  src: local('Circe-Bold'), url(./fonts/Circe-Bold.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: local('Circe-Regular'), url(./fonts/Circe-Regular.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'segoeui';
+  src: local('segoeui'), url(./fonts/segoeui.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'segoeuib';
+  src: local('segoeuib'), url(./fonts/segoeuib.ttf) format('truetype');
+}*/
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
