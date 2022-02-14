@@ -1,9 +1,18 @@
 .form {
-  width: 320;
+  width: 409px;
+
+  margin-bottom: 50px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
   display: flex;
 
   margin-bottom: 15px;
+}
+
+.inputEmail {
+  margin-bottom: 40px;
 }
