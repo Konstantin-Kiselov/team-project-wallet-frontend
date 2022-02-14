@@ -2,16 +2,9 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import TextField from '@mui/material/TextField';
+
+import s from './RegisterView.module.css';
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -42,10 +35,27 @@ export default function RegisterView() {
 
   return (
     <div>
-      <h3>Please fill in the following fields to sign up</h3>
-
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
+      <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
+        <TextField
+          sx={{ mb: '40px' }}
+          id="standard-basic"
+          label="E-mail"
+          variant="standard"
+        />
+        <TextField
+          sx={{ mb: '40px' }}
+          id="standard-basic"
+          label="Пароль"
+          variant="standard"
+        />
+        <TextField
+          sx={{ mb: '40px' }}
+          id="standard-basic"
+          label="Подтвердите пароль"
+          variant="standard"
+        />
+        <TextField id="standard-basic" label="Ваше имя" variant="standard" />
+        {/*<label style={styles.label}>
           Name
           <input type="text" name="name" value={name} onChange={handleChange} />
         </label>
@@ -72,7 +82,7 @@ export default function RegisterView() {
 
         <button className="button" type="submit">
           Sign up
-        </button>
+        </button>*/}
       </form>
     </div>
   );
