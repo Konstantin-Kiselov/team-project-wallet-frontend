@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
+import { Box, TextField, InputAdornment } from '@mui/material';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
+import LockIcon from '@mui/icons-material/Lock';
+
 import s from './LoginView.module.css';
 
 export default function LoginView() {
@@ -29,10 +34,26 @@ export default function LoginView() {
 
   return (
     <div>
-      <h3>Please fill in the following fields to log in</h3>
-
       <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
-        <label className={s.label}>
+        <TextField
+          sx={{ mb: '40px' }}
+          id="standard-basic"
+          label={((<LockIcon />), 'E-mail')}
+          variant="standard"
+        />
+
+        <InputAdornment position="start">
+          <LockIcon />
+        </InputAdornment>
+
+        <TextField id="standard-basic" label="Пароль" variant="standard" />
+
+        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+          <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+          <TextField id="input-with-sx" label="With sx" variant="standard" />
+        </Box>
+
+        {/*<label className={s.label}>
           e-mail
           <input
             type="email"
@@ -54,7 +75,7 @@ export default function LoginView() {
 
         <button className="button" type="submit">
           Login
-        </button>
+        </button>*/}
       </form>
     </div>
   );
