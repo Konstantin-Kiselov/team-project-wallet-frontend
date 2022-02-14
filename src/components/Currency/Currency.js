@@ -35,8 +35,8 @@ function Currency() {
       <div className={styles.decoration}>
         <Media
           queries={{
-            small: '(max-width: 599px)',
-            medium: '(min-width: 600px) and (max-width: 1199px)',
+            small: '(max-width: 767px)',
+            medium: '(min-width: 768px) and (max-width: 1199px)',
             large: '(min-width: 1200px)',
           }}
         >
