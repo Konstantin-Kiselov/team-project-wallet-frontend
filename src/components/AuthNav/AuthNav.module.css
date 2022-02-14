@@ -2,38 +2,73 @@
   display: flex;
 }
 
-.link {
-  display: inline-block;
-  text-decoration: none;
-  padding: 12px;
-  font-weight: 700;
-  color: #2a363b;
+.item {
+  list-style: none;
 }
 
-.frame {
-  width: 560px;
+.titleLeftSide {
+  margin-top: 28px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  text-align: center;
+}
+
+.titleRightSide {
+  margin-bottom: 40px;
+}
+
+/*.frame {
+  display: block;
   min-height: 30px;
-
-  border: solid 1px black;
-}
+}*/
 
 .form {
+  width: 540px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  width: 540px;
+  background: #ffffff;
+  border-radius: 20px;
 
-  padding-left: 66px;
-  padding-right: 66px;
+  padding-left: 65px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  padding-right: 65px;
+}
+
+.rightSide {
+  width: 720px;
+
+  padding-left: 95px;
+  padding-top: 136px;
+  padding-right: 85px;
+  padding-bottom: 116px;
+
+  background: #e7eaf2;
+
+  /*backdrop-filter: blur(50px);*/
+}
+
+.leftSide {
+  width: 560px;
+
+  padding-left: 60px;
+  padding-top: 150px;
+  padding-right: 42px;
+  padding-bottom: 78px;
+
+  background: #e5e5e5;
 }
 
 .buttonRegister {
   cursor: pointer;
 
-  padding-left: 70px;
+  padding-left: 75px;
   padding-top: 13px;
-  padding-right: 70px;
+  padding-right: 75px;
   padding-bottom: 13px;
 
   background: #ffffff;
@@ -56,9 +91,11 @@
 .buttonLogin {
   cursor: pointer;
 
-  padding-left: 125px;
+  margin-bottom: 20px;
+
+  padding-left: 122px;
   padding-top: 13px;
-  padding-right: 125px;
+  padding-right: 122px;
   padding-bottom: 13px;
 
   border: none;
@@ -76,5 +113,12 @@
   color: #ffffff;
 
   background: #24cca7;
-  border-radius: 20px;
 }
+/*
+.frameLog {
+  height: 419px;
+  position: absolute;
+  bottom: 22px;
+
+  left: 380px;
+}*/
