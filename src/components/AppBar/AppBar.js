@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import s from './AppBar.module.css';
 
 export default function AppBar() {
