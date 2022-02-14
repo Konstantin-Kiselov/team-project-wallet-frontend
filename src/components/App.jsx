@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import AppBar from './AppBar/AppBar';
 import Container from './Container/Container';
+import Currency from './Currency/Currency';
 
 // const HomeView = lazy(() => import('../views/HomeView/HomeView'));
 // const RegisterView = lazy(() => import('../views/RegisterView/RegisterView'));
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <Container>
       <AppBar />
+      <Currency />
     </Container>
   );
 }
