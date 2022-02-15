@@ -16,3 +16,11 @@
 .inputEmail {
   margin-bottom: 40px;
 }
+
+.TextField {
+  width: 374px;
+}
+
+.TextField_label {
+  left: 20px !important;
+}
