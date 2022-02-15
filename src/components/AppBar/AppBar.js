@@ -5,7 +5,6 @@ import s from './AppBar.module.css';
 import walletIcon from '../../img/log&reg/wallet.svg';
 import walletNameIcon from '../../img/appBar/Wallet.svg';
 import UserMenu from '../UserMenu/UserMenu.js';
-import AuthNav from '../AuthNav/AuthNav';
 
 export default function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
@@ -18,7 +17,6 @@ export default function AppBar() {
           <img className={s.logoWord} src={walletNameIcon} alt="logo" />
         </Link>
         <UserMenu />
-        {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
       </div>
     </header>
   );
