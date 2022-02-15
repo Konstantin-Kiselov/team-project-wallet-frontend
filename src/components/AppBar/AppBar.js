@@ -14,8 +14,8 @@ export default function AppBar() {
     <header className={s.header}>
       <div className={s.container}>
         <Link className={s.logo} to="/home">
-          <img className={s.logoImg} src={walletIcon} alt="" />
-          <img className={s.logoWord} src={walletNameIcon} alt="" />
+          <img className={s.logoImg} src={walletIcon} alt="logo" />
+          <img className={s.logoWord} src={walletNameIcon} alt="logo" />
         </Link>
         <UserMenu />
         {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
