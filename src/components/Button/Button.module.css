@@ -1,0 +1,73 @@
+.button {
+  width: 300px;
+  height: 50px;
+  /* border: none; */
+  border-radius: 20px;
+}
+
+.title {
+  /* font-family: Circe; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.buttonAdd {
+  width: 300px;
+  height: 50px;
+  /* border: none; */
+  border-radius: 20px;
+  border: none;
+  background-color: #24cca7;
+
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  color: #ffffff;
+}
+
+.buttonAdd:hover,
+.buttonAdd:focus {
+  background-color: #17b391;
+}
+
+.buttonCancel {
+  width: 300px;
+  height: 50px;
+  /* border: none; */
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: 1px solid #4a56e2;
+
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  color: #4a56e2;
+}
+
+.buttonCancel:hover,
+.buttonCancel:focus {
+  background-color: #d8f2fa;
+  border: 1px solid #2f3bbd;
+  color: #2f3bbd;
+}
