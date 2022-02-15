@@ -35,22 +35,36 @@ export default function LoginView() {
   return (
     <div>
       <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
-        <TextField
-          sx={{ mb: '40px' }}
-          id="standard-basic"
-          label={((<LockIcon />), 'E-mail')}
-          variant="standard"
-        />
-
-        <InputAdornment position="start">
-          <LockIcon />
-        </InputAdornment>
-
-        <TextField id="standard-basic" label="Пароль" variant="standard" />
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'flex-end',
+            mb: '40px',
+          }}
+        >
+          <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+          <TextField
+            className={s.TextField}
+            id="input-with-sx"
+            label="E-mail"
+            variant="standard"
+            sx={{ left: '-30px' }}
+            fullWidth
+            required
+          />
+        </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
           <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-          <TextField id="input-with-sx" label="With sx" variant="standard" />
+          <TextField
+            className={s.TextField}
+            id="input-with-sx"
+            label="Пароль"
+            variant="standard"
+            sx={{ left: '-30px' }}
+            fullWidth
+            required
+          />
         </Box>
 
         {/*<label className={s.label}>
