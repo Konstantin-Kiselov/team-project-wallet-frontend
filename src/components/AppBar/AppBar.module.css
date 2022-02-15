@@ -2,5 +2,53 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #2a363b;
+
+  height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoImg {
+  height: 30px;
+  width: 30px;
+}
+
+.logoWord {
+  height: 30px;
+  width: 74px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    /* width: 768px; */
+    height: 80px;
+  }
+
+  .logo {
+    width: 181px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logoImg {
+    height: 40px;
+    width: 40px;
+  }
+
+  .logoWord {
+    height: 40px;
+    width: 120px;
+  }
 }
