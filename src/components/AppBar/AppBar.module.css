@@ -4,8 +4,6 @@
   align-items: center;
 
   height: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .container {
@@ -32,7 +30,6 @@
 
 @media screen and (min-width: 768px) {
   .header {
-    /* width: 768px; */
     height: 80px;
   }
 
