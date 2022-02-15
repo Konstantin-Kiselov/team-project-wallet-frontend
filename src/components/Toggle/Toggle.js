@@ -15,7 +15,7 @@ export default function Toggle() {
       {/* <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
         <use href="./images/sprite.svg#sun"></use>
       </svg> */}
-      <span className={s.profit}>Доход</span>
+      <span className={value ? s.noActive : s.profit}>Доход</span>
 
       <div className={s.switchControl}>
         <input
@@ -38,7 +38,7 @@ export default function Toggle() {
           className={value ? s.switchMarkerChecked : s.switchMarker}
         ></div>
       </div>
-      <span className={s.expenditure}>Расход</span>
+      <span className={value ? s.expenditure : s.noActive}>Расход</span>
 
       {/* <svg class="theme-switch__icon" aria-label="Иконка луны">
         <use href="./images/sprite.svg#moon"></use>

@@ -104,7 +104,7 @@
   box-shadow: 0 0 0 3px #2196f3;
 } */
 .profit {
-  /* font-family: Circe; */
+  font-family: Circe;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -116,7 +116,18 @@
 }
 
 .expenditure {
-  /* font-family: Circe; */
+  font-family: Circe;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #ff6596;
+}
+
+.noActive {
+  font-family: Circe;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
