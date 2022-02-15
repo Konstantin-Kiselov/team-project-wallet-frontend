@@ -1,0 +1,42 @@
+[
+  {
+    "date": "15.02.2022",
+    "type": "+",
+    "category": "music",
+    "comment": "Super tower",
+    "sum": 600,
+    "balance": 18200
+  },
+  {
+    "date": "05.02.2022",
+    "type": "+",
+    "category": "music",
+    "comment": "Super tower",
+    "sum": 800,
+    "balance": 18200
+  },
+  {
+    "date": "25.02.2022",
+    "type": "-",
+    "category": "music",
+    "comment": "Super tower",
+    "sum": 300,
+    "balance": 18200
+  },
+  {
+    "date": "15.02.2022",
+    "type": "+",
+    "category": "music",
+    "comment": "Super tower",
+    "sum": 500,
+    "balance": 18200
+  },
+  {
+    "date": "15.02.2022",
+    "type": "-",
+    "category": "music",
+    "comment": "Super tower",
+    "sum": 4000,
+    "balance": 18200
+  }
+]
