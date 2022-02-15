@@ -50,5 +50,8 @@
 
   color: #000000;
 
+  margin: 0 auto;
   margin-bottom: 40px;
+  width: 340px;
+  outline: 1px solid red;
 }

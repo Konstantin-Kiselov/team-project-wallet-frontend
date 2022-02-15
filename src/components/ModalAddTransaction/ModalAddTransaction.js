@@ -1,10 +1,10 @@
-import { useState } from "react";
-import ModalContainer from "../ModalContainer";
+import { useState } from 'react';
+import ModalContainer from '../ModalContainer';
 
-import Modal from "../Modal";
-import ButtonAddTransaction from "../ButtonAddTransaction";
-import Toggle from "../Toggle";
-import ModalForm from "../ModalForm";
+import Modal from '../Modal';
+import ButtonAddTransaction from '../ButtonAddTransaction';
+import Toggle from '../Toggle';
+import ModalForm from '../ModalForm';
 
 export default function ModalAddTransaction() {
   const [modalActive, setModalActive] = useState(false);
@@ -12,9 +12,9 @@ export default function ModalAddTransaction() {
     <div>
       <ButtonAddTransaction onClick={() => setModalActive(true)} />
       <Modal active={modalActive} setActive={setModalActive}>
-        <ModalContainer active={modalActive} title={"Добавить транзакцию"}>
+        <ModalContainer active={modalActive} title={'Добавить транзакцию'}>
           <Toggle />
-          <ModalForm />
+          <ModalForm onClick={setModalActive} />
         </ModalContainer>
       </Modal>
     </div>

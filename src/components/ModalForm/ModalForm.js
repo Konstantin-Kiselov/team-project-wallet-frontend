@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Button from '../Button';
 // import Data from "../Data";
 
-export default function ModalForm({ children }) {
+export default function ModalForm({ onClick, children }) {
   const Today = new Date();
   const [coment, setComent] = useState('');
   const [data, setData] = useState(
@@ -30,66 +30,92 @@ export default function ModalForm({ children }) {
       setSelect(e.currentTarget.value);
     }
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    console.log('Post request');
+    // dispatch(authOperations.logIn({ email, password }));
+    // setEmail("");
+    // setPassword("");
+
+    onClick(false);
+  };
+
   return (
     <div className={s.container}>
-      {/* <SelectUnstyled components={{ Root, Thumb, Input }} /> */}
-      <select value={select} className={s.select} onChange={handleChange}>
-        <option value={select} disabled checked>
-          Выберите категорию
-        </option>
-        <option value="hurr">Регулярный доход</option>
-        <option value="hurr">Нерегулярный доход</option>
-      </select>
+      <form onSubmit={handleSubmit}>
+        {/* <SelectUnstyled components={{ Root, Thumb, Input }} /> */}
+        <select value={select} className={s.select} onChange={handleChange}>
+          <option value="" disabled checked>
+            Выберите категорию
+          </option>
+          <option value="hurr">Регулярный доход</option>
+          <option value="hurr">Нерегулярный доход</option>
+        </select>
 
-      <div className={s.inputContainer}>
-        <label>
-          <input className={s.inputSum} placeholder="0.00"></input>
-        </label>
-        <TextField
-          name="data"
-          value={data}
-          onChange={handleChange}
-          id="date"
-          label=""
-          type="date"
-          // defaultValue="2017-05-24"
-          // defaultCalendarMonth
-          variant="standard"
-          sx={{
-            width: 190,
-            // height: 34,
-            // paddingTop: 5,
-            bgcolor: '#FFFFFF',
-            // color: "red",
-            // border: "3px solid red",
-            // outline: "1px solid green",
-          }}
-          InputLabelProps={{
-            shrink: true,
-            // variant: "outlined",
-          }}
-        />
-      </div>
-
-      <label>
-        <input
-          className={s.inputComent}
-          placeholder="Комментарий"
-          type="tel"
-          name="coment"
-          value={coment}
-          onChange={handleChange}
-        ></input>
-      </label>
-
-      {/* <Button title={"Добавить"} className={s.buttonAdd} />
-      <Button title={"Отмена"} className={s.buttonCancel} /> */}
-      <div className={s.buttonContainer}>
-        <div className={s.button}>
-          <Button title={'Добавить'} type={true} />
+        <div className={s.inputContainer}>
+          <label>
+            <input className={s.inputSum} placeholder="0.00"></input>
+          </label>
+          <TextField
+            name="data"
+            value={data}
+            onChange={handleChange}
+            id="date"
+            label=""
+            type="date"
+            // defaultValue="2017-05-24"
+            // defaultCalendarMonth
+            variant="standard"
+            sx={{
+              width: 190,
+              // height: 34,
+              // paddingTop: 5,
+              bgcolor: '#FFFFFF',
+              // color: "red",
+              // border: "3px solid red",
+              // outline: "1px solid green",
+            }}
+            InputLabelProps={{
+              shrink: true,
+              // variant: "outlined",
+            }}
+          />
         </div>
-        <Button title={'Отмена'} type={false} />
-      </div>
+
+        <label>
+          <input
+            className={s.inputComent}
+            placeholder="Комментарий"
+            type="tel"
+            name="coment"
+            value={coment}
+            onChange={handleChange}
+          ></input>
+        </label>
+
+        {/* <Button title={"Добавить"} className={s.buttonAdd} />
+      <Button title={"Отмена"} className={s.buttonCancel} /> */}
+        <div className={s.buttonContainer}>
+          <div className={s.button}>
+            <Button
+              title={'Добавить'}
+              styleButton={true}
+              type={'submit'}
+              // onClick={handleSubmit}
+            />
+          </div>
+          <Button
+            title={'Отмена'}
+            styleButton={false}
+            type={'button'}
+            onClick={() => {
+              onClick(false);
+            }}
+          />
+        </div>
+      </form>
     </div>
   );
 }

@@ -1,11 +1,11 @@
-import s from "./Button.module.css";
+import s from './Button.module.css';
 // import GreenCircle from "../GreenCircle";
 
-export default function Button({ title, type, onClick }) {
+export default function Button({ title, styleButton, type, onClick }) {
   return (
     <button
-      type="button"
-      className={type ? s.buttonAdd : s.buttonCancel}
+      type={type}
+      className={styleButton ? s.buttonAdd : s.buttonCancel}
       // className={`${s.button} ${className}`}
       onClick={onClick}
     >
