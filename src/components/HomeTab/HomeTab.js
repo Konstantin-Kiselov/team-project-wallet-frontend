@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import transactions from './transactions.json';
+import s from './HomeTab.module.css';
 
 export default function HomeTab() {
   const [status, setStatus] = useState('idle');
@@ -19,37 +20,100 @@ export default function HomeTab() {
   //   }, []);
 
   return (
-    <div className="s.container">
-      <div className="s.titleBar"></div>
-      <table className="s.table">
-        <thead className="s.titles">
-          <tr>
-            <th>Дата</th>
-            <th>Тип</th>
-            <th>Категория</th>
-            <th>Комментарий</th>
-            <th>Сумма</th>
-            <th>Баланс</th>
+    <div className={s.container}>
+      <table className={s.table}>
+        <thead className={s.titles}>
+          <tr className={s.row}>
+            <th className={s.titles_head}>Дата</th>
+            <th className={s.titles_head}>Тип</th>
+            <th className={s.titles_head}>Категория</th>
+            <th className={s.titles_head}>Комментарий</th>
+            <th className={s.titles_head}>Сумма</th>
+            <th className={s.titles_head}>Баланс</th>
           </tr>
         </thead>
-        {status === 'resolved' && (
-          <tbody>
-            {transInfo.map((transactions, i) => {
-              return (
-                <>
-                  <tr key={i}>
-                    <td>{transactions.date}</td>
-                    <td>{transactions.type}</td>
-                    <td>{transactions.category}</td>
-                    <td>{transactions.comment}</td>
-                    <td>{transactions.sum}</td>
-                    <td>{transactions.balance}</td>
-                  </tr>
-                </>
-              );
-            })}
-          </tbody>
-        )}
+        <tbody className={s.body}>
+          <tr className={s.row}>
+            <td aria-label="Дата" className={s.body_item}>
+              12.02.1557
+            </td>
+            <td aria-label="Тип" className={s.body_item}>
+              -
+            </td>
+            <td aria-label="Категория" className={s.body_item}>
+              Машина
+            </td>
+            <td aria-label="Комментарий" className={s.body_item}>
+              купили фары
+            </td>
+            <td aria-label="Сумма" className={s.body_item}>
+              3600
+            </td>
+            <td aria-label="Баланс" className={s.body_item}>
+              12900
+            </td>
+          </tr>
+          <tr className={s.row}>
+            <td aria-label="Дата" className={s.body_item}>
+              12.02.1557
+            </td>
+            <td aria-label="Тип" className={s.body_item}>
+              -
+            </td>
+            <td aria-label="Категория" className={s.body_item}>
+              Машина
+            </td>
+            <td aria-label="Комментарий" className={s.body_item}>
+              купили фары
+            </td>
+            <td aria-label="Сумма" className={s.body_item}>
+              3600
+            </td>
+            <td aria-label="Баланс" className={s.body_item}>
+              12900
+            </td>
+          </tr>
+          <tr className={s.row}>
+            <td aria-label="Дата" className={s.body_item}>
+              12.02.1557
+            </td>
+            <td aria-label="Тип" className={s.body_item}>
+              -
+            </td>
+            <td aria-label="Категория" className={s.body_item}>
+              Машина
+            </td>
+            <td aria-label="Комментарий" className={s.body_item}>
+              купили фары
+            </td>
+            <td aria-label="Сумма" className={s.body_item}>
+              3600
+            </td>
+            <td aria-label="Баланс" className={s.body_item}>
+              12900
+            </td>
+          </tr>
+          <tr className={s.row}>
+            <td aria-label="Дата" className={s.body_item}>
+              12.02.1557
+            </td>
+            <td aria-label="Тип" className={s.body_item}>
+              -
+            </td>
+            <td aria-label="Категория" className={s.body_item}>
+              Машина
+            </td>
+            <td aria-label="Комментарий" className={s.body_item}>
+              купили фары
+            </td>
+            <td aria-label="Сумма" className={s.body_item}>
+              3600
+            </td>
+            <td aria-label="Баланс" className={s.body_item}>
+              12900
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
