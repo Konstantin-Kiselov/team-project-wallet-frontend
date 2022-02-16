@@ -16,19 +16,15 @@
   background-color: transparent;
   color: #bdbdbd;
   font-size: 18px;
-  padding: 3px 10px;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .name {
   color: #bdbdbd;
   font-size: 18px;
   font-weight: 400px;
-  margin-right: 12px;
-}
-
-.exitIcon {
   margin-right: 10px;
 }
 
@@ -37,6 +33,18 @@
 }
 
 @media screen and (min-width: 768px) {
+  .name {
+    margin-right: 12px;
+  }
+
+  .button {
+    padding: 3px 10px;
+  }
+
+  .exitIcon {
+    margin-right: 10px;
+  }
+
   .exitWord {
     display: block;
   }
