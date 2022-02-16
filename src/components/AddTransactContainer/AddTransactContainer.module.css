@@ -1,0 +1,31 @@
+.container {
+  /* position: absolute; */
+  position: fixed;
+
+  background-color: #fff;
+  overflow: hidden;
+  width: 100vw;
+  min-height: calc(100vh - 60px);
+  padding-top: 20px;
+  bottom: 0;
+  left: 0;
+  z-index: 11111;
+  background-color: rgb(204, 92, 161);
+}
+
+.title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 36px;
+  /* display: flex;
+  align-items: center;
+  text-align: center;*/
+  text-align: center;
+  color: #000000;
+
+  margin: 0 auto;
+  margin-bottom: 40px;
+  outline: 1px solid red;
+}

@@ -6,15 +6,15 @@ import ButtonAddTransaction from '../ButtonAddTransaction';
 import Toggle from '../Toggle';
 import ModalForm from '../ModalForm';
 
-export default function ModalAddTransaction() {
-  const [modalActive, setModalActive] = useState(false);
+export default function ModalAddTransaction(active, setActive) {
+  // const [modalActive, setModalActive] = useState(false);
   return (
     <div>
-      <ButtonAddTransaction onClick={() => setModalActive(true)} />
-      <Modal active={modalActive} setActive={setModalActive}>
-        <ModalContainer active={modalActive} title={'Добавить транзакцию'}>
+      {/* <ButtonAddTransaction onClick={() => setModalActive(true)} /> */}
+      <Modal active={active} setActive={setActive}>
+        <ModalContainer active={active} title={'Добавить транзакцию'}>
           <Toggle />
-          <ModalForm onClick={setModalActive} />
+          <ModalForm onClick={setActive} />
         </ModalContainer>
       </Modal>
     </div>
