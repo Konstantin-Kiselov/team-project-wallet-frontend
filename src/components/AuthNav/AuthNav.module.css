@@ -38,6 +38,8 @@
 }*/
 
 .form {
+  position: relative;
+
   width: 540px;
 
   display: flex;
@@ -54,6 +56,8 @@
 }
 
 .rightSide {
+  position: relative;
+
   width: 720px;
 
   padding-left: 95px;
@@ -67,6 +71,8 @@
 }
 
 .leftSide {
+  position: relative;
+
   width: 560px;
 
   padding-left: 60px;
@@ -130,9 +136,24 @@
 }
 
 .frameLog {
-  height: 419px;
-  position: absolute;
-  bottom: 22px;
+  position: relative;
+  z-index: 100;
 
-  left: 380px;
+  width: 435.2px;
+  height: 419.5px;
+}
+
+.violetEllipse {
+  position: absolute;
+  bottom: 39px;
+  left: -56px;
+}
+
+.pinkEllipse {
+  position: absolute;
+
+  top: 0px;
+  right: 0px;
+
+  filter: blur(50px);
 }
