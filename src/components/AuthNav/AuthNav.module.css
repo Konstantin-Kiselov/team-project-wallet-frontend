@@ -160,3 +160,9 @@
 
   filter: blur(50px);
 }
+
+@media screen and (max-width: 767px) {
+  .commonContainer {
+    background-color: #ffffff;
+  }
+}
