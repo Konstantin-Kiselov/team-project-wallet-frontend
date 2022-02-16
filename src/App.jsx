@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute';
 import AuthNav from './components/AuthNav';
+import SectionAuthNav from './components/SectionAuthNav';
 
 const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView'));
@@ -18,39 +19,41 @@ export default function App() {
   // const dispatch = useDispatch();
 
   return (
-    <Container>
-      <Suspense fallback={<p>Загружаем...</p>}>
-        <Routes>
-          <Route path="/" element={<AuthNav />}>
-            <Route index element={<LoginView />} />
+    <SectionAuthNav>
+      <Container>
+        <Suspense fallback={<p>Загружаем...</p>}>
+          <Routes>
+            <Route path="/" element={<AuthNav />}>
+              <Route index element={<LoginView />} />
+              <Route
+                path="register"
+                element={
+                  <PublicRoute restricted>
+                    <RegisterView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="login"
+                element={
+                  <PublicRoute restricted redirectTo="/home">
+                    <LoginView />
+                  </PublicRoute>
+                }
+              />
+            </Route>
             <Route
-              path="register"
+              path="/home"
               element={
-                <PublicRoute restricted>
-                  <RegisterView />
-                </PublicRoute>
+                <PrivateRoute restricted redirectTo="/login">
+                  <HomeView />
+                </PrivateRoute>
               }
             />
-            <Route
-              path="login"
-              element={
-                <PublicRoute restricted redirectTo="/home">
-                  <LoginView />
-                </PublicRoute>
-              }
-            />
-          </Route>
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute restricted redirectTo="/login">
-                <HomeView />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<NotFoundView />} />
-        </Routes>
-      </Suspense>
-    </Container>
+            <Route path="*" element={<NotFoundView />} />
+          </Routes>
+        </Suspense>
+      </Container>
+    </SectionAuthNav>
   );
 }
