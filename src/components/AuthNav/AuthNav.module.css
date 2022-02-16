@@ -15,6 +15,20 @@
 }
 
 .titleRightSide {
+  margin-left: 20px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 45px;
+
+  color: #000000;
+}
+
+.titleRightSideContainer {
+  display: flex;
+  align-items: center;
+
   margin-bottom: 40px;
 }
 
@@ -114,11 +128,11 @@
 
   background: #24cca7;
 }
-/*
+
 .frameLog {
   height: 419px;
   position: absolute;
   bottom: 22px;
 
   left: 380px;
-}*/
+}
