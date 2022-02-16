@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
-import { Box, TextField, InputAdornment } from '@mui/material';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Box, TextField } from '@mui/material';
+
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import LockIcon from '@mui/icons-material/Lock';
 
@@ -42,28 +42,42 @@ export default function LoginView() {
             mb: '40px',
           }}
         >
-          <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
           <TextField
             className={s.TextField}
             id="input-with-sx"
             label="E-mail"
+            type="email"
             variant="standard"
             sx={{ left: '-30px' }}
             fullWidth
             required
+            InputProps={{
+              startAdornment: (
+                <LocalPostOfficeIcon
+                  sx={{ color: 'action.active', mr: 1, my: 0.5 }}
+                />
+              ),
+            }}
+            placeholder="E-mail"
           />
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-          <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
           <TextField
             className={s.TextField}
+            type="password"
             id="input-with-sx"
             label="Пароль"
             variant="standard"
             sx={{ left: '-30px' }}
             fullWidth
             required
+            InputProps={{
+              startAdornment: (
+                <LockIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              ),
+            }}
+            placeholder="Пароль"
           />
         </Box>
 
