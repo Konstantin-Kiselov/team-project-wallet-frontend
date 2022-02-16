@@ -3,20 +3,29 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 import s from './AuthNav.module.css';
 
+import walletIcon from '../../img/log&reg/wallet.svg';
+import loginFrame from '../../img/log&reg/login/frame-log.png';
+import registerFrame from '../../img/log&reg/registration/frame-reg.png';
+
 const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
+const setActiveImg = ({ isActive }) =>
+  isActive ? 'loginFrame' : 'registerFrame';
 
 export default function AuthNav() {
   return (
     <div className={s.commonContainer}>
       <div className={s.frame}></div>
       <div className={s.leftSide}>
-        <img className={s.frameLog} src="/frame-log.png" alt="" />
+        <img alt="login frame" src={loginFrame} className={setActiveImg} />
         <h1 className={s.titleLeftSide}>Finance App</h1>
       </div>
 
       <div className={s.rightSide}>
         <div className={s.form}>
-          <h2 className={s.titleRightSide}>Wallet</h2>
+          <div className={s.titleRightSideContainer}>
+            <img src={walletIcon} alt="wallet icon" />
+            <h2 className={s.titleRightSide}>Wallet</h2>
+          </div>
 
           <Outlet />
 
@@ -29,7 +38,6 @@ export default function AuthNav() {
           >
             Вход
           </NavLink>
-
           <NavLink
             to="/register"
             className={setActiveClass}
