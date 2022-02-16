@@ -51,7 +51,6 @@ export default function RegisterView() {
             label="E-mail"
             type="email"
             variant="standard"
-            sx={{ left: '-30px' }}
             fullWidth
             required
             InputProps={{
@@ -72,7 +71,6 @@ export default function RegisterView() {
             id="input-with-sx"
             label="Пароль"
             variant="standard"
-            sx={{ left: '-30px' }}
             fullWidth
             required
             InputProps={{
@@ -91,7 +89,6 @@ export default function RegisterView() {
             id="input-with-sx"
             label="Подтвердите пароль"
             variant="standard"
-            sx={{ left: '-30px' }}
             fullWidth
             required
             InputProps={{
@@ -116,7 +113,6 @@ export default function RegisterView() {
             label="Ваше имя"
             type="text"
             variant="standard"
-            sx={{ left: '-30px' }}
             fullWidth
             required
             InputProps={{
