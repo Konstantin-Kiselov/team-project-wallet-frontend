@@ -48,7 +48,6 @@ export default function LoginView() {
             label="E-mail"
             type="email"
             variant="standard"
-            sx={{ left: '-30px' }}
             fullWidth
             required
             InputProps={{
@@ -69,12 +68,11 @@ export default function LoginView() {
             id="input-with-sx"
             label="Пароль"
             variant="standard"
-            sx={{ left: '-30px' }}
             fullWidth
             required
             InputProps={{
               startAdornment: (
-                <LockIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                <LockIcon sx={{ color: 'action.active', mr: 1 }} />
               ),
             }}
             placeholder="Пароль"
