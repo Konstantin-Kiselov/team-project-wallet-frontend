@@ -117,4 +117,14 @@ a {
 .registerFrame {
 }
 
+@media screen and (max-width: 767px) {
+  .active-link {
+    width: 280px;
+  }
+
+  .link {
+    width: 280px;
+  }
+}
+
 /* -- end login & registration form -- */
