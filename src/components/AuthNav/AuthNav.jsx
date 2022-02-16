@@ -19,7 +19,6 @@ export default function AuthNav() {
 
   return (
     <div className={s.commonContainer}>
-      <div className={s.frame}></div>
       <div className={s.leftSide}>
         <img alt="login frame" src={loginFrame} className={s.frameLog} />
         <img
