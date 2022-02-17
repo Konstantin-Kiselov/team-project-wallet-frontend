@@ -1,8 +1,6 @@
 .form {
   width: 409px;
 
-  margin-bottom: 50px;
-
   display: flex;
   flex-direction: column;
 }
@@ -17,9 +15,295 @@
   margin-bottom: 40px;
 }
 
-.TextField {
+.commonContainer {
+  display: flex;
+}
+
+.item {
+  list-style: none;
 }
 
 .TextField_label {
   left: 20px !important;
+}
+
+.titleLeftSide {
+  position: inherit;
+
+  margin-top: 28px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  text-align: center;
+}
+
+.titleRightSide {
+  margin-left: 20px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 45px;
+
+  color: #000000;
+}
+
+.titleRightSideContainer {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+
+.formContainer {
+  position: relative;
+
+  width: 540px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #ffffff;
+  border-radius: 20px;
+
+  padding-left: 65px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  padding-right: 65px;
+}
+
+.rightSide {
+  position: relative;
+
+  width: 720px;
+
+  padding-left: 95px;
+  padding-top: 136px;
+
+  padding-bottom: 116px;
+
+  background: #e7eaf2;
+
+  backdrop-filter: blur(50px);
+}
+
+.leftSide {
+  position: relative;
+
+  width: 560px;
+
+  padding-top: 150px;
+
+  padding-bottom: 78px;
+
+  background: #e5e5e5;
+}
+
+.buttonRegister {
+  cursor: pointer;
+
+  padding-left: 75px;
+  padding-top: 13px;
+  padding-right: 75px;
+  padding-bottom: 13px;
+
+  background: #ffffff;
+  border: 1px solid #4a56e2;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #4a56e2;
+}
+
+.buttonLogin {
+  cursor: pointer;
+
+  margin-bottom: 20px;
+
+  padding-left: 122px;
+  padding-top: 13px;
+  padding-right: 122px;
+  padding-bottom: 13px;
+
+  border: none;
+  border-radius: 20px;
+
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  background: #24cca7;
+}
+
+.frameLog {
+  position: relative;
+  z-index: 100;
+
+  left: -14px;
+
+  width: 435.2px;
+  height: 419.5px;
+}
+
+.violetEllipse {
+  position: absolute;
+  bottom: 46px;
+  left: -68px;
+}
+
+.pinkEllipse {
+  position: absolute;
+
+  top: -30px;
+  right: -130px;
+
+  filter: blur(50px);
+}
+
+@media screen and (max-width: 767px) {
+  .commonContainer {
+    background-color: #ffffff;
+  }
+
+  .formContainer {
+    position: relative;
+
+    width: 280px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #ffffff;
+    border-radius: none;
+
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  .pinkEllipse,
+  .leftSide {
+    display: none;
+  }
+
+  .sectionAuthNav {
+    background-color: #ffffff;
+  }
+
+  .rightSide {
+    position: relative;
+
+    width: 280px;
+
+    padding: 0px;
+
+    background: #fff;
+
+    backdrop-filter: none;
+  }
+
+  .form {
+    width: 280px;
+
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .commonContainer {
+    position: static;
+
+    display: block;
+
+    padding-top: 60px;
+    padding-bottom: 196px;
+  }
+
+  .frameLog {
+    position: static;
+
+    display: inline-block;
+
+    width: 260.26px;
+    height: 250px;
+  }
+
+  .rightSide {
+    position: static;
+
+    width: 100%;
+
+    margin-top: 50px;
+    padding-left: 74px;
+    padding-right: 74px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    background: none;
+
+    backdrop-filter: none;
+  }
+
+  .leftSide {
+    position: static;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    padding-left: 74px;
+    padding-right: 74px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    background: none;
+  }
+
+  .violetEllipse {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  .pinkEllipse {
+    position: absolute;
+
+    top: 0px;
+    right: -178px;
+
+    filter: blur(0px);
+  }
+
+  .titleLeftSide {
+    position: relative;
+    z-index: 10000;
+
+    margin-left: 40px;
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    text-align: start;
+  }
 }
