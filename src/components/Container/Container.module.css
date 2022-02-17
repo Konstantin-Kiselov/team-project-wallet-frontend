@@ -9,9 +9,6 @@
 
     padding-left: 20px;
     padding-right: 20px;
-
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -27,5 +24,8 @@
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
+
+    padding-left: 85px;
+    padding-right: 85px;
   }
 }

@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.logoutItems {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: #bdbdbd;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.name {
+  color: #bdbdbd;
+  font-size: 18px;
+  font-weight: 400px;
+  margin-right: 10px;
+}
+
+.exitWord {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .name {
+    margin-right: 12px;
+  }
+
+  .button {
+    padding: 3px 10px;
+  }
+
+  .exitIcon {
+    margin-right: 10px;
+  }
+
+  .exitWord {
+    display: block;
+  }
+
+  .button:before {
+    content: '';
+    border: 0px;
+    width: 0;
+    height: 30px;
+    position: absolute;
+    border-right: 1px solid #bdbdbd;
+    top: 0;
+    left: -3px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}
