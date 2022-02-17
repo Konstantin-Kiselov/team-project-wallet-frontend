@@ -1,0 +1,18 @@
+.sectionAuthNav {
+  overflow: hidden;
+  background: linear-gradient(to right, #e5e5e5 40%, #e7eaf2 9%);
+}
+
+@media screen and (max-width: 767px) {
+  .sectionAuthNav {
+    background: #ffffff;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .sectionAuthNav {
+    position: relative;
+
+    background: #e7eaf2;
+  }
+}

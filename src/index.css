@@ -32,6 +32,10 @@ code {
     monospace;
 }
 
+body {
+  overflow: '';
+}
+
 h1,
 h2,
 h3,
@@ -49,7 +53,7 @@ ol {
 }
 
 img {
-  display: block;
+  display: inline-block;
   max-width: 100%;
   height: auto;
 }
@@ -69,6 +73,8 @@ a {
   padding-left: 5px;
 
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 
   background: #24cca7;
   color: #ffffff;
@@ -94,6 +100,9 @@ a {
   padding-right: 5px;
   padding-left: 5px;
 
+  margin-left: auto;
+  margin-right: auto;
+
   background: #ffffff;
   color: #4a56e2;
 
@@ -109,6 +118,22 @@ a {
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.loginFrame {
+}
+
+.registerFrame {
+}
+
+@media screen and (max-width: 767px) {
+  .active-link {
+    width: 280px;
+  }
+
+  .link {
+    width: 280px;
+  }
 }
 
 /* -- end login & registration form -- */
