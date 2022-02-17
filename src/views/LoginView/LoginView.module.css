@@ -24,3 +24,7 @@
 .TextField_label {
   left: 20px !important;
 }
+
+.error {
+  color: red;
+}
