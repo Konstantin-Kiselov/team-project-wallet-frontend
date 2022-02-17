@@ -32,3 +32,8 @@
     bottom: 40px;
   }
 }
+
+.button:hover,
+.button:focus {
+  background-color: #17b391;
+}

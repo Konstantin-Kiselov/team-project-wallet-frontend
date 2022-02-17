@@ -67,7 +67,7 @@
 
 .buttonCancel:hover,
 .buttonCancel:focus {
-  background-color: #d8f2fa;
-  border: 1px solid #2f3bbd;
-  color: #2f3bbd;
+  /* background-color: #d8f2fa; */
+  border: 1px solid #060f6d;
+  color: #060f6d;
 }

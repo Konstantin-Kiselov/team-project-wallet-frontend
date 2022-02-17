@@ -65,7 +65,6 @@ export default function ModalForm({ onClick, children }) {
   return (
     <div className={s.container}>
       <form onSubmit={handleSubmit}>
-        {/* <SelectUnstyled components={{ Root, Thumb, Input }} /> */}
         {/* /*============================================================ Toggle =================================== */}
         <div className={s.containerToggle}>
           {/* <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
@@ -103,22 +102,26 @@ export default function ModalForm({ onClick, children }) {
         {/* ============================================================== Toggle ===================== */}
 
         <div className={s.inputContainer}>
-          <select
-            required
-            // defaultValue
-            name="select"
-            value={select}
-            className={s.select}
-            placeholder="Выберите категорию"
-            onChange={handleChange}
-          >
-            <option disabled selected>
-              Выберите категорию
-            </option>
-            <option value={select}>Регулярный доход</option>
-            <option value={select}>Нерегулярный доход</option>
-          </select>
-
+          <div className={s.selectContainer}>
+            <select
+              required
+              // defaultValue
+              name="select"
+              className={s.select}
+              placeholder="Выберите категорию"
+              onChange={handleChange}
+            >
+              <option value="" disabled selected>
+                Выберите категорию
+              </option>
+              <option className={s.option} value={select}>
+                Регулярный доход
+              </option>
+              <option className={s.option} value={select}>
+                Нерегулярный доход
+              </option>
+            </select>
+          </div>
           <div className={s.sumContainer}>
             <label for="sum">
               <input
@@ -139,11 +142,6 @@ export default function ModalForm({ onClick, children }) {
               // defaultValue="2017-05-24"
               // defaultCalendarMonth
               variant="standard"
-              sx={{
-                // width: 190,
-                bgcolor: '#FFFFFF',
-                // paddingLeft: 20,
-              }}
               InputLabelProps={{
                 shrink: true,
                 // variant: "outlined",
@@ -164,8 +162,6 @@ export default function ModalForm({ onClick, children }) {
           </label>
         </div>
 
-        {/* <Button title={"Добавить"} className={s.buttonAdd} />
-      <Button title={"Отмена"} className={s.buttonCancel} /> */}
         <div className={s.buttonContainer}>
           <div className={s.button}>
             <Button

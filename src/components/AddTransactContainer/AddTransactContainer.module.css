@@ -10,7 +10,7 @@
   bottom: 0;
   left: 0;
   z-index: 11111;
-  background-color: rgb(204, 92, 161);
+  /* background-color: rgb(204, 92, 161); */
 }
 
 .title {
@@ -19,13 +19,10 @@
   font-weight: normal;
   font-size: 24px;
   line-height: 36px;
-  /* display: flex;
-  align-items: center;
-  text-align: center;*/
   text-align: center;
   color: #000000;
 
   margin: 0 auto;
   margin-bottom: 40px;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
