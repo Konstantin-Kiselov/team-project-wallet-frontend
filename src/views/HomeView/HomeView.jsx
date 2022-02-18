@@ -1,11 +1,36 @@
+import { Container } from '@mui/material';
 import React from 'react';
 import AppBar from '../../components/AppBar/AppBar';
-import Currency from '../../components/Currency/Currency'
+import Currency from '../../components/Currency/Currency';
+import s from './HomeView.module.css';
+import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
+import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 
 export default function HomeView() {
   return (
     <>
       <AppBar />
-      <Currency />
-    </>);
+      <section className={s.homeviewSection}>
+        <Container>
+          <div className={s.flexContainer}>
+            <div className={s.imageContainer}>
+              <div className={s.pinkContainer}>
+                <img className={s.pinkEllipse} src={pinkEllipse} alt="" />
+              </div>
+              <div className={s.violetContainer}>
+                <img className={s.violetEllipse} src={violetEllipse} alt="" />
+              </div>
+            </div>
+            <div className={s.leftSide}>
+              <Currency />
+            </div>
+            <div className={s.rightSide}>
+              <Currency />
+            </div>
+          </div>
+        </Container>
+        {/* </container> */}
+      </section>
+    </>
+  );
 }

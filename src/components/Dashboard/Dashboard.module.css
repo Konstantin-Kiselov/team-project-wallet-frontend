@@ -1,0 +1,14 @@
+.violetEllipse {
+  position: absolute;
+  bottom: 46px;
+  left: -68px;
+}
+
+.pinkEllipse {
+  position: absolute;
+
+  top: -30px;
+  right: -130px;
+
+  filter: blur(50px);
+}
