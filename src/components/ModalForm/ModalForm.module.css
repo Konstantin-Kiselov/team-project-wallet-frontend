@@ -144,6 +144,9 @@
   /* padding-left: 20px; */
   cursor: pointer;
   background-color: #ffffff;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -170,6 +173,11 @@
   border: 0;
   border-bottom: 1px solid #17b391;
 }
+
+/* .MuiTextField-root {
+  color: #17b391;
+  background-color: rgb(218, 49, 49);
+} */
 
 .inputComent {
   /* padding: 10px 20px; */

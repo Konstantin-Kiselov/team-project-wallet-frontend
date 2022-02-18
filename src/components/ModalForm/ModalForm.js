@@ -5,27 +5,73 @@ import s from './ModalForm.module.css';
 // import MenuItem from '@mui/material/MenuItem';
 // import FormControl from '@mui/material/FormControl';
 // import Select from '@mui/material/Select';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+// import {
+//   ThemeProvider,
+//   createTheme,
+//   experimental_sx as sx,
+// } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import Button from '../Button';
 // import Data from "../Data";
 
+// import Slider from '@mui/material/Slider';
+// import { styled } from '@mui/material/styles';
+// const CustomizedTextField = styled(TextField)`
+//   color: #20b2aa;
+//   border-bottom: 1px solid #e0e;
+
+//   :hover {
+//     outline: 0;
+//     border-bottom: 1px solid #e01;
+//   }
+// `;
+
+// const theme = createTheme({
+//   components: {
+//     MuiTextField: {
+//       styleOverrides: {
+//         root: {
+//           border: 0,
+//           borderBottom: '1px solid #e0e0e0',
+//           outline: 0,
+
+//           // border: `2px dashed #155`,
+//           color: '#155',
+//         },
+//       },
+//     },
+
+//     // variants: [
+//     //   {
+//     //     props: { variant: 'standard' },
+//     //     style: {
+//     //       border: 0,
+//     //       // borderBottom: '1px solid #e0e0e0',
+//     //       outline: 0,
+//     //       color: '#e0e0e0',
+//     //     },
+//     //   },
+//     // ],
+//   },
+// });
+
 export default function ModalForm({ onClick, children }) {
   const Today = new Date();
+  const [sum, setSum] = useState('');
   const [coment, setComent] = useState('');
   const [data, setData] = useState(
     `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
   );
   const [select, setSelect] = useState();
-
   const [toggle, setToggle] = useState(false);
-  console.log(toggle);
-  // const handleChange = () => {
-  //   setValue(!value);
-  // };
 
+  console.log(toggle);
   console.log(data);
   console.log(select);
+
+  const requestBody = { coment, data, select, sum };
 
   const handleChange = e => {
     if (e.currentTarget.name === 'coment') {
@@ -38,6 +84,10 @@ export default function ModalForm({ onClick, children }) {
 
     if (e.currentTarget.name === 'select') {
       setSelect(e.currentTarget.value);
+    }
+
+    if (e.currentTarget.name === 'sum') {
+      setSum(e.currentTarget.value);
     }
 
     if (e.currentTarget.name === 'toggle') {
@@ -54,7 +104,7 @@ export default function ModalForm({ onClick, children }) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    console.log('Post request');
+    console.log('Post request', requestBody);
     // dispatch(authOperations.logIn({ email, password }));
     // setEmail("");
     // setPassword("");
@@ -127,10 +177,16 @@ export default function ModalForm({ onClick, children }) {
               <input
                 required
                 id="sum"
+                type="number"
+                name="sum"
+                value={sum}
                 className={s.inputSum}
                 placeholder="0.00"
+                onChange={handleChange}
               ></input>
             </label>
+
+            {/* <ThemeProvider theme={theme}> */}
             <TextField
               className={s.data}
               name="data"
@@ -139,6 +195,8 @@ export default function ModalForm({ onClick, children }) {
               id="date"
               label=""
               type="date"
+              // color="success"
+              // sx={{ outline: 'none', border: 0 }}
               // defaultValue="2017-05-24"
               // defaultCalendarMonth
               variant="standard"
@@ -147,14 +205,14 @@ export default function ModalForm({ onClick, children }) {
                 // variant: "outlined",
               }}
             />
+            {/* </ThemeProvider> */}
           </div>
-
           <label for="coment">
             <input
               id="coment"
               className={s.inputComent}
               placeholder="Комментарий"
-              type="tel"
+              type="text"
               name="coment"
               value={coment}
               onChange={handleChange}
