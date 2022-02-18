@@ -1,26 +1,7 @@
-import { useState, useEffect } from 'react';
 import s from './HomeTab.module.css';
 import classNames from 'classnames';
-// import axios from 'axios';
 
 export default function HomeTab() {
-  // const [status, setStatus] = useState('idle');
-  // const [transInfo, setTransInfo] = useState(null);
-
-  // useEffect(() => {
-  //   fetch()
-  //     .then()
-  //     .map()
-  //     .then(response => {
-  //       setTransInfo();
-
-  //       setStatus('resolved');
-  //     })
-  //     .catch(error => {
-  //       setStatus('rejected');
-  //     });
-  // }, []);
-
   return (
     <div className={s.container}>
       <table className={s.table}>
