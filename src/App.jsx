@@ -20,40 +20,40 @@ export default function App() {
 
   return (
     <SectionAuthNav>
-      {/* <Container> */}
-      <Suspense fallback={<p>Загружаем...</p>}>
-        <Routes>
-          <Route path="/" element={<AuthNav />}>
-            <Route index element={<LoginView />} />
+      <Container>
+        <Suspense fallback={<p>Загружаем...</p>}>
+          <Routes>
+            <Route path="/" element={<AuthNav />}>
+              <Route index element={<LoginView />} />
+              <Route
+                path="register"
+                element={
+                  <PublicRoute restricted>
+                    <RegisterView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="login"
+                element={
+                  <PublicRoute restricted redirectTo="/home">
+                    <LoginView />
+                  </PublicRoute>
+                }
+              />
+            </Route>
             <Route
-              path="register"
+              path="/home/*"
               element={
-                <PublicRoute restricted>
-                  <RegisterView />
-                </PublicRoute>
+                <PrivateRoute restricted redirectTo="/login">
+                  <HomeView />
+                </PrivateRoute>
               }
             />
-            <Route
-              path="login"
-              element={
-                <PublicRoute restricted redirectTo="/home">
-                  <LoginView />
-                </PublicRoute>
-              }
-            />
-          </Route>
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute restricted redirectTo="/login">
-                <HomeView />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<NotFoundView />} />
-        </Routes>
-      </Suspense>
-      {/* </Container> */}
+            <Route path="*" element={<NotFoundView />} />
+          </Routes>
+        </Suspense>
+      </Container>
     </SectionAuthNav>
   );
 }
