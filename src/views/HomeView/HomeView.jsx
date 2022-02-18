@@ -1,7 +1,4 @@
 import { Container } from '@mui/material';
-import React from 'react';
-import AppBar from '../../components/AppBar/AppBar';
-import Currency from '../../components/Currency/Currency';
 import s from './HomeView.module.css';
 import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
 import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
@@ -10,11 +7,29 @@ import Media from 'react-media';
 import { Routes, Route } from 'react-router-dom';
 import Hometab from '../../components/Hometab/Hometab';
 import Diagramtab from '../../components/Diagramtab/Diagramtab';
+import React, { useState } from 'react';
+import AppBar from '../../components/AppBar/AppBar';
+import Currency from '../../components/Currency/Currency';
+import ButtonAddTransaction from '../../components/ButtonAddTransaction';
+import ModalAddTransaction from '../../components/ModalAddTransaction';
+import Modal from '../../components/Modal';
+import ModalContainer from '../../components/ModalContainer';
+import Toggle from '../../components/Toggle';
+import ModalForm from '../../components/ModalForm';
+import AddTransactContainer from '../../components/AddTransactContainer';
+
 
 export default function HomeView() {
+  const [modalActive, setModalActive] = useState(false);
+
+  const windowInnerWidth = document.documentElement.clientWidth;
+  console.log('windowInnerWidth', windowInnerWidth);
+
   return (
     <>
       <AppBar />
+
+      {(!modalActive && windowInnerWidth < 768) || (windowInnerWidth >= 768) && (
       <section className={s.homeviewSection}>
         <Container>
           <div className={s.flexContainer}>
@@ -30,6 +45,7 @@ export default function HomeView() {
                 <Route path="/hometab" element={<Hometab />}></Route>
                 <Route path="/diagramtab" element={<Diagramtab />}></Route>
               </Routes>
+              <ButtonAddTransaction onClick={() => setModalActive(true)} />
             </div>
           </div>
         </Container>
@@ -41,7 +57,22 @@ export default function HomeView() {
             <img className={s.violetEllipse} src={violetEllipse} alt="" />
           </div>
         </div>
-      </section>
+      </section>    
+      )}
+
+      {modalActive && windowInnerWidth < 768 && (
+        <AddTransactContainer title={'Добавить транзакцию'}>
+          <ModalForm onClick={setModalActive} />
+        </AddTransactContainer>
+      )}
+
+      {modalActive && windowInnerWidth >= 768 && (
+        <Modal active={modalActive} setActive={setModalActive}>
+          <ModalContainer title={'Добавить транзакцию'}>
+            <ModalForm onClick={setModalActive} />
+          </ModalContainer>
+        </Modal>
+      )}
     </>
   );
 }
