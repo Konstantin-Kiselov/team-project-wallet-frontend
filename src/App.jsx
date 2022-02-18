@@ -20,40 +20,40 @@ export default function App() {
 
   return (
     <SectionAuthNav>
-      <Container>
-        <Suspense fallback={<p>Загружаем...</p>}>
-          <Routes>
-            <Route path="/" element={<AuthNav />}>
-              <Route index element={<LoginView />} />
-              <Route
-                path="register"
-                element={
-                  <PublicRoute restricted>
-                    <RegisterView />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="login"
-                element={
-                  <PublicRoute restricted redirectTo="/home">
-                    <LoginView />
-                  </PublicRoute>
-                }
-              />
-            </Route>
+      {/* <Container> */}
+      <Suspense fallback={<p>Загружаем...</p>}>
+        <Routes>
+          <Route path="/" element={<AuthNav />}>
+            <Route index element={<LoginView />} />
             <Route
-              path="/home/*"
+              path="register"
               element={
-                <PrivateRoute restricted redirectTo="/login">
-                  <HomeView />
-                </PrivateRoute>
+                <PublicRoute restricted>
+                  <RegisterView />
+                </PublicRoute>
               }
             />
-            <Route path="*" element={<NotFoundView />} />
-          </Routes>
-        </Suspense>
-      </Container>
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted redirectTo="/home">
+                  <LoginView />
+                </PublicRoute>
+              }
+            />
+          </Route>
+          <Route
+            path="/home/*"
+            element={
+              <PrivateRoute restricted redirectTo="/login">
+                <HomeView />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
+      </Suspense>
+      {/* </Container> */}
     </SectionAuthNav>
   );
 }

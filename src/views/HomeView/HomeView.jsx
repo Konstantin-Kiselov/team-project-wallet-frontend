@@ -18,7 +18,6 @@ import Toggle from '../../components/Toggle';
 import ModalForm from '../../components/ModalForm';
 import AddTransactContainer from '../../components/AddTransactContainer';
 
-
 export default function HomeView() {
   const [modalActive, setModalActive] = useState(false);
 
@@ -29,35 +28,36 @@ export default function HomeView() {
     <>
       <AppBar />
 
-      {(!modalActive && windowInnerWidth < 768) || (windowInnerWidth >= 768) && (
-      <section className={s.homeviewSection}>
-        <Container>
-          <div className={s.flexContainer}>
-            <div className={s.leftSide}>
-              <div className={s.navIcons}>
-                <Navigation />
+      {((!modalActive && windowInnerWidth < 768) ||
+        windowInnerWidth >= 768) && (
+        <section className={s.homeviewSection}>
+          <Container>
+            <div className={s.flexContainer}>
+              <div className={s.leftSide}>
+                <div className={s.navIcons}>
+                  <Navigation />
+                </div>
+                <div className={s.futureBalance}></div>
+                <Currency />
               </div>
-              <div className={s.futureBalance}></div>
-              <Currency />
+              <div className={s.rightSide}>
+                <Routes>
+                  <Route path="/hometab" element={<Hometab />}></Route>
+                  <Route path="/diagramtab" element={<Diagramtab />}></Route>
+                </Routes>
+                <ButtonAddTransaction onClick={() => setModalActive(true)} />
+              </div>
             </div>
-            <div className={s.rightSide}>
-              <Routes>
-                <Route path="/hometab" element={<Hometab />}></Route>
-                <Route path="/diagramtab" element={<Diagramtab />}></Route>
-              </Routes>
-              <ButtonAddTransaction onClick={() => setModalActive(true)} />
+          </Container>
+          <div className={s.imageContainer}>
+            <div className={s.pinkContainer}>
+              <img className={s.pinkEllipse} src={pinkEllipse} alt="" />
+            </div>
+            <div className={s.violetContainer}>
+              <img className={s.violetEllipse} src={violetEllipse} alt="" />
             </div>
           </div>
-        </Container>
-        <div className={s.imageContainer}>
-          <div className={s.pinkContainer}>
-            <img className={s.pinkEllipse} src={pinkEllipse} alt="" />
-          </div>
-          <div className={s.violetContainer}>
-            <img className={s.violetEllipse} src={violetEllipse} alt="" />
-          </div>
-        </div>
-      </section>    
+        </section>
       )}
 
       {modalActive && windowInnerWidth < 768 && (
