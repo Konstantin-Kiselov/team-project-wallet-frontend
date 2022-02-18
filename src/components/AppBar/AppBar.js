@@ -7,8 +7,6 @@ import walletNameIcon from '../../img/appBar/Wallet.svg';
 import UserMenu from '../UserMenu/UserMenu.js';
 
 export default function AppBar() {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
   return (
     <header className={s.header}>
       <div className={s.container}>

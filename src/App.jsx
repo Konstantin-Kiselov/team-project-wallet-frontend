@@ -43,7 +43,7 @@ export default function App() {
               />
             </Route>
             <Route
-              path="/home"
+              path="/home/*"
               element={
                 <PrivateRoute restricted redirectTo="/login">
                   <HomeView />
