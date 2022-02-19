@@ -1,15 +1,21 @@
 .header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  background-color: #fff;
   height: 60px;
 }
 
 .container {
-  width: 100%;
+  margin: 0 auto;
+  min-width: 320px;
   display: flex;
   justify-content: space-between;
+  padding: 0px 20px;
 }
 
 .logo {
@@ -33,6 +39,13 @@
     height: 80px;
   }
 
+  .container {
+    width: 768px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px;
+  }
+
   .logo {
     width: 181px;
     display: flex;
@@ -47,5 +60,12 @@
   .logoWord {
     height: 40px;
     width: 120px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    padding: 0px 85px;
   }
 }
