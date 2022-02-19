@@ -18,7 +18,21 @@ import Toggle from '../../components/Toggle';
 import ModalForm from '../../components/ModalForm';
 import AddTransactContainer from '../../components/AddTransactContainer';
 
+import { getCategory } from '../../services/walletAPI';
+
 export default function HomeView() {
+  /*========== Получение всех категорий по клику на кнопку ButtonAddTransaction */
+  const [allCategory, setAllCategory] = useState([]);
+  const getAllCategory = () => {
+    getCategory()
+      .then(response => {
+        console.log(response);
+        setAllCategory(response);
+      })
+      .catch(error => console.log(error));
+  };
+  /*========== */
+
   const [modalActive, setModalActive] = useState(false);
 
   const windowInnerWidth = document.documentElement.clientWidth;
@@ -45,7 +59,12 @@ export default function HomeView() {
                   <Route path="/hometab" element={<Hometab />}></Route>
                   <Route path="/diagramtab" element={<Diagramtab />}></Route>
                 </Routes>
-                <ButtonAddTransaction onClick={() => setModalActive(true)} />
+                <ButtonAddTransaction
+                  onClick={() => {
+                    setModalActive(true);
+                    getAllCategory();
+                  }}
+                />
               </div>
             </div>
           </Container>
@@ -62,14 +81,14 @@ export default function HomeView() {
 
       {modalActive && windowInnerWidth < 768 && (
         <AddTransactContainer title={'Добавить транзакцию'}>
-          <ModalForm onClick={setModalActive} />
+          <ModalForm allCategory={allCategory} onClick={setModalActive} />
         </AddTransactContainer>
       )}
 
       {modalActive && windowInnerWidth >= 768 && (
         <Modal active={modalActive} setActive={setModalActive}>
           <ModalContainer title={'Добавить транзакцию'}>
-            <ModalForm onClick={setModalActive} />
+            <ModalForm allCategory={allCategory} onClick={setModalActive} />
           </ModalContainer>
         </Modal>
       )}

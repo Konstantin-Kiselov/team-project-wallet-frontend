@@ -5,7 +5,7 @@ import Button from '../Button';
 import moment from 'moment';
 import { getCategory, addTransaction } from '../../services/walletAPI';
 
-export default function ModalForm({ onClick }) {
+export default function ModalForm({ allCategory, onClick }) {
   const Today = new Date();
   // const m = moment.now();
   // const a = moment().format('L');
@@ -25,7 +25,7 @@ export default function ModalForm({ onClick }) {
   console.log(data);
   console.log(select);
 
-  const allCategory = [
+  const allCategory1 = [
     { name: 'Регулярный доход', income: true },
     { name: 'Нерегулярный доход', income: true },
     { name: 'Авто', income: false },
@@ -38,7 +38,14 @@ export default function ModalForm({ onClick }) {
   let expenditureOptions = [];
   let profitOptions = [];
 
-  allCategory.map(element =>
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
+  // allCategory.map(element =>
+  //   element.income
+  //     ? profitOptions.push(element.name)
+  //     : expenditureOptions.push(element.name)
+  // );
+
+  allCategory1.map(element =>
     element.income
       ? profitOptions.push(element.name)
       : expenditureOptions.push(element.name)
@@ -77,11 +84,11 @@ export default function ModalForm({ onClick }) {
     }
   };
 
-  const getAllCategory = () => {
-    getCategory()
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
-  };
+  // const getAllCategory = () => {
+  //   getCategory()
+  //     .then(response => console.log(response))
+  //     .catch(error => console.log(error));
+  // };
 
   // toggle && getExpendCategory();
 
@@ -149,7 +156,6 @@ export default function ModalForm({ onClick }) {
               className={s.dropdownBtn}
               onClick={() => {
                 setItemselect(!itemselect);
-                // getAllCategory();
               }}
             >
               {select ? (
