@@ -465,12 +465,16 @@
   /* outline: 1px solid #cc243a; */
 }
 
-.theme-switch__icon {
-  color: currentColor;
-  height: 24px;
-  width: 24px;
-  margin-right: 8px;
-  margin-left: 8px;
+.iconPlus {
+  /* color: currentColor; */
+  /* fill: #ffffff;*/
+  fill: #ffffff;
+
+  height: 20px;
+  width: 20px;
+  /* margin-right: 8px;
+  margin-left: 8px; */
+  outline: 1px solid #14a32c;
 }
 
 .switchControl {
@@ -570,6 +574,29 @@
 
   color: #24cca7;
 }
+
+/*.profit::after {
+  content: ' ';
+  /* position: absolute;  */
+/*// У кнопки position : relative ; нужно поставить*/
+/* top: 50%;
+   left: 10px;
+   bottom: auto;
+   right: auto;
+   transform: translateY(-50%);
+   -webkit-transform: translateY(-50%); */
+/* background: url('../../img/sprite.svg#icon-minus') no-repeat;*/
+/* background: url('../../img/sprite.svg#icon-minus') no-repeat; */
+
+/* color: #d81212; */
+/* fill: #ffffff;*/
+/*fill: #d81212;
+  background-color: rgb(61, 15, 104);
+
+  height: 20px;
+  width: 20px;
+  outline: 1px solid #5214a3;
+}*/
 
 .expenditure {
   font-family: Circe;
