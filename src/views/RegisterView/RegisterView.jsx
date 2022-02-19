@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
@@ -15,13 +15,15 @@ import registerFrame from '../../img/log&reg/registration/frame-reg.png';
 import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
 import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 
+import PasswordStrengthMeter from '../../components/PasswordStrengthMeter/PasswordStrengthMeter';
+
 const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
 
 export default function RegisterView() {
   const dispatch = useDispatch();
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');
 
   // const handleChange = ({ target: { name, value } }) => {
   //   switch (name) {
@@ -135,7 +137,10 @@ export default function RegisterView() {
                     fullWidth
                     required
                     name="password"
-                    onChange={handleChange}
+                    onChange={e => {
+                      setPassword(e.target.value);
+                      handleChange(e);
+                    }}
                     onBlur={handleBlur}
                     value={values.password}
                     InputProps={{
@@ -148,6 +153,9 @@ export default function RegisterView() {
                     placeholder="Пароль"
                   />
                 </Box>
+
+                <PasswordStrengthMeter password={password} />
+
                 {touched.confirmPassword && errors.confirmPassword && (
                   <p className={s.error}>{errors.confirmPassword}</p>
                 )}
