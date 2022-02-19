@@ -1,0 +1,111 @@
+.table {
+  width: 350px;
+  margin: 0;
+}
+
+.filter {
+  width: 350px;
+}
+
+.filter__input {
+  width: 100%;
+  margin-bottom: 20px;
+  height: 50px;
+  padding-left: 21px;
+  border: 1px solid #000000;
+  border-radius: 30px;
+}
+
+.statistics {
+  width: 100%;
+}
+
+.statistics__title__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  width: 100%;
+  height: 68px;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.statistics__title__part {
+  font-weight: 700;
+}
+
+.statistics__item {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  padding-left: 16px;
+  padding-right: 16px;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdf;
+}
+
+.statistics__item:first-of-type {
+  margin-top: 9px;
+}
+
+.statistics__color {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.statistics__costs {
+  margin-left: auto;
+  margin-right: 15px;
+  min-width: 60px;
+  text-align: right;
+}
+
+.outcome {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.outcome__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.outcome__type {
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.outcome__total__expenses {
+  margin-right: 15px;
+  font-weight: bold;
+  color: #ff6596;
+}
+
+.outcome__total__income {
+  margin-right: 15px;
+  font-weight: bold;
+  color: #24cca7;
+}
+
+@media screen and (min-width: 768px) {
+  .filter__input {
+    width: 166px;
+    height: 50px;
+    padding-left: 21px;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    margin-bottom: 0;
+  }
+
+  .statistics {
+    margin-top: 20px;
+  }
+
+  .filter__input:last-of-type {
+    margin-left: 18px;
+  }
+}
