@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import Container from '../../components/Container/Container';
 import s from './HomeView.module.css';
 import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
 import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
