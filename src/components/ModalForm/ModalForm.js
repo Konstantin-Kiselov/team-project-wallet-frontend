@@ -63,22 +63,22 @@ export default function ModalForm({ allCategory, onClick }) {
 
   const requestBody = { coment, data, select, sum };
 
-  const handleChange = e => {
+  const toggleChange = e => {
     if (e.currentTarget.name === 'coment') {
       setComent(e.currentTarget.value);
     }
 
-    if (e.currentTarget.name === 'data') {
-      setData(e.currentTarget.value);
-    }
+    // if (e.currentTarget.name === 'data') {
+    //   setData(e.currentTarget.value);
+    // }
 
     // if (e.currentTarget.name === 'select') {
     //   setSelect(e.currentTarget.value);
     // }
 
-    if (e.currentTarget.name === 'sum') {
-      setSum(e.currentTarget.value);
-    }
+    // if (e.currentTarget.name === 'sum') {
+    //   setSum(e.currentTarget.value);
+    // }
 
     if (e.currentTarget.name === 'toggle') {
       setToggle(!toggle);
@@ -114,8 +114,9 @@ export default function ModalForm({ allCategory, onClick }) {
       <Formik
         initialValues={{
           sum: '',
-          data: '',
+          data: data,
           select: '',
+          toggle: '',
         }}
         validateOnBlur
         onSubmit={handleSubmit}
@@ -125,7 +126,7 @@ export default function ModalForm({ allCategory, onClick }) {
           values,
           errors,
           touched,
-          // handleChange,
+          handleChange,
           handleBlur,
           isValid,
           handleSubmit,
@@ -142,8 +143,8 @@ export default function ModalForm({ allCategory, onClick }) {
               <div className={s.switchControl}>
                 <input
                   checked={toggle}
-                  // value={value}
-                  onChange={handleChange}
+                  value={values.toggle}
+                  onChange={toggleChange}
                   className={s.switchToggle}
                   type="checkbox"
                   name="toggle"
@@ -272,7 +273,7 @@ export default function ModalForm({ allCategory, onClick }) {
                   type="text"
                   name="coment"
                   value={coment}
-                  onChange={handleChange}
+                  onChange={toggleChange}
                 ></input>
               </label>
             </div>

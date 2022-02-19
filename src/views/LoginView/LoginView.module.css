@@ -180,6 +180,7 @@
 .error {
   color: red;
   font-style: italic;
+  font-size: 12px;
 }
 
 @media screen and (max-width: 767px) {
