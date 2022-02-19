@@ -137,7 +137,10 @@ export default function RegisterView() {
                     fullWidth
                     required
                     name="password"
-                    onChange={e => setPassword(e.target.value)}
+                    onChange={e => {
+                      setPassword(e.target.value);
+                      handleChange(e);
+                    }}
                     onBlur={handleBlur}
                     value={values.password}
                     InputProps={{
