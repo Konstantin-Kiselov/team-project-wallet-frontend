@@ -177,6 +177,11 @@
   filter: blur(50px);
 }
 
+.error {
+  color: red;
+  font-style: italic;
+}
+
 @media screen and (max-width: 767px) {
   .commonContainer {
     background-color: #ffffff;
