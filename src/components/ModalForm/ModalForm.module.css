@@ -4,6 +4,12 @@
   /* outline: 1px solid #14a32c; */
 }
 
+.error {
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+}
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .container {
     width: 320px;

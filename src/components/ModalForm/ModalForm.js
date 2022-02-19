@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Button from '../Button';
 import moment from 'moment';
 import { getCategory, addTransaction } from '../../services/walletAPI';
+import { Formik } from 'formik';
+import modalSchema from '../../validationSchemas/modalSchema';
 
 export default function ModalForm({ allCategory, onClick }) {
   const Today = new Date();
@@ -109,94 +111,126 @@ export default function ModalForm({ allCategory, onClick }) {
 
   return (
     <div className={s.container}>
-      <form onSubmit={handleSubmit}>
-        {/* /*============================================================ Toggle =================================== */}
-        <div className={s.containerToggle}>
-          {/* <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+      <Formik
+        initialValues={{
+          sum: '',
+          data: '',
+          select: '',
+        }}
+        validateOnBlur
+        onSubmit={handleSubmit}
+        validationSchema={modalSchema}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          // handleChange,
+          handleBlur,
+          isValid,
+          handleSubmit,
+          dirty,
+        }) => (
+          <>
+            {/* /*============================================================ Toggle =================================== */}
+            <div className={s.containerToggle}>
+              {/* <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
         <use href="./images/sprite.svg#sun"></use>
       </svg> */}
-          <span className={toggle ? s.noActive : s.profit}>Доход</span>
+              <span className={toggle ? s.noActive : s.profit}>Доход</span>
 
-          <div className={s.switchControl}>
-            <input
-              checked={toggle}
-              // value={value}
-              onChange={handleChange}
-              className={s.switchToggle}
-              type="checkbox"
-              name="toggle"
-              id="theme-switch-toggle"
-              aria-label="Переключить между тёмной и светлой темой"
-            />
-            <label
-              aria-hidden="true"
-              className={s.switchTrack}
-              for="theme-switch-toggle"
-            ></label>
-            <div
-              aria-hidden="true"
-              className={toggle ? s.switchMarkerChecked : s.switchMarker}
-            ></div>
-          </div>
-          <span className={toggle ? s.expenditure : s.noActive}>Расход</span>
+              <div className={s.switchControl}>
+                <input
+                  checked={toggle}
+                  // value={value}
+                  onChange={handleChange}
+                  className={s.switchToggle}
+                  type="checkbox"
+                  name="toggle"
+                  id="theme-switch-toggle"
+                  aria-label="Переключить между тёмной и светлой темой"
+                />
+                <label
+                  aria-hidden="true"
+                  className={s.switchTrack}
+                  for="theme-switch-toggle"
+                ></label>
+                <div
+                  aria-hidden="true"
+                  className={toggle ? s.switchMarkerChecked : s.switchMarker}
+                ></div>
+              </div>
+              <span className={toggle ? s.expenditure : s.noActive}>
+                Расход
+              </span>
 
-          <svg className={s.iconPlus} role="img" aria-label="iconPlus">
-            {/* <use
+              <svg className={s.iconPlus} role="img" aria-label="iconPlus">
+                {/* <use
               className={s.iconPlus}
               href="../../img/sprite.svg#icon-minus"
             ></use> */}
-          </svg>
-        </div>
-        {/* ============================================================== Toggle ===================== */}
-
-        <div className={s.inputContainer}>
-          {/* ========================= Select =======================*/}
-          <div className={s.dropdown}>
-            <div
-              className={s.dropdownBtn}
-              onClick={() => {
-                setItemselect(!itemselect);
-              }}
-            >
-              {select ? (
-                select
-              ) : (
-                <span className={s.dropdownBtnText}>Выберите категорию</span>
-              )}
+              </svg>
             </div>
-            {itemselect && (
-              <div className={s.dropdownContent}>
-                {categoryOptions.map(option => (
-                  <div
-                    className={s.dropdownItem}
-                    onClick={e => {
-                      setSelect(option);
-                      setItemselect(false);
-                    }}
-                  >
-                    {option}
+
+            {/* ============================================================== Toggle ===================== */}
+
+            <div className={s.inputContainer}>
+              {/* ========================= Select =======================*/}
+              <div className={s.dropdown}>
+                <div
+                  className={s.dropdownBtn}
+                  onBlur={handleBlur}
+                  name="select"
+                  value={values.select}
+                  onClick={() => {
+                    setItemselect(!itemselect);
+                  }}
+                >
+                  {select ? (
+                    select
+                  ) : (
+                    <span className={s.dropdownBtnText}>
+                      Выберите категорию
+                    </span>
+                  )}
+                </div>
+                {itemselect && (
+                  <div className={s.dropdownContent}>
+                    {categoryOptions.map(option => (
+                      <div
+                        className={s.dropdownItem}
+                        onClick={e => {
+                          setSelect(option);
+                          setItemselect(false);
+                        }}
+                      >
+                        {option}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            )}
-          </div>
-          {/* ========================= Select =======================*/}
+              {/* ========================= Select =======================*/}
 
-          <div className={s.sumContainer}>
-            <label for="sum">
-              <input
-                required
-                id="sum"
-                type="number"
-                name="sum"
-                value={sum}
-                className={s.inputSum}
-                placeholder="0.00"
-                onChange={handleChange}
-              ></input>
-            </label>
+              <div className={s.sumContainer}>
+                <label for="sum">
+                  <input
+                    required
+                    id="sum"
+                    type="number"
+                    name="sum"
+                    value={values.sum}
+                    className={s.inputSum}
+                    placeholder="0.00"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  ></input>
+                  {touched.sum && errors.sum && (
+                    <p className={s.error}>{errors.sum}</p>
+                  )}
+                </label>
 
-            {/* <label for="data">
+                {/* <label for="data">
               <input
                 required
                 id="data"
@@ -208,58 +242,68 @@ export default function ModalForm({ allCategory, onClick }) {
                 onChange={handleChange}
               ></input>
             </label> */}
-            <TextField
-              className={s.data}
-              name="data"
-              value={data}
-              onChange={handleChange}
-              id="date"
-              label=""
-              type="date"
-              // defaultValue="2017-05-24"
-              variant="standard"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-          </div>
-          <label for="coment">
-            <input
-              id="coment"
-              className={s.inputComent}
-              placeholder="Комментарий"
-              type="text"
-              name="coment"
-              value={coment}
-              onChange={handleChange}
-            ></input>
-          </label>
-        </div>
+                <label>
+                  <TextField
+                    className={s.data}
+                    name="data"
+                    value={values.data}
+                    onChange={handleChange}
+                    id="date"
+                    label=""
+                    type="date"
+                    onBlur={handleBlur}
+                    // defaultValue="2017-05-24"
+                    variant="standard"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+                  {touched.data && errors.data && (
+                    <p className={s.error}>{errors.data}</p>
+                  )}
+                </label>
+              </div>
 
-        <div className={s.buttonContainer}>
-          <div className={s.button}>
-            <Button
-              title={'Добавить'}
-              styleButton={true}
-              type={'submit'}
-              // onClick={handleSubmit}
-            />
-          </div>
-          <Button
-            title={'Отмена'}
-            styleButton={false}
-            type={'button'}
-            onClick={() => {
-              onClick(false);
-            }}
-          />
-        </div>
-      </form>
+              <label for="coment">
+                <input
+                  id="coment"
+                  className={s.inputComent}
+                  placeholder="Комментарий"
+                  type="text"
+                  name="coment"
+                  value={coment}
+                  onChange={handleChange}
+                ></input>
+              </label>
+            </div>
+
+            <div className={s.buttonContainer}>
+              <div className={s.button}>
+                <Button
+                  title={'Добавить'}
+                  styleButton={true}
+                  type={'submit'}
+                  // onClick={handleSubmit}
+                />
+              </div>
+              <Button
+                disabled={!isValid && !dirty}
+                title={'Отмена'}
+                styleButton={false}
+                type={'button'}
+                onClick={() => {
+                  onClick(false);
+                }}
+              />
+            </div>
+          </>
+        )}
+      </Formik>
     </div>
   );
 }
 
-////////////////////////
+//////////////////////
 // {
 //   /* <FormControl fullWidth>
 //             <InputLabel id="demo-simple-select-label">
