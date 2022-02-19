@@ -64,12 +64,30 @@ export default function ModalForm({ onClick, children }) {
   const [data, setData] = useState(
     `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
   );
-  const [select, setSelect] = useState();
+  const [select, setSelect] = useState('');
   const [toggle, setToggle] = useState(false);
+  const [itemselect, setItemselect] = useState(false);
 
   console.log(toggle);
   console.log(data);
   console.log(select);
+
+  const expenditureOptions = ['Авто', 'Еда', 'Одежда', 'Комуналка'];
+
+  const profitOptions = [
+    'Нерегулярный доход',
+    'Регулярный доход',
+    'Нерегулярный доход',
+    'Регулярный доход',
+  ];
+
+  let categoryOptions = [];
+  if (!toggle) {
+    categoryOptions = profitOptions;
+  } else {
+    categoryOptions = expenditureOptions;
+  }
+  console.log(categoryOptions);
 
   const requestBody = { coment, data, select, sum };
 
@@ -82,9 +100,9 @@ export default function ModalForm({ onClick, children }) {
       setData(e.currentTarget.value);
     }
 
-    if (e.currentTarget.name === 'select') {
-      setSelect(e.currentTarget.value);
-    }
+    // if (e.currentTarget.name === 'select') {
+    //   setSelect(e.currentTarget.value);
+    // }
 
     if (e.currentTarget.name === 'sum') {
       setSum(e.currentTarget.value);
@@ -92,6 +110,7 @@ export default function ModalForm({ onClick, children }) {
 
     if (e.currentTarget.name === 'toggle') {
       setToggle(!toggle);
+      setSelect('');
     }
   };
 
@@ -152,26 +171,38 @@ export default function ModalForm({ onClick, children }) {
         {/* ============================================================== Toggle ===================== */}
 
         <div className={s.inputContainer}>
-          <div className={s.selectContainer}>
-            <select
-              required
-              // defaultValue
-              name="select"
-              className={s.select}
-              placeholder="Выберите категорию"
-              onChange={handleChange}
+          {/* ========================= Select =======================*/}
+          <div className={s.dropdown}>
+            <div
+              className={s.dropdownBtn}
+              onClick={() => {
+                setItemselect(!itemselect);
+              }}
             >
-              <option value="" disabled selected>
-                Выберите категорию
-              </option>
-              <option className={s.option} value={select}>
-                Регулярный доход
-              </option>
-              <option className={s.option} value={select}>
-                Нерегулярный доход
-              </option>
-            </select>
+              {select ? (
+                select
+              ) : (
+                <span className={s.dropdownBtnText}>Выберите категорию</span>
+              )}
+            </div>
+            {itemselect && (
+              <div className={s.dropdownContent}>
+                {categoryOptions.map(option => (
+                  <div
+                    className={s.dropdownItem}
+                    onClick={e => {
+                      setSelect(option);
+                      setItemselect(false);
+                    }}
+                  >
+                    {option}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
+          {/* ========================= Select =======================*/}
+
           <div className={s.sumContainer}>
             <label for="sum">
               <input
@@ -262,3 +293,24 @@ export default function ModalForm({ onClick, children }) {
 //             </Select>
 //           </FormControl> */
 // }
+
+//  <div className={s.selectContainer}>
+//    <select
+//      required
+//      // defaultValue
+//      name="select"
+//      className={s.select}
+//      placeholder="Выберите категорию"
+//      onChange={handleChange}
+//    >
+//      <option value="" disabled selected>
+//        Выберите категорию
+//      </option>
+//      <option className={s.option} value={select}>
+//        Регулярный доход
+//      </option>
+//      <option className={s.option} value={select}>
+//        Нерегулярный доход
+//      </option>
+//    </select>
+//  </div>;
