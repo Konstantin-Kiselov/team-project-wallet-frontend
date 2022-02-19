@@ -1,75 +1,63 @@
 import s from './ModalForm.module.css';
-// import InputUnstyled from "@mui/base/InputUnstyled";
-// import Select from "./Select";
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-// import {
-//   ThemeProvider,
-//   createTheme,
-//   experimental_sx as sx,
-// } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import Button from '../Button';
-// import Data from "../Data";
+import moment from 'moment';
+import { getCategory, addTransaction } from '../../services/walletAPI';
 
-// import Slider from '@mui/material/Slider';
-// import { styled } from '@mui/material/styles';
-// const CustomizedTextField = styled(TextField)`
-//   color: #20b2aa;
-//   border-bottom: 1px solid #e0e;
-
-//   :hover {
-//     outline: 0;
-//     border-bottom: 1px solid #e01;
-//   }
-// `;
-
-// const theme = createTheme({
-//   components: {
-//     MuiTextField: {
-//       styleOverrides: {
-//         root: {
-//           border: 0,
-//           borderBottom: '1px solid #e0e0e0',
-//           outline: 0,
-
-//           // border: `2px dashed #155`,
-//           color: '#155',
-//         },
-//       },
-//     },
-
-//     // variants: [
-//     //   {
-//     //     props: { variant: 'standard' },
-//     //     style: {
-//     //       border: 0,
-//     //       // borderBottom: '1px solid #e0e0e0',
-//     //       outline: 0,
-//     //       color: '#e0e0e0',
-//     //     },
-//     //   },
-//     // ],
-//   },
-// });
-
-export default function ModalForm({ onClick, children }) {
+export default function ModalForm({ allCategory, onClick }) {
   const Today = new Date();
+  // const m = moment.now();
+  // const a = moment().format('L');
+  // console.log(a);
   const [sum, setSum] = useState('');
   const [coment, setComent] = useState('');
   const [data, setData] = useState(
     `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
   );
-  const [select, setSelect] = useState();
+
+  // const [data, setData] = useState(a);
+  const [select, setSelect] = useState('');
   const [toggle, setToggle] = useState(false);
+  const [itemselect, setItemselect] = useState(false);
 
   console.log(toggle);
   console.log(data);
   console.log(select);
+
+  const allCategory1 = [
+    { name: 'Регулярный доход', income: true },
+    { name: 'Нерегулярный доход', income: true },
+    { name: 'Авто', income: false },
+    { name: 'Еда', income: false },
+    { name: 'Одежда', income: false },
+    { name: 'Комуналка', income: false },
+    { name: 'Образование', income: false },
+  ];
+
+  let expenditureOptions = [];
+  let profitOptions = [];
+
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
+  // allCategory.map(element =>
+  //   element.income
+  //     ? profitOptions.push(element.name)
+  //     : expenditureOptions.push(element.name)
+  // );
+
+  allCategory1.map(element =>
+    element.income
+      ? profitOptions.push(element.name)
+      : expenditureOptions.push(element.name)
+  );
+
+  let categoryOptions = [];
+  if (!toggle) {
+    categoryOptions = profitOptions;
+  } else {
+    categoryOptions = expenditureOptions;
+  }
+  console.log(categoryOptions);
 
   const requestBody = { coment, data, select, sum };
 
@@ -82,9 +70,9 @@ export default function ModalForm({ onClick, children }) {
       setData(e.currentTarget.value);
     }
 
-    if (e.currentTarget.name === 'select') {
-      setSelect(e.currentTarget.value);
-    }
+    // if (e.currentTarget.name === 'select') {
+    //   setSelect(e.currentTarget.value);
+    // }
 
     if (e.currentTarget.name === 'sum') {
       setSum(e.currentTarget.value);
@@ -92,22 +80,29 @@ export default function ModalForm({ onClick, children }) {
 
     if (e.currentTarget.name === 'toggle') {
       setToggle(!toggle);
+      setSelect('');
     }
   };
 
-  const getExpendCategory = () => {
-    console.log('Get Expenditure Category');
-  };
+  // const getAllCategory = () => {
+  //   getCategory()
+  //     .then(response => console.log(response))
+  //     .catch(error => console.log(error));
+  // };
 
-  toggle && getExpendCategory();
+  // toggle && getExpendCategory();
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    console.log('Post request', requestBody);
+    // console.log('Post request', requestBody);
     // dispatch(authOperations.logIn({ email, password }));
     // setEmail("");
     // setPassword("");
+
+    addTransaction(requestBody)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
 
     onClick(false);
   };
@@ -145,33 +140,48 @@ export default function ModalForm({ onClick, children }) {
           </div>
           <span className={toggle ? s.expenditure : s.noActive}>Расход</span>
 
-          {/* <svg class="theme-switch__icon" aria-label="Иконка луны">
-        <use href="./images/sprite.svg#moon"></use>
-      </svg> */}
+          <svg className={s.iconPlus} role="img" aria-label="iconPlus">
+            {/* <use
+              className={s.iconPlus}
+              href="../../img/sprite.svg#icon-minus"
+            ></use> */}
+          </svg>
         </div>
         {/* ============================================================== Toggle ===================== */}
 
         <div className={s.inputContainer}>
-          <div className={s.selectContainer}>
-            <select
-              required
-              // defaultValue
-              name="select"
-              className={s.select}
-              placeholder="Выберите категорию"
-              onChange={handleChange}
+          {/* ========================= Select =======================*/}
+          <div className={s.dropdown}>
+            <div
+              className={s.dropdownBtn}
+              onClick={() => {
+                setItemselect(!itemselect);
+              }}
             >
-              <option value="" disabled selected>
-                Выберите категорию
-              </option>
-              <option className={s.option} value={select}>
-                Регулярный доход
-              </option>
-              <option className={s.option} value={select}>
-                Нерегулярный доход
-              </option>
-            </select>
+              {select ? (
+                select
+              ) : (
+                <span className={s.dropdownBtnText}>Выберите категорию</span>
+              )}
+            </div>
+            {itemselect && (
+              <div className={s.dropdownContent}>
+                {categoryOptions.map(option => (
+                  <div
+                    className={s.dropdownItem}
+                    onClick={e => {
+                      setSelect(option);
+                      setItemselect(false);
+                    }}
+                  >
+                    {option}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
+          {/* ========================= Select =======================*/}
+
           <div className={s.sumContainer}>
             <label for="sum">
               <input
@@ -186,7 +196,18 @@ export default function ModalForm({ onClick, children }) {
               ></input>
             </label>
 
-            {/* <ThemeProvider theme={theme}> */}
+            {/* <label for="data">
+              <input
+                required
+                id="data"
+                type="data"
+                name="data"
+                value={data}
+                className={s.data}
+                // placeholder="0.00"
+                onChange={handleChange}
+              ></input>
+            </label> */}
             <TextField
               className={s.data}
               name="data"
@@ -195,17 +216,12 @@ export default function ModalForm({ onClick, children }) {
               id="date"
               label=""
               type="date"
-              // color="success"
-              // sx={{ outline: 'none', border: 0 }}
               // defaultValue="2017-05-24"
-              // defaultCalendarMonth
               variant="standard"
               InputLabelProps={{
                 shrink: true,
-                // variant: "outlined",
               }}
             />
-            {/* </ThemeProvider> */}
           </div>
           <label for="coment">
             <input
@@ -262,3 +278,33 @@ export default function ModalForm({ onClick, children }) {
 //             </Select>
 //           </FormControl> */
 // }
+
+//  <div className={s.selectContainer}>
+//    <select
+//      required
+//      // defaultValue
+//      name="select"
+//      className={s.select}
+//      placeholder="Выберите категорию"
+//      onChange={handleChange}
+//    >
+//      <option value="" disabled selected>
+//        Выберите категорию
+//      </option>
+//      <option className={s.option} value={select}>
+//        Регулярный доход
+//      </option>
+//      <option className={s.option} value={select}>
+//        Нерегулярный доход
+//      </option>
+//    </select>
+//  </div>;
+
+// const expenditureOptions = ['Авто', 'Еда', 'Одежда', 'Комуналка'];
+
+// const profitOptions = [
+//   'Нерегулярный доход',
+//   'Регулярный доход',
+//   'Нерегулярный доход',
+//   'Регулярный доход',
+// ];

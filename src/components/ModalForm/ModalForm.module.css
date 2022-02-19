@@ -230,6 +230,110 @@
 
 } */
 
+.dropdown {
+  position: relative;
+  background: none;
+  border: 0;
+  /* Убирает стрелочку */
+  /* appearance: none; */
+  padding: 10px 20px;
+
+  border-bottom: 1px solid #e0e0e0;
+  color: #bdbdbd;
+  outline: 0;
+
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  /* background: rgba(255, 255, 255, 0.7); */
+
+  user-select: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .dropdown {
+    width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .dropdown {
+    width: 410px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dropdown {
+    width: 410px;
+  }
+}
+
+.dropdownBtn {
+  color: #000000;
+}
+
+.dropdownBtnText {
+  color: #bdbdbd;
+}
+
+.dropdownContent {
+  position: absolute;
+  padding: 20px;
+  top: 110%;
+  left: 0;
+  z-index: 1111;
+
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px);
+
+  border-radius: 20px;
+  /* overflow-y: scroll; */
+
+  /* transform: scale(1); */
+}
+
+/* .dropdownContent:hover,
+.dropdownContent:focus {
+  transform: scale(1.1);
+} */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .dropdownContent {
+    width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .dropdownContent {
+    width: 410px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dropdownContent {
+    width: 410px;
+  }
+}
+
+.dropdownItem {
+  padding: 10px 0;
+  color: #000000;
+  transition: all 200ms;
+}
+
+.dropdownItem:hover,
+.dropdownItem:focus {
+  font-weight: bold;
+  background-color: #fff;
+  color: #ff6596;
+}
+
 .select {
   background: none;
   border: 0;
@@ -361,12 +465,16 @@
   /* outline: 1px solid #cc243a; */
 }
 
-.theme-switch__icon {
-  color: currentColor;
-  height: 24px;
-  width: 24px;
-  margin-right: 8px;
-  margin-left: 8px;
+.iconPlus {
+  /* color: currentColor; */
+  /* fill: #ffffff;*/
+  fill: #ffffff;
+
+  height: 20px;
+  width: 20px;
+  /* margin-right: 8px;
+  margin-left: 8px; */
+  outline: 1px solid #14a32c;
 }
 
 .switchControl {
@@ -466,6 +574,29 @@
 
   color: #24cca7;
 }
+
+/*.profit::after {
+  content: ' ';
+  /* position: absolute;  */
+/*// У кнопки position : relative ; нужно поставить*/
+/* top: 50%;
+   left: 10px;
+   bottom: auto;
+   right: auto;
+   transform: translateY(-50%);
+   -webkit-transform: translateY(-50%); */
+/* background: url('../../img/sprite.svg#icon-minus') no-repeat;*/
+/* background: url('../../img/sprite.svg#icon-minus') no-repeat; */
+
+/* color: #d81212; */
+/* fill: #ffffff;*/
+/*fill: #d81212;
+  background-color: rgb(61, 15, 104);
+
+  height: 20px;
+  width: 20px;
+  outline: 1px solid #5214a3;
+}*/
 
 .expenditure {
   font-family: Circe;
