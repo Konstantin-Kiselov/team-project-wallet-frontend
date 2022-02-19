@@ -1,10 +1,14 @@
 import Table from '../Diagramtab/TableTab/TableTab';
+import Chart from '../Diagramtab/Chart/Chart';
+import { StatsSheet } from './styles';
 
 export default function Hometab() {
   return (
-    <div>
-      <div>diagramtab****</div>
+    <>
+      <StatsSheet>
+      <Chart />
       <Table />
-    </div>
+      </StatsSheet>
+    </>
   );
 }
