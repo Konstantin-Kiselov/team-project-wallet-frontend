@@ -16,6 +16,8 @@ import loginFrame from '../../img/log&reg/login/frame-log.png';
 import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
 import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 
+import Container from '../../components/Container/Container';
+
 const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
 
 export default function LoginView() {
@@ -42,138 +44,139 @@ export default function LoginView() {
   };
 
   return (
-    <div className={s.commonContainer}>
-      <div className={s.leftSide}>
-        <img alt="login frame" src={loginFrame} className={s.frameLog} />
-        <img
-          alt="violet ellipse"
-          src={violetEllipse}
-          className={s.violetEllipse}
-        />
-        <h1 className={s.titleLeftSide}>Finance App</h1>
-      </div>
+    <Container>
+      <div className={s.commonContainer}>
+        <div className={s.leftSide}>
+          <img alt="login frame" src={loginFrame} className={s.frameLog} />
+          <img
+            alt="violet ellipse"
+            src={violetEllipse}
+            className={s.violetEllipse}
+          />
+          <h1 className={s.titleLeftSide}>Finance App</h1>
+        </div>
 
-      <div className={s.rightSide}>
-        <img alt="pink ellipse" src={pinkEllipse} className={s.pinkEllipse} />
-        <div className={s.formContainer}>
-          <div className={s.titleRightSideContainer}>
-            <img src={walletIcon} alt="wallet icon" />
-            <h2 className={s.titleRightSide}>Wallet</h2>
-          </div>
+        <div className={s.rightSide}>
+          <img alt="pink ellipse" src={pinkEllipse} className={s.pinkEllipse} />
+          <div className={s.formContainer}>
+            <div className={s.titleRightSideContainer}>
+              <img src={walletIcon} alt="wallet icon" />
+              <h2 className={s.titleRightSide}>Wallet</h2>
+            </div>
 
-          <Formik
-            initialValues={{
-              email: '',
-              password: '',
-            }}
-            validateOnBlur
-            onSubmit={handleSubmit}
-            validationSchema={loginSchema}
-            className={s.form}
-            autoComplete="off"
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              isValid,
-              handleSubmit,
-              dirty,
-            }) => (
-              <>
-                {touched.email && errors.email && (
-                  <p className={s.error}>{errors.email}</p>
-                )}
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    mb: '40px',
-                  }}
-                >
-                  <TextField
-                    className={s.TextField}
-                    id="input-with-sx"
-                    label="E-mail"
-                    type="email"
-                    variant="standard"
-                    fullWidth
-                    required
-                    name="email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.email}
-                    InputProps={{
-                      startAdornment: (
-                        <LocalPostOfficeIcon
-                          sx={{ color: 'action.active', mr: 1, my: 0.5 }}
-                        />
-                      ),
+            <Formik
+              initialValues={{
+                email: '',
+                password: '',
+              }}
+              validateOnBlur
+              onSubmit={handleSubmit}
+              validationSchema={loginSchema}
+              className={s.form}
+              autoComplete="off"
+            >
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                isValid,
+                handleSubmit,
+                dirty,
+              }) => (
+                <>
+                  {touched.email && errors.email && (
+                    <p className={s.error}>{errors.email}</p>
+                  )}
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'flex-end',
+                      mb: '40px',
                     }}
-                    placeholder="E-mail"
-                  />
-                </Box>
+                  >
+                    <TextField
+                      className={s.TextField}
+                      id="input-with-sx"
+                      label="E-mail"
+                      type="email"
+                      variant="standard"
+                      fullWidth
+                      required
+                      name="email"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
+                      InputProps={{
+                        startAdornment: (
+                          <LocalPostOfficeIcon
+                            sx={{ color: 'action.active', mr: 1, my: 0.5 }}
+                          />
+                        ),
+                      }}
+                      placeholder="E-mail"
+                    />
+                  </Box>
 
-                {touched.password && errors.password && (
-                  <p className={s.error}>{errors.password}</p>
-                )}
-                <Box
-                  sx={{ display: 'flex', alignItems: 'flex-end', mb: '40px' }}
-                >
-                  <TextField
-                    className={s.TextField}
-                    type="password"
-                    id="input-with-sx"
-                    label="Пароль"
-                    variant="standard"
-                    fullWidth
-                    required
-                    name="password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    InputProps={{
-                      startAdornment: (
-                        <LockIcon sx={{ color: 'action.active', mr: 1 }} />
-                      ),
-                    }}
-                    placeholder="Пароль"
-                  />
-                </Box>
+                  {touched.password && errors.password && (
+                    <p className={s.error}>{errors.password}</p>
+                  )}
+                  <Box
+                    sx={{ display: 'flex', alignItems: 'flex-end', mb: '40px' }}
+                  >
+                    <TextField
+                      className={s.TextField}
+                      type="password"
+                      id="input-with-sx"
+                      label="Пароль"
+                      variant="standard"
+                      fullWidth
+                      required
+                      name="password"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      InputProps={{
+                        startAdornment: (
+                          <LockIcon sx={{ color: 'action.active', mr: 1 }} />
+                        ),
+                      }}
+                      placeholder="Пароль"
+                    />
+                  </Box>
 
-                <NavLink
-                  disabled={!isValid && !dirty}
-                  onClick={handleSubmit}
-                  type={`submit`}
-                  to="/login"
-                  className={setActiveClass}
-                  data-name={'login'}
-                  id="login"
-                  style={({ isActive }) => ({
-                    marginBottom: isActive ? '20px' : '0px',
-                  })}
-                >
-                  Вход
-                </NavLink>
-                <NavLink
-                  onClick={''}
-                  to="/register"
-                  className={setActiveClass}
-                  data-name={'register'}
-                  id="register"
-                  style={({ isActive }) => ({
-                    marginTop: isActive ? '20px' : '0px',
-                    marginBottom: '0px',
-                  })}
-                >
-                  Регистрация
-                </NavLink>
-              </>
-            )}
+                  <NavLink
+                    disabled={!isValid && !dirty}
+                    onClick={handleSubmit}
+                    type={`submit`}
+                    to="/login"
+                    className={setActiveClass}
+                    data-name={'login'}
+                    id="login"
+                    style={({ isActive }) => ({
+                      marginBottom: isActive ? '20px' : '0px',
+                    })}
+                  >
+                    Вход
+                  </NavLink>
+                  <NavLink
+                    onClick={''}
+                    to="/register"
+                    className={setActiveClass}
+                    data-name={'register'}
+                    id="register"
+                    style={({ isActive }) => ({
+                      marginTop: isActive ? '20px' : '0px',
+                      marginBottom: '0px',
+                    })}
+                  >
+                    Регистрация
+                  </NavLink>
+                </>
+              )}
 
-            {/*<label className={s.label}>
+              {/*<label className={s.label}>
           e-mail
           <input
             type="email"
@@ -196,9 +199,10 @@ export default function LoginView() {
         <button className="button" type="submit">
           Login
         </button>*/}
-          </Formik>
+            </Formik>
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
