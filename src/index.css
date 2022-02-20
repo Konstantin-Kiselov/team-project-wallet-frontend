@@ -120,12 +120,6 @@ a {
   text-transform: uppercase;
 }
 
-.loginFrame {
-}
-
-.registerFrame {
-}
-
 @media screen and (max-width: 767px) {
   .active-link {
     width: 280px;
