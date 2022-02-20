@@ -147,6 +147,14 @@ export default function RegisterView() {
                       onBlur={handleBlur}
                       value={values.email}
                       InputProps={{
+                        style: {
+                          color: '#BDBDBD',
+                          fontFamily: 'Circe',
+                          fontStyle: 'normal',
+                          fontWeight: 'normal',
+                          fontSize: '18px',
+                          lineHeight: '27px',
+                        },
                         startAdornment: (
                           <LocalPostOfficeIcon
                             sx={{ color: 'action.active', mr: 1, my: 0.5 }}
@@ -184,6 +192,14 @@ export default function RegisterView() {
                       }}
                       onBlur={handleBlur}
                       InputProps={{
+                        style: {
+                          color: '#BDBDBD',
+                          fontFamily: 'Circe',
+                          fontStyle: 'normal',
+                          fontWeight: 'normal',
+                          fontSize: '18px',
+                          lineHeight: '27px',
+                        },
                         startAdornment: (
                           <LockIcon
                             sx={{ color: 'action.active', mr: 1, my: 0.5 }}
@@ -236,6 +252,14 @@ export default function RegisterView() {
                       onBlur={handleBlur}
                       value={values.confirmPassword}
                       InputProps={{
+                        style: {
+                          color: '#BDBDBD',
+                          fontFamily: 'Circe',
+                          fontStyle: 'normal',
+                          fontWeight: 'normal',
+                          fontSize: '18px',
+                          lineHeight: '27px',
+                        },
                         startAdornment: (
                           <LockIcon
                             sx={{ color: 'action.active', mr: 1, my: 0.5 }}
@@ -269,6 +293,14 @@ export default function RegisterView() {
                       onBlur={handleBlur}
                       value={values.name}
                       InputProps={{
+                        style: {
+                          color: '#BDBDBD',
+                          fontFamily: 'Circe',
+                          fontStyle: 'normal',
+                          fontWeight: 'normal',
+                          fontSize: '18px',
+                          lineHeight: '27px',
+                        },
                         startAdornment: (
                           <PersonIcon
                             sx={{ color: 'action.active', mr: 1, my: 0.5 }}
