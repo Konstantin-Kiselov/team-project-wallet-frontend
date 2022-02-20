@@ -134,10 +134,8 @@ export default function HomeView() {
               </div>
             </div>
           </Container>
-          {/* <div className={s.imageContainer}> */}
           <img className={s.pinkEllipse} src={pinkEllipse} alt="" />
           <img className={s.violetEllipse} src={violetEllipse} alt="" />
-          {/* </div> */}
         </section>
       )}
 

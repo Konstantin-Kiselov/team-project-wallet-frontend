@@ -9,7 +9,7 @@ export default function TotalBalance() {
     <div className={s.balanceLabel}>
       <p className={s.balanceText}>ВАШ БАЛАНС:</p>
       <p className={s.balanceValue}>
-        <span>$</span> {balance}
+        {balance && <span>$</span>} {balance}
       </p>
     </div>
   );
