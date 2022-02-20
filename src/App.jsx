@@ -9,6 +9,7 @@ import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute';
 import AuthNav from './components/AuthNav';
 import SectionAuthNav from './components/SectionAuthNav';
+import Hometab from './components/Diagramtab/Diagramtab';
 
 const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView'));
@@ -43,7 +44,7 @@ export default function App() {
             />
           </Route>
           <Route
-            path="/home/*"
+            path="home/*"
             element={
               <PrivateRoute restricted redirectTo="/login">
                 <HomeView />
