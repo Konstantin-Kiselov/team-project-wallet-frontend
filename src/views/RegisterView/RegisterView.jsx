@@ -3,11 +3,19 @@ import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
 import { NavLink } from 'react-router-dom';
+
 import { Formik } from 'formik';
-import { Box, TextField } from '@mui/material';
+
+import { Box, TextField, IconButton } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import LockIcon from '@mui/icons-material/Lock';
+import PersonIcon from '@mui/icons-material/Person';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import registerSchema from '../../validationSchemas/registerSchema';
+
 import s from './RegisterView.module.css';
 
 import walletIcon from '../../img/log&reg/wallet.svg';
@@ -25,6 +33,10 @@ export default function RegisterView() {
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordValues, setPasswordValues] = useState({
+    showPassword: false,
+    password: '',
+  });
 
   // const handleChange = ({ target: { name, value } }) => {
   //   switch (name) {
@@ -38,6 +50,21 @@ export default function RegisterView() {
   //       return;
   //   }
   // };
+
+  const handleChangePassword = prop => event => {
+    setPasswordValues({ ...passwordValues, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setPasswordValues({
+      ...passwordValues,
+      showPassword: !passwordValues.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
 
   const handleSubmit = ({ name, email, password }) => {
     // e.preventDefault();
@@ -142,7 +169,8 @@ export default function RegisterView() {
                   >
                     <TextField
                       className={s.TextField}
-                      type="password"
+                      type={passwordValues.showPassword ? 'text' : 'password'}
+                      value={values.password}
                       id="input-with-sx"
                       label="Пароль"
                       variant="standard"
@@ -152,14 +180,30 @@ export default function RegisterView() {
                       onChange={e => {
                         setPassword(e.target.value);
                         handleChange(e);
+                        handleChangePassword('password');
                       }}
                       onBlur={handleBlur}
-                      value={values.password}
                       InputProps={{
                         startAdornment: (
                           <LockIcon
                             sx={{ color: 'action.active', mr: 1, my: 0.5 }}
                           />
+                        ),
+
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                            >
+                              {passwordValues.showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
                         ),
                       }}
                       placeholder="Пароль"
@@ -226,7 +270,7 @@ export default function RegisterView() {
                       value={values.name}
                       InputProps={{
                         startAdornment: (
-                          <LocalPostOfficeIcon
+                          <PersonIcon
                             sx={{ color: 'action.active', mr: 1, my: 0.5 }}
                           />
                         ),
