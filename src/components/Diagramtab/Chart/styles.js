@@ -42,14 +42,17 @@ export const DoughnatPie = styled.div`
 
   ${breakpoint.m`
     flex-direction: row;
-    width: 320px;
+  
     height: 320px;
   `}
 `;
 
-export const H2 = styled.h2`
+export const Title = styled.h2`
   text-align: center;
-
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.5;
   ${breakpoint.m`
   text-align: unset;
   `}
@@ -64,5 +67,8 @@ export const BalancePie = styled.div`
   font-size: 18px;
   line-height: 1.5;
   font-weight: bold;
+  ${breakpoint.m`
+  top: 45%;
+  `}
 
 `;

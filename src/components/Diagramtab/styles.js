@@ -25,15 +25,12 @@ export const breakpoint = Object.keys(breakpoints).reduce((acc, label) => {
 }, {});
 
 export const StatisticBox = styled.div`
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+position: relative;
 
-  ${breakpoint.m`
-    flex-direction: row;
-    align-items: normal;
-  `}
+${breakpoint.m`
+display: flex;
+flex-direction: row;
+`}
 `;
 
 export const StatisticsWrapper = styled.div`
