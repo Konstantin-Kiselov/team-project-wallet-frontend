@@ -19,6 +19,7 @@ import ModalForm from '../../components/ModalForm';
 import AddTransactContainer from '../../components/AddTransactContainer';
 import { useLocation } from 'react-router-dom';
 import { getCategory } from '../../services/walletAPI';
+import TotalBalance from '../../components/TotalBalance/TotalBalance';
 
 export default function HomeView() {
   /*========== Получение всех категорий по клику на кнопку ButtonAddTransaction */
@@ -57,9 +58,7 @@ export default function HomeView() {
                   </div>
                   <Media
                     query="(min-width: 768px)"
-                    render={() => (
-                      <div className={s.futureBalance}>ВАШ БАЛАНС:</div>
-                    )}
+                    render={() => <TotalBalance />}
                   />
                 </div>
                 <Media
@@ -74,9 +73,7 @@ export default function HomeView() {
                   query="(max-width: 767px)"
                   render={() =>
                     (location.pathname === '/home/hometab' ||
-                      location.pathname === '/home') && (
-                      <div className={s.futureBalance}>ВАШ БАЛАНС:</div>
-                    )
+                      location.pathname === '/home') && <TotalBalance />
                   }
                 />
               </div>
@@ -137,14 +134,10 @@ export default function HomeView() {
               </div>
             </div>
           </Container>
-          <div className={s.imageContainer}>
-            <div className={s.pinkContainer}>
-              <img className={s.pinkEllipse} src={pinkEllipse} alt="" />
-            </div>
-            <div className={s.violetContainer}>
-              <img className={s.violetEllipse} src={violetEllipse} alt="" />
-            </div>
-          </div>
+          {/* <div className={s.imageContainer}> */}
+          <img className={s.pinkEllipse} src={pinkEllipse} alt="" />
+          <img className={s.violetEllipse} src={violetEllipse} alt="" />
+          {/* </div> */}
         </section>
       )}
 

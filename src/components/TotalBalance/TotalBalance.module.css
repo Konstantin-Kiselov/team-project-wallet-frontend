@@ -1,0 +1,49 @@
+.balanceLabel {
+  padding-top: 8px;
+  padding-left: 30px;
+  text-align: left;
+  width: 280px;
+  height: 80px;
+  background-color: white;
+  border-radius: 30px;
+  margin: 0 auto 30px;
+}
+
+.balanceText {
+  color: #a6a6a6;
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.balanceValue {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 30px;
+  color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .balanceLabel {
+    padding-left: 40px;
+    color: #a6a6a6;
+    font-size: 12px;
+    width: 334px;
+    height: 80px;
+    background-color: white;
+    border-radius: 30px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .balanceLabel {
+    margin-bottom: 30px;
+    width: 350px;
+    margin-right: none;
+  }
+}

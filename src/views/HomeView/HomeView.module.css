@@ -1,8 +1,8 @@
 .homeviewSection {
   min-width: 320px;
   background-color: #e7eaf2;
-  height: 100vh;
-  padding: 70px 20px;
+  min-height: 100vh;
+  padding-top: 70px;
 }
 
 .flexContainer {
@@ -24,27 +24,12 @@
   margin-bottom: 30px;
 }
 
-.futureBalance {
-  padding-top: 8px;
-  padding-left: 30px;
-  text-align: left;
-  color: #a6a6a6;
-  font-family: Circe;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  width: 280px;
-  height: 80px;
-  background-color: white;
-  border-radius: 30px;
-  margin: 0 auto 30px;
-}
-
 @media screen and (min-width: 768px) {
   .homeviewSection {
     min-width: 768px;
+    min-height: 100vh;
     background-color: #e7eaf2;
-    padding: 100px 40px;
+    padding-top: 100px;
     margin: 0 auto;
   }
 
@@ -72,37 +57,11 @@
     margin: 10px 0px 37px 0px;
   }
 
-  .futureBalance {
-    padding-left: 40px;
-    color: #a6a6a6;
-    font-size: 12px;
-    width: 334px;
-    height: 80px;
-    background-color: white;
-    border-radius: 30px;
-    margin-right: 20px;
-    margin-bottom: 0px;
-    margin-top: 10px;
-  }
-
-  .imageContainer {
-    display: block;
-  }
-
-  .violetContainer {
-    width: 618px;
-    overflow: hidden;
-    height: 547px;
-    position: absolute;
-    bottom: -50px;
-    left: -53.3px;
-  }
-
   .violetEllipse {
     display: block;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    top: 458px;
+    left: -53px;
     filter: blur(50px);
   }
 
@@ -119,9 +78,9 @@
   .homeviewSection {
     min-width: 1280px;
     background-color: #e7eaf2;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: row;
-    padding: 126px 85px;
+    padding-top: 126px;
     margin: 0 auto;
   }
 
@@ -135,13 +94,6 @@
     box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
       1px 0px 0px rgba(255, 255, 255, 0.6);
     background: none;
-    padding-right: 30px;
-  }
-
-  .futureBalance {
-    margin-bottom: 30px;
-    width: 350px;
-    margin-right: none;
   }
 
   .rightSide {
@@ -153,5 +105,9 @@
   .flexContainer {
     flex-direction: row;
     width: 100%;
+  }
+
+  .violetEllipse {
+    top: 271px;
   }
 }
