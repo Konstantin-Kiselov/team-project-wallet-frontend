@@ -11,11 +11,10 @@ export default function ModalForm({ allCategory, onClick }) {
   // const a = moment().format('L');
   // console.log(a);
   const [sum, setSum] = useState('');
-  const [coment, setComent] = useState('');
+  const [comment, setComment] = useState('');
   const [data, setData] = useState(
     `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
   );
-
   // const [data, setData] = useState(a);
   const [select, setSelect] = useState('');
   const [toggle, setToggle] = useState(false);
@@ -25,45 +24,9 @@ export default function ModalForm({ allCategory, onClick }) {
   console.log(data);
   console.log(select);
 
-  const allCategory1 = [
-    { name: 'Регулярный доход', income: true },
-    { name: 'Нерегулярный доход', income: true },
-    { name: 'Авто', income: false },
-    { name: 'Еда', income: false },
-    { name: 'Одежда', income: false },
-    { name: 'Комуналка', income: false },
-    { name: 'Образование', income: false },
-  ];
-
-  let expenditureOptions = [];
-  let profitOptions = [];
-
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
-  // allCategory.map(element =>
-  //   element.income
-  //     ? profitOptions.push(element.name)
-  //     : expenditureOptions.push(element.name)
-  // );
-
-  allCategory1.map(element =>
-    element.income
-      ? profitOptions.push(element.name)
-      : expenditureOptions.push(element.name)
-  );
-
-  let categoryOptions = [];
-  if (!toggle) {
-    categoryOptions = profitOptions;
-  } else {
-    categoryOptions = expenditureOptions;
-  }
-  console.log(categoryOptions);
-
-  const requestBody = { coment, data, select, sum };
-
   const handleChange = e => {
-    if (e.currentTarget.name === 'coment') {
-      setComent(e.currentTarget.value);
+    if (e.currentTarget.name === 'comment') {
+      setComment(e.currentTarget.value);
     }
 
     if (e.currentTarget.name === 'data') {
@@ -84,13 +47,52 @@ export default function ModalForm({ allCategory, onClick }) {
     }
   };
 
-  // const getAllCategory = () => {
-  //   getCategory()
-  //     .then(response => console.log(response))
-  //     .catch(error => console.log(error));
-  // };
+  // category sorting
+  // Закоментировать
+  const allCategory1 = [
+    { name: 'Регулярный доход', income: true, id: '1' },
+    { name: 'Нерегулярный доход', income: true, id: '2' },
+    { name: 'Авто', income: false, id: '3' },
+    { name: 'Еда', income: false, id: '4' },
+    { name: 'Одежда', income: false, id: '5' },
+    { name: 'Комуналка', income: false, id: '6' },
+    { name: 'Образование', income: false, id: '7' },
+  ];
 
-  // toggle && getExpendCategory();
+  let expenditureOptions = [];
+  let profitOptions = [];
+
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
+  // allCategory.map(element =>
+  //   element.income
+  //     ? profitOptions.push(element.name)
+  //     : expenditureOptions.push(element.name)
+  // );
+
+  allCategory1.map(element =>
+    element.income
+      ? profitOptions.push({ name: element.name, id: element.id })
+      : expenditureOptions.push({ name: element.name, id: element.id })
+  );
+
+  let categoryOptions = [];
+  if (!toggle) {
+    // profitOptions.map(option => categoryOptions.push(option.name));
+    categoryOptions = profitOptions;
+  } else {
+    // expenditureOptions.map(option => categoryOptions.push(option.name));
+    categoryOptions = expenditureOptions;
+  }
+  console.log(categoryOptions);
+
+  // post request - add transaction
+  const requestBody = {
+    income: !toggle,
+    category: select,
+    amount: sum,
+    comment: comment,
+  };
+  console.log(requestBody);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -106,6 +108,15 @@ export default function ModalForm({ allCategory, onClick }) {
 
     onClick(false);
   };
+
+  // Удалить
+  // const getAllCategory = () => {
+  //   getCategory()
+  //     .then(response => console.log(response))
+  //     .catch(error => console.log(error));
+  // };
+
+  // toggle && getExpendCategory();
 
   return (
     <div className={s.container}>
@@ -170,11 +181,11 @@ export default function ModalForm({ allCategory, onClick }) {
                   <div
                     className={s.dropdownItem}
                     onClick={e => {
-                      setSelect(option);
+                      setSelect(option.id);
                       setItemselect(false);
                     }}
                   >
-                    {option}
+                    {option.name}
                   </div>
                 ))}
               </div>
@@ -223,14 +234,14 @@ export default function ModalForm({ allCategory, onClick }) {
               }}
             />
           </div>
-          <label for="coment">
+          <label for="comment">
             <input
-              id="coment"
-              className={s.inputComent}
+              id="comment"
+              className={s.inputComment}
               placeholder="Комментарий"
               type="text"
-              name="coment"
-              value={coment}
+              name="comment"
+              value={comment}
               onChange={handleChange}
             ></input>
           </label>
