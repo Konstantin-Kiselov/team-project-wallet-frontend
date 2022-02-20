@@ -12,6 +12,9 @@ import PublicRoute from './components/PublicRoute';
 import AuthNav from './components/AuthNav';
 import SectionAuthNav from './components/SectionAuthNav';
 
+import { TailSpin } from 'react-loader-spinner';
+import CircularProgress from '@mui/material/CircularProgress';
+
 const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView'));
 const LoginView = lazy(() => import('./views/LoginView'));
@@ -22,7 +25,6 @@ export default function App() {
 
   // add ANIMATION
   const location = useLocation();
-  console.log(location);
 
   const transitions = useTransition(location, {
     from: { opacity: 0 },
@@ -33,7 +35,22 @@ export default function App() {
   return (
     <SectionAuthNav>
       {/* <Container> */}
-      <Suspense fallback={<p>Загружаем...</p>}>
+      <Suspense
+        fallback={
+          <CircularProgress
+            sx={{
+              position: 'absolute',
+              left: '50%',
+              right: 0,
+              top: '50%',
+              bottom: 0,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            size="140px"
+          />
+        }
+      >
         <Routes>
           <Route path="/" element={<AuthNav />}>
             <Route index element={<LoginView />} />
