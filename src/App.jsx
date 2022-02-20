@@ -31,45 +31,39 @@ export default function App() {
   });
 
   return (
-    <SectionAuthNav style={{ position: 'relative' }}>
+    <SectionAuthNav>
       {/* <Container> */}
       <Suspense fallback={<p>Загружаем...</p>}>
-        {transitions((props, item) => (
-          <animated.div style={props}>
-            <div style={{ position: 'absolute', width: '100%' }}>
-              <Routes location={item}>
-                <Route path="/" element={<AuthNav />}>
-                  <Route index element={<LoginView />} />
-                  <Route
-                    path="register"
-                    element={
-                      <PublicRoute restricted>
-                        <RegisterView />
-                      </PublicRoute>
-                    }
-                  />
-                  <Route
-                    path="login"
-                    element={
-                      <PublicRoute restricted redirectTo="/home">
-                        <LoginView />
-                      </PublicRoute>
-                    }
-                  />
-                </Route>
-                <Route
-                  path="/home/*"
-                  element={
-                    <PrivateRoute restricted redirectTo="/login">
-                      <HomeView />
-                    </PrivateRoute>
-                  }
-                />
-                <Route path="*" element={<NotFoundView />} />
-              </Routes>
-            </div>
-          </animated.div>
-        ))}
+        <Routes>
+          <Route path="/" element={<AuthNav />}>
+            <Route index element={<LoginView />} />
+            <Route
+              path="register"
+              element={
+                <PublicRoute restricted>
+                  <RegisterView />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted redirectTo="/home">
+                  <LoginView />
+                </PublicRoute>
+              }
+            />
+          </Route>
+          <Route
+            path="/home/*"
+            element={
+              <PrivateRoute restricted redirectTo="/login">
+                <HomeView />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
       </Suspense>
       {/* </Container> */}
     </SectionAuthNav>
