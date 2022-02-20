@@ -137,6 +137,14 @@ export default function LoginView() {
                       onBlur={handleBlur}
                       value={values.email}
                       InputProps={{
+                        style: {
+                          color: '#BDBDBD',
+                          fontFamily: 'Circe',
+                          fontStyle: 'normal',
+                          fontWeight: 'normal',
+                          fontSize: '18px',
+                          lineHeight: '27px',
+                        },
                         startAdornment: (
                           <LocalPostOfficeIcon
                             sx={{ color: 'action.active', mr: 1, my: 0.5 }}
@@ -174,6 +182,14 @@ export default function LoginView() {
                       onBlur={handleBlur}
                       value={values.password}
                       InputProps={{
+                        style: {
+                          color: '#BDBDBD',
+                          fontFamily: 'Circe',
+                          fontStyle: 'normal',
+                          fontWeight: 'normal',
+                          fontSize: '18px',
+                          lineHeight: '27px',
+                        },
                         startAdornment: (
                           <LockIcon sx={{ color: 'action.active', mr: 1 }} />
                         ),
