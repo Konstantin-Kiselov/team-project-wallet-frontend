@@ -19,6 +19,7 @@ export default function ModalForm({ allCategory, onClick }) {
   const [select, setSelect] = useState('');
   const [toggle, setToggle] = useState(false);
   const [itemselect, setItemselect] = useState(false);
+  const [category, setCategory] = useState('');
 
   console.log(toggle);
   console.log(data);
@@ -94,7 +95,7 @@ export default function ModalForm({ allCategory, onClick }) {
   // post request - add transaction
   const requestBody = {
     income: !toggle,
-    category: select,
+    category: category,
     amount: sum,
     comment: comment,
   };
@@ -187,7 +188,8 @@ export default function ModalForm({ allCategory, onClick }) {
                   <div
                     className={s.dropdownItem}
                     onClick={e => {
-                      setSelect(option);
+                      setCategory(option);
+                      setSelect(option.name);
                       setItemselect(false);
                     }}
                   >
