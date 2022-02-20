@@ -22,16 +22,23 @@
 .titleLeftSide {
   position: inherit;
 
-  top: 140px;
+  top: 106px;
   padding-left: 20px;
   padding-right: 20px;
 
   text-align: center;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 45px;
 }
 
 .titleRightSide {
   margin-left: 20px;
 
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: bold;
   font-size: 30px;

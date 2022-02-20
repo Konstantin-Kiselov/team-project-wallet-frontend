@@ -20,7 +20,7 @@ export default function UserMenu() {
         onClick={() => dispatch(authOperations.logOut())}
       >
         <img className={s.exitIcon} src={exitIcon} alt="" />
-        <span className={s.exitWord}>Выход</span>
+        <span className={s.exitWord}>Выйти</span>
       </button>
     </div>
   );

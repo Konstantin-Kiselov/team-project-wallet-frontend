@@ -12,10 +12,9 @@
 
 .container {
   margin: 0 auto;
-  min-width: 320px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px;
 }
 
 .logo {
@@ -40,10 +39,9 @@
   }
 
   .container {
-    width: 768px;
     display: flex;
     justify-content: space-between;
-    padding: 0px 40px;
+    width: 100%;
   }
 
   .logo {
@@ -65,7 +63,6 @@
 
 @media screen and (min-width: 1280px) {
   .container {
-    width: 1280px;
-    padding: 0px 85px;
+    width: 100%;
   }
 }
