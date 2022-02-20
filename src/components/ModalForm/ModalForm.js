@@ -65,14 +65,20 @@ export default function ModalForm({ allCategory, onClick }) {
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
   // allCategory.map(element =>
   //   element.income
-  //     ? profitOptions.push(element.name)
-  //     : expenditureOptions.push(element.name)
+  //     ? profitOptions.push(element)
+  //      : expenditureOptions.push(element)
+  // );
+
+  // allCategory1.map(element =>
+  //   element.income
+  //     ? profitOptions.push({ name: element.name, id: element.id })
+  //     : expenditureOptions.push({ name: element.name, id: element.id })
   // );
 
   allCategory1.map(element =>
     element.income
-      ? profitOptions.push({ name: element.name, id: element.id })
-      : expenditureOptions.push({ name: element.name, id: element.id })
+      ? profitOptions.push(element)
+      : expenditureOptions.push(element)
   );
 
   let categoryOptions = [];
@@ -181,7 +187,7 @@ export default function ModalForm({ allCategory, onClick }) {
                   <div
                     className={s.dropdownItem}
                     onClick={e => {
-                      setSelect(option.id);
+                      setSelect(option);
                       setItemselect(false);
                     }}
                   >
