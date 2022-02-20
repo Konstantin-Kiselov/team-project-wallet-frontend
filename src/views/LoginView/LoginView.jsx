@@ -1,13 +1,20 @@
 // import { useState } from 'react';
+import { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
 import { NavLink } from 'react-router-dom';
 import { Formik } from 'formik';
-import { Box, TextField } from '@mui/material';
+import { Box, TextField, IconButton } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+
 import loginSchema from '../../validationSchemas/loginSchema';
+
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import LockIcon from '@mui/icons-material/Lock';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import s from './LoginView.module.css';
 
@@ -22,6 +29,11 @@ const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
 
 export default function LoginView() {
   const dispatch = useDispatch();
+
+  const [passwordValues, setPasswordValues] = useState({
+    showPassword: false,
+    password: '',
+  });
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
 
@@ -35,6 +47,21 @@ export default function LoginView() {
   //       return;
   //   }
   // };
+
+  const handleChangePassword = prop => event => {
+    setPasswordValues({ ...passwordValues, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setPasswordValues({
+      ...passwordValues,
+      showPassword: !passwordValues.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
 
   const handleSubmit = ({ email, password }) => {
     // e.preventDefault();
@@ -133,19 +160,38 @@ export default function LoginView() {
                   >
                     <TextField
                       className={s.TextField}
-                      type="password"
+                      type={passwordValues.showPassword ? 'text' : 'password'}
                       id="input-with-sx"
                       label="Пароль"
                       variant="standard"
                       fullWidth
                       required
                       name="password"
-                      onChange={handleChange}
+                      onChange={e => {
+                        handleChange(e);
+                        handleChangePassword('password');
+                      }}
                       onBlur={handleBlur}
                       value={values.password}
                       InputProps={{
                         startAdornment: (
                           <LockIcon sx={{ color: 'action.active', mr: 1 }} />
+                        ),
+
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                            >
+                              {passwordValues.showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
                         ),
                       }}
                       placeholder="Пароль"
