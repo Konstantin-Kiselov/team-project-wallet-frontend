@@ -11,6 +11,7 @@ import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute';
 import AuthNav from './components/AuthNav';
 import SectionAuthNav from './components/SectionAuthNav';
+import Hometab from './components/Diagramtab/Diagramtab';
 
 import { TailSpin } from 'react-loader-spinner';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -70,7 +71,7 @@ export default function App() {
             }
           />
           <Route
-            path="/home/*"
+            path="home/*"
             element={
               <PrivateRoute restricted redirectTo="/login">
                 <HomeView />

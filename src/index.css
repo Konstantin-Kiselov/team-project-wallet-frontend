@@ -131,3 +131,11 @@ a {
 }
 
 /* -- end login & registration form -- */
+
+/* == navigation links == */
+
+.active {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
