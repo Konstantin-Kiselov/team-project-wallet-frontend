@@ -94,6 +94,7 @@ export default function LoginView() {
                       display: 'flex',
                       alignItems: 'flex-end',
                       mb: '40px',
+                      width: '100%',
                     }}
                   >
                     <TextField
@@ -123,7 +124,12 @@ export default function LoginView() {
                     <p className={s.error}>{errors.password}</p>
                   )}
                   <Box
-                    sx={{ display: 'flex', alignItems: 'flex-end', mb: '40px' }}
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'flex-end',
+                      mb: '40px',
+                      width: '100%',
+                    }}
                   >
                     <TextField
                       className={s.TextField}
