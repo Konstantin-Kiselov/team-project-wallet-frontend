@@ -24,6 +24,7 @@ import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
 import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 
 import Container from '../../components/Container/Container';
+import SectionAuthNav from '../../components/SectionAuthNav';
 
 const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
 
@@ -71,180 +72,185 @@ export default function LoginView() {
   };
 
   return (
-    <Container>
-      <div className={s.commonContainer}>
-        <div className={s.leftSide}>
-          <img alt="login frame" src={loginFrame} className={s.frameLog} />
-          <img
-            alt="violet ellipse"
-            src={violetEllipse}
-            className={s.violetEllipse}
-          />
-          <h1 className={s.titleLeftSide}>Finance App</h1>
-        </div>
+    <SectionAuthNav>
+      <Container>
+        <div className={s.commonContainer}>
+          <div className={s.leftSide}>
+            <img alt="login frame" src={loginFrame} className={s.frameLog} />
+            <img
+              alt="violet ellipse"
+              src={violetEllipse}
+              className={s.violetEllipse}
+            />
+            <h1 className={s.titleLeftSide}>Finance App</h1>
+          </div>
 
-        <div className={s.rightSide}>
-          <img alt="pink ellipse" src={pinkEllipse} className={s.pinkEllipse} />
-          <div className={s.formContainer}>
-            <div className={s.titleRightSideContainer}>
-              <img src={walletIcon} alt="wallet icon" />
-              <h2 className={s.titleRightSide}>Wallet</h2>
-            </div>
+          <div className={s.rightSide}>
+            <img
+              alt="pink ellipse"
+              src={pinkEllipse}
+              className={s.pinkEllipse}
+            />
+            <div className={s.formContainer}>
+              <div className={s.titleRightSideContainer}>
+                <img src={walletIcon} alt="wallet icon" />
+                <h2 className={s.titleRightSide}>Wallet</h2>
+              </div>
 
-            <Formik
-              initialValues={{
-                email: '',
-                password: '',
-              }}
-              validateOnBlur
-              onSubmit={handleSubmit}
-              validationSchema={loginSchema}
-              className={s.form}
-              autoComplete="off"
-            >
-              {({
-                values,
-                errors,
-                touched,
-                handleChange,
-                handleBlur,
-                isValid,
-                handleSubmit,
-                dirty,
-              }) => (
-                <>
-                  {touched.email && errors.email && (
-                    <p className={s.error}>{errors.email}</p>
-                  )}
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      mb: '40px',
-                      width: '100%',
-                    }}
-                  >
-                    <TextField
-                      className={s.TextField}
-                      id="input-with-sx"
-                      label="E-mail"
-                      type="email"
-                      variant="standard"
-                      fullWidth
-                      required
-                      name="email"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.email}
-                      InputProps={{
-                        style: {
-                          color: '#BDBDBD',
-                          fontFamily: 'Circe',
-                          fontStyle: 'normal',
-                          fontWeight: 'normal',
-                          fontSize: '18px',
-                          lineHeight: '27px',
-                        },
-                        startAdornment: (
-                          <LocalPostOfficeIcon
-                            sx={{ color: 'action.active', mr: 1, my: 0.5 }}
-                          />
-                        ),
+              <Formik
+                initialValues={{
+                  email: '',
+                  password: '',
+                }}
+                validateOnBlur
+                onSubmit={handleSubmit}
+                validationSchema={loginSchema}
+                className={s.form}
+                autoComplete="off"
+              >
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  isValid,
+                  handleSubmit,
+                  dirty,
+                }) => (
+                  <>
+                    {touched.email && errors.email && (
+                      <p className={s.error}>{errors.email}</p>
+                    )}
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'flex-end',
+                        mb: '40px',
+                        width: '100%',
                       }}
-                      placeholder="E-mail"
-                    />
-                  </Box>
+                    >
+                      <TextField
+                        className={s.TextField}
+                        id="input-with-sx"
+                        label="E-mail"
+                        type="email"
+                        variant="standard"
+                        fullWidth
+                        required
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                        InputProps={{
+                          style: {
+                            color: '#BDBDBD',
+                            fontFamily: 'Circe',
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontSize: '18px',
+                            lineHeight: '27px',
+                          },
+                          startAdornment: (
+                            <LocalPostOfficeIcon
+                              sx={{ color: 'action.active', mr: 1, my: 0.5 }}
+                            />
+                          ),
+                        }}
+                        placeholder="E-mail"
+                      />
+                    </Box>
 
-                  {touched.password && errors.password && (
-                    <p className={s.error}>{errors.password}</p>
-                  )}
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      mb: '40px',
-                      width: '100%',
-                    }}
-                  >
-                    <TextField
-                      className={s.TextField}
-                      type={passwordValues.showPassword ? 'text' : 'password'}
-                      id="input-with-sx"
-                      label="Пароль"
-                      variant="standard"
-                      fullWidth
-                      required
-                      name="password"
-                      onChange={e => {
-                        handleChange(e);
-                        handleChangePassword('password');
+                    {touched.password && errors.password && (
+                      <p className={s.error}>{errors.password}</p>
+                    )}
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'flex-end',
+                        mb: '40px',
+                        width: '100%',
                       }}
-                      onBlur={handleBlur}
-                      value={values.password}
-                      InputProps={{
-                        style: {
-                          color: '#BDBDBD',
-                          fontFamily: 'Circe',
-                          fontStyle: 'normal',
-                          fontWeight: 'normal',
-                          fontSize: '18px',
-                          lineHeight: '27px',
-                        },
-                        startAdornment: (
-                          <LockIcon sx={{ color: 'action.active', mr: 1 }} />
-                        ),
+                    >
+                      <TextField
+                        className={s.TextField}
+                        type={passwordValues.showPassword ? 'text' : 'password'}
+                        id="input-with-sx"
+                        label="Пароль"
+                        variant="standard"
+                        fullWidth
+                        required
+                        name="password"
+                        onChange={e => {
+                          handleChange(e);
+                          handleChangePassword('password');
+                        }}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        InputProps={{
+                          style: {
+                            color: '#BDBDBD',
+                            fontFamily: 'Circe',
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontSize: '18px',
+                            lineHeight: '27px',
+                          },
+                          startAdornment: (
+                            <LockIcon sx={{ color: 'action.active', mr: 1 }} />
+                          ),
 
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {passwordValues.showPassword ? (
-                                <VisibilityOff />
-                              ) : (
-                                <Visibility />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                      placeholder="Пароль"
-                    />
-                  </Box>
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                              >
+                                {passwordValues.showPassword ? (
+                                  <VisibilityOff />
+                                ) : (
+                                  <Visibility />
+                                )}
+                              </IconButton>
+                            </InputAdornment>
+                          ),
+                        }}
+                        placeholder="Пароль"
+                      />
+                    </Box>
 
-                  <NavLink
-                    disabled={!isValid && !dirty}
-                    onClick={handleSubmit}
-                    type={`submit`}
-                    to="/login"
-                    className={setActiveClass}
-                    data-name={'login'}
-                    id="login"
-                    style={({ isActive }) => ({
-                      marginBottom: isActive ? '20px' : '0px',
-                    })}
-                  >
-                    Вход
-                  </NavLink>
-                  <NavLink
-                    onClick={''}
-                    to="/register"
-                    className={setActiveClass}
-                    data-name={'register'}
-                    id="register"
-                    style={({ isActive }) => ({
-                      marginTop: isActive ? '20px' : '0px',
-                      marginBottom: '0px',
-                    })}
-                  >
-                    Регистрация
-                  </NavLink>
-                </>
-              )}
+                    <NavLink
+                      disabled={!isValid && !dirty}
+                      onClick={handleSubmit}
+                      type={`submit`}
+                      to="/login"
+                      className={setActiveClass}
+                      data-name={'login'}
+                      id="login"
+                      style={({ isActive }) => ({
+                        marginBottom: isActive ? '20px' : '0px',
+                      })}
+                    >
+                      Вход
+                    </NavLink>
+                    <NavLink
+                      onClick={''}
+                      to="/register"
+                      className={setActiveClass}
+                      data-name={'register'}
+                      id="register"
+                      style={({ isActive }) => ({
+                        marginTop: isActive ? '20px' : '0px',
+                        marginBottom: '0px',
+                      })}
+                    >
+                      Регистрация
+                    </NavLink>
+                  </>
+                )}
 
-              {/*<label className={s.label}>
+                {/*<label className={s.label}>
           e-mail
           <input
             type="email"
@@ -267,10 +273,11 @@ export default function LoginView() {
         <button className="button" type="submit">
           Login
         </button>*/}
-            </Formik>
+              </Formik>
+            </div>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </SectionAuthNav>
   );
 }
