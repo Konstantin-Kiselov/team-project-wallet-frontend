@@ -25,32 +25,18 @@ import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 
 import PasswordStrengthMeter from '../../components/PasswordStrengthMeter/PasswordStrengthMeter';
 import Container from '../../components/Container/Container';
-import SectionAuthNav from '../../components/SectionAuthNav';
+import SectionRegistration from '../../components/Registration/Registration';
 
 const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
 
 export default function RegisterView() {
   const dispatch = useDispatch();
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
+
   const [password, setPassword] = useState('');
   const [passwordValues, setPasswordValues] = useState({
     showPassword: false,
     password: '',
   });
-
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case 'name':
-  //       return setName(value);
-  //     case 'email':
-  //       return setEmail(value);
-  //     case 'password':
-  //       return setPassword(value);
-  //     default:
-  //       return;
-  //   }
-  // };
 
   const handleChangePassword = prop => event => {
     setPasswordValues({ ...passwordValues, [prop]: event.target.value });
@@ -68,15 +54,11 @@ export default function RegisterView() {
   };
 
   const handleSubmit = ({ name, email, password }) => {
-    // e.preventDefault();
     dispatch(authOperations.register({ name, email, password }));
-    // setName('');
-    // setEmail('');
-    // setPassword('');
   };
 
   return (
-    <SectionAuthNav>
+    <SectionRegistration>
       <Container>
         <div className={s.commonContainer}>
           <div className={s.leftSide}>
@@ -348,40 +330,11 @@ export default function RegisterView() {
                     </NavLink>
                   </>
                 )}
-
-                {/*<label style={styles.label}>
-          Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
-
-        <label style={styles.label}>
-          e-mail
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label style={styles.label}>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <button className="button" type="submit">
-          Sign up
-        </button>*/}
               </Formik>
             </div>
           </div>
         </div>
       </Container>
-    </SectionAuthNav>
+    </SectionRegistration>
   );
 }
