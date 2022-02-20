@@ -4,7 +4,7 @@ import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
 import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 import Navigation from '../../components/Navigation/Navigation';
 import Media from 'react-media';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Hometab from '../../components/Hometab/Hometab';
 import Diagramtab from '../../components/Diagramtab/Diagramtab';
 import React, { useState } from 'react';
@@ -17,7 +17,7 @@ import ModalContainer from '../../components/ModalContainer';
 import Toggle from '../../components/Toggle';
 import ModalForm from '../../components/ModalForm';
 import AddTransactContainer from '../../components/AddTransactContainer';
-
+import { useLocation } from 'react-router-dom';
 import { getCategory } from '../../services/walletAPI';
 
 export default function HomeView() {
@@ -38,6 +38,9 @@ export default function HomeView() {
   const windowInnerWidth = document.documentElement.clientWidth;
   console.log('windowInnerWidth', windowInnerWidth);
 
+  const location = useLocation();
+  console.log(location.pathname);
+
   return (
     <>
       <AppBar />
@@ -48,17 +51,83 @@ export default function HomeView() {
           <Container>
             <div className={s.flexContainer}>
               <div className={s.leftSide}>
-                <div className={s.navIcons}>
-                  <Navigation />
+                <div>
+                  <div className={s.navIcons}>
+                    <Navigation />
+                  </div>
+                  <Media
+                    query="(min-width: 768px)"
+                    render={() => (
+                      <div className={s.futureBalance}>ВАШ БАЛАНС:</div>
+                    )}
+                  />
                 </div>
-                <div className={s.futureBalance}></div>
-                <Currency />
+                <Media
+                  query="(min-width: 768px)"
+                  render={() => (
+                    <div>
+                      <Currency />
+                    </div>
+                  )}
+                />
+                <Media
+                  query="(max-width: 767px)"
+                  render={() =>
+                    (location.pathname === '/home/hometab' ||
+                      location.pathname === '/home') && (
+                      <div className={s.futureBalance}>ВАШ БАЛАНС:</div>
+                    )
+                  }
+                />
               </div>
               <div className={s.rightSide}>
-                <Routes>
-                  <Route path="/hometab" element={<Hometab />}></Route>
-                  <Route path="/diagramtab" element={<Diagramtab />}></Route>
-                </Routes>
+                <Media
+                  queries={{
+                    small: '(max-width: 767px)',
+                    other: '(min-width: 768px)',
+                  }}
+                >
+                  {matches => (
+                    <>
+                      {matches.small && (
+                        <div>
+                          <Routes>
+                            <Route path="/hometab" element={<Hometab />} />
+                            <Route
+                              path="/diagramtab"
+                              element={<Diagramtab />}
+                            />
+                            <Route path="/currency" element={<Currency />} />
+                            <Route
+                              path="*"
+                              element={<Navigate to="hometab" replace />}
+                            />
+                          </Routes>
+                        </div>
+                      )}
+                      {matches.other && (
+                        <div>
+                          <Routes>
+                            <Route path="/hometab" element={<Hometab />} />
+                            <Route
+                              path="/diagramtab"
+                              element={<Diagramtab />}
+                            />
+                            <Route
+                              path="/currency"
+                              element={<Navigate to="hometab" replace />}
+                            />
+                            <Route
+                              path="*"
+                              element={<Navigate to="hometab" replace />}
+                            />
+                          </Routes>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </Media>
+
                 <ButtonAddTransaction
                   onClick={() => {
                     setModalActive(true);
