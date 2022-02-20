@@ -81,9 +81,9 @@ tbody:before {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .container {
-    width: 348px;
+    width: 350px;
     height: 347px;
   }
 
@@ -92,7 +92,7 @@ tbody:before {
   }
 
   .headBlock {
-    width: 348px;
+    width: 350px;
     height: 60px;
   }
 
@@ -102,6 +102,6 @@ tbody:before {
 
   .decoration {
     height: 134px;
-    width: 348px;
+    width: 350px;
   }
 }
