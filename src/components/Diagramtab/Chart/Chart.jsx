@@ -3,8 +3,12 @@ import 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnatStat, DoughnatPie, H2, BalancePie } from './styles';
 
+// import { useSelector } from 'react-redux';
+// import { getStatistics } from '';
+
 export default function Chart() {
   const content = [31376, 51118, 63199, 41567, 21456, 55151, 31272, 21545];
+  // const content = useSelector(state => getStatistics(state));
 
   const ChartData = {
     datasets: [
