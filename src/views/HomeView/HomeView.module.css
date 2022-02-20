@@ -11,10 +11,6 @@
   justify-content: center;
 }
 
-.imageContainer {
-  display: none;
-}
-
 .navIcons {
   margin-right: auto;
   margin-left: auto;
@@ -22,6 +18,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+}
+
+.violetEllipse,
+.pinkEllipse {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -57,20 +58,21 @@
     margin: 10px 0px 37px 0px;
   }
 
-  .violetEllipse {
-    display: block;
-    position: absolute;
-    top: 458px;
-    left: -53px;
-    filter: blur(50px);
-  }
-
+  .violetEllipse,
   .pinkEllipse {
     display: block;
     position: absolute;
+    filter: blur(50px);
+  }
+
+  .violetEllipse {
+    top: 440px;
+    left: -53px;
+  }
+
+  .pinkEllipse {
     top: -53px;
     right: 0px;
-    filter: blur(50px);
   }
 }
 

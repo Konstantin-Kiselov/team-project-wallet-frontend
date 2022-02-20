@@ -4,6 +4,7 @@ import { authSelectors } from '../../redux/auth';
 
 export default function TotalBalance() {
   const balance = useSelector(authSelectors.getUserBalance);
+  console.log(balance);
 
   return (
     <div className={s.balanceLabel}>
