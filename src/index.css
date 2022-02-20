@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'CirceBOLD';
+  font-family: 'Circe';
   src: local('Circe-Bold'), url(./fonts/Circe-Bold.otf) format('otf');
 }
 
 @font-face {
-  font-family: 'CirceREGULAR';
+  font-family: 'Circe';
   src: local('Circe-Regular'), url(./fonts/Circe-Regular.otf) format('otf');
 }
 
@@ -82,7 +82,7 @@ a {
   border: none;
   border-radius: 20px;
 
-  font-family: Circe;
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -110,7 +110,7 @@ a {
   box-sizing: border-box;
   border-radius: 20px;
 
-  font-family: Circe;
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -118,12 +118,6 @@ a {
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.loginFrame {
-}
-
-.registerFrame {
 }
 
 @media screen and (max-width: 767px) {
