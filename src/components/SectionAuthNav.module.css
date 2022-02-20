@@ -1,6 +1,7 @@
 .sectionAuthNav {
   overflow: hidden;
   background: linear-gradient(to right, #e5e5e5 40%, #e7eaf2 9%);
+  min-height: 916px;
 }
 
 @media screen and (max-width: 767px) {
