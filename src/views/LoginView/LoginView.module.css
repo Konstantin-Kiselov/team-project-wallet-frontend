@@ -92,6 +92,7 @@
   position: relative;
 
   width: 560px;
+  min-height: 916px;
 
   padding-top: 150px;
 
@@ -164,7 +165,7 @@
 
 .violetEllipse {
   position: absolute;
-  bottom: 46px;
+  bottom: 200px;
   left: -68px;
 }
 
