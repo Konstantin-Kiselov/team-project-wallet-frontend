@@ -5,7 +5,7 @@ import { animated, useTransition } from 'react-spring';
 
 import Container from './components/Container/Container';
 
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute';
@@ -52,25 +52,23 @@ export default function App() {
         }
       >
         <Routes>
-          <Route path="/" element={<AuthNav />}>
-            <Route index element={<LoginView />} />
-            <Route
-              path="register"
-              element={
-                <PublicRoute restricted>
-                  <RegisterView />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <PublicRoute restricted redirectTo="/home">
-                  <LoginView />
-                </PublicRoute>
-              }
-            />
-          </Route>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <RegisterView />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted redirectTo="/home/hometab">
+                <LoginView />
+              </PublicRoute>
+            }
+          />
           <Route
             path="/home/*"
             element={
