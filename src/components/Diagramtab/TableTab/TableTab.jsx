@@ -1,5 +1,8 @@
 import s from './TableTab.module.css';
 import { useState, useCallback, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getStatistics } from '../../../redux/transactions/transactions-operations';
+import { getAllQueryStatistics } from '../../../redux/transactions/transactions-selector';
 
 export default function Table() {
   const backgroundColor = [
@@ -14,33 +17,42 @@ export default function Table() {
     '#00AD84',
   ];
 
-  const [filterData, setFilterData] = useState({
+  const [inputData, setInputData] = useState({
     month: '',
     year: '',
   });
+
+  const queryStatistics = useSelector(getAllQueryStatistics);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getStatistics());
+  }, [dispatch, queryStatistics]);
+  console.log(queryStatistics);
 
   const onClick = useCallback(e => {
     e.currentTarget.value = '';
     const {
       currentTarget: { name, value },
     } = e;
-    setFilterData(prev => ({ ...prev, [name]: value }));
+    setInputData(prev => ({ ...prev, [name]: value }));
   }, []);
 
   const handleChange = useCallback(e => {
     const {
       currentTarget: { name, value },
     } = e;
-    setFilterData(prev => ({ ...prev, [name]: value }));
+    setInputData(prev => ({ ...prev, [name]: value }));
   }, []);
 
   return (
     <div className={s.table}>
-      <div className={s.filter}>
+      <div className={s.table__input__wrapper}>
         <input
-          className={s.filter__input}
+          className={s.table__input}
           name="months"
-          //   value={filterData.month}
+          //   value={inputData.month}
           list="months"
           placeholder="Месяц"
           onClick={onClick}
@@ -67,9 +79,9 @@ export default function Table() {
         </datalist> */}
 
         <input
-          className={s.filter__input}
+          className={s.table__input}
           name="years"
-          //   value={filterData.year}
+          //   value={inputData.year}
           list="years"
           placeholder="Год"
           onClick={onClick}
@@ -87,66 +99,67 @@ export default function Table() {
         </datalist> */}
       </div>
 
-      <ul className={s.statistics}>
-        <li className={s.statistics__title__wrapper}>
-          <span className={s.statistics__title__part}>Категория</span>
-          <span className={s.statistics__title__part}>Сумма</span>
+      <ul className={s.table__stat__list}>
+        <li className={s.table__stat__wrapper}>
+          <span className={s.table__stat__title}>Категория</span>
+          <span className={s.table__stat__title}>Сумма</span>
         </li>
 
-        {/* {categoriesStat &&
-          Object.keys(categoriesStat).map((category, index, sum) => ( */}
+        {/* {queryStatistics &&
+          Object.keys(queryStatistics).map((category, index, amount) => ( */}
         <li
-          className={s.statistics__item}
+          className={s.table__stat__item}
           //  key={index}
         >
           <span
-            className={s.statistics__color}
+            className={s.table__stat__color}
             style={{ backgroundColor: backgroundColor[0] }}
+            // style={{ backgroundColor: backgroundColor[index] }}
           ></span>
-          Категория_01
+          <span className={s.table__stat__category}>Категория_01</span>
           {/* {category} */}
-          <span className={s.statistics__costs}>
+          <span className={s.table__stat__sum}>
             Сумма_01
-            {/* {sum} */}
+            {/* {amount} */}
           </span>
         </li>
-        <li className={s.statistics__item}>
+        <li className={s.table__stat__item}>
           <span
-            className={s.statistics__color}
+            className={s.table__stat__color}
             style={{ backgroundColor: backgroundColor[1] }}
           ></span>
-          Категория_02
-          <span className={s.statistics__costs}>Сумма_02</span>
+          <span className={s.table__stat__category}>Категория_02</span>
+          <span className={s.table__stat__sum}>Сумма_02</span>
         </li>
-        <li className={s.statistics__item}>
+        <li className={s.table__stat__item}>
           <span
-            className={s.statistics__color}
+            className={s.table__stat__color}
             style={{ backgroundColor: backgroundColor[2] }}
           ></span>
-          Категория_03
-          <span className={s.statistics__costs}>Сумма_03</span>
+          <span className={s.table__stat__category}>Категория_03</span>
+          <span className={s.table__stat__sum}>Сумма_03</span>
         </li>
-        <li className={s.statistics__item}>
+        <li className={s.table__stat__item}>
           <span
-            className={s.statistics__color}
+            className={s.table__stat__color}
             style={{ backgroundColor: backgroundColor[3] }}
           ></span>
-          Категория_04
-          <span className={s.statistics__costs}>Сумма_04</span>
+          <span className={s.table__stat__category}>Категория_04</span>
+          <span className={s.table__stat__sum}>Сумма_04</span>
         </li>
       </ul>
 
-      <ul className={s.outcome}>
-        <li className={s.outcome__item}>
-          <span className={s.outcome__type}>Расходы:</span>
-          <span className={s.outcome__total__expenses}>
-            {/* {totalSpend} */}
+      <ul className={s.table__results__list}>
+        <li className={s.table__results__item}>
+          <span className={s.table__results__type}>Расходы:</span>
+          <span className={s.table__results__expenses}>
+            {/* {totalExpenses} */}
             Сумма расходов
           </span>
         </li>
-        <li className={s.outcome__item}>
-          <span className={s.outcome__type}>Доходы:</span>
-          <span className={s.outcome__total__income}>
+        <li className={s.table__results__item}>
+          <span className={s.table__results__type}>Доходы:</span>
+          <span className={s.table__results__income}>
             {/* {totalIncome} */}
             Сумма доходов
           </span>
