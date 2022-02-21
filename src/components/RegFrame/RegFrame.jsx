@@ -9,21 +9,22 @@ import woman from '../../img/log&reg/registration/frame/woman.svg';
 
 import { motion } from 'framer-motion';
 
+import s from './RegFrame.module.css';
+
 const RegFrame = () => {
   return (
     <div style={{ position: 'relative' }}>
       <motion.img
-        initial={{ y: '-100vw' }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0 }}
+        initial={{ x: '-100vw' }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.2, duration: 1.5 }}
         src={ellipseViolet}
         alt=""
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          bottom: '-752px',
-          right: '86px',
         }}
+        className={s.ellipseViolet}
       />
       <motion.img
         initial={{ y: '-100vw' }}
@@ -31,7 +32,8 @@ const RegFrame = () => {
         transition={{ delay: 0.2 }}
         src={bigShadow}
         alt=""
-        style={{ position: 'absolute', maxWidth: 'none', top: '554px' }}
+        style={{ position: 'absolute', maxWidth: 'none' }}
+        className={s.bigShadow}
       />
       <motion.img
         initial={{ y: '-100vw' }}
@@ -42,9 +44,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '202px',
-          left: '96px',
         }}
+        className={s.cellphone}
       />
       <motion.img
         initial={{ y: '-100vw' }}
@@ -55,9 +56,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '188px',
-          left: '310px',
         }}
+        className={s.dollar}
       />
       <motion.img
         initial={{ y: '-100vw' }}
@@ -65,7 +65,8 @@ const RegFrame = () => {
         transition={{ delay: 0.8 }}
         src={flowerpot}
         alt=""
-        style={{ position: 'absolute', maxWidth: 'none', top: '300px' }}
+        style={{ position: 'absolute', maxWidth: 'none' }}
+        className={s.flowerpot}
       />
       <motion.img
         initial={{ y: '-100vw' }}
@@ -76,9 +77,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '402px',
-          left: '2px',
         }}
+        className={s.sheetOfPaper}
       />
       <motion.img
         initial={{ y: '-100vw' }}
@@ -89,9 +89,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '234px',
-          left: '240px',
         }}
+        className={s.woman}
       />
     </div>
   );
