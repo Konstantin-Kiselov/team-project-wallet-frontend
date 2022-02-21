@@ -104,7 +104,7 @@ export default function ModalForm({ allCategory, onClick }) {
   const requestBody = {
     income: !toggle,
     category: category,
-    amount: sum,
+    amount: Number(sum),
     comment: comment,
     // data: today,
   };
@@ -117,7 +117,7 @@ export default function ModalForm({ allCategory, onClick }) {
 
     addTransaction(requestBody)
       .then(response => console.log('77777777777777777777', response))
-      .catch(error => console.log(error));
+      .catch(error => console.log(error.message));
 
     onClick(false);
   };

@@ -17,10 +17,11 @@ export async function getCategory() {
 
 export async function addTransaction(requestBody) {
   try {
-    console.log('Post request', requestBody);
+    // console.log('Post request', requestBody);
 
-    const response = await axios.post('/transactions', { requestBody });
+    const response = await axios.post('/transactions', requestBody);
     console.log('response.data', response.data);
+    return response;
   } catch (error) {
     console.error(error);
   }
