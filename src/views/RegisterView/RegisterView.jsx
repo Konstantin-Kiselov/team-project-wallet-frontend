@@ -86,7 +86,10 @@ export default function RegisterView() {
           </div>
 
           <div className={s.rightSide}>
-            <img
+            <motion.img
+              initial={{ x: '100vw' }}
+              animate={{ x: 0 }}
+              transition={{ delay: 0.2, duration: 1.5 }}
               alt="pink ellipse"
               src={pinkEllipse}
               className={s.pinkEllipse}
