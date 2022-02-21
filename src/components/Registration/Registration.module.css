@@ -17,6 +17,9 @@
   .sectionRegistration {
     position: relative;
 
+    padding-top: 360px;
+    padding-bottom: 48px;
+
     background: #e7eaf2;
 
     min-height: 0;
