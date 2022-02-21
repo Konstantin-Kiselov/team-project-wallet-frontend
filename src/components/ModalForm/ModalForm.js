@@ -104,7 +104,7 @@ export default function ModalForm({ allCategory, onClick }) {
   const requestBody = {
     income: !toggle,
     category: category,
-    amount: sum,
+    amount: Number(sum),
     comment: comment,
     // data: today,
   };
