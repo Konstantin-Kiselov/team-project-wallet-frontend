@@ -93,7 +93,12 @@ export default function RegisterView() {
             />
             <div className={s.formContainer}>
               <div className={s.titleRightSideContainer}>
-                <img src={walletIcon} alt="wallet icon" />
+                <motion.img
+                  src={walletIcon}
+                  alt="wallet icon"
+                  whileHover={{ scale: 1.3 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                />
                 <h2 className={s.titleRightSide}>Wallet</h2>
               </div>
 
@@ -125,8 +130,8 @@ export default function RegisterView() {
                       <p className={s.error}>{errors.email}</p>
                     )}
                     <motion.Box
-                      initial={{ x: '100vw' }}
-                      animate={{ x: 0 }}
+                      initial={{ x: '100vw', opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0, type: 'tween' }}
                       style={{ marginBottom: '40px', width: '100%' }}
                       sx={{
@@ -170,8 +175,8 @@ export default function RegisterView() {
                       <p className={s.error}>{errors.password}</p>
                     )}
                     <motion.Box
-                      initial={{ x: '100vw' }}
-                      animate={{ x: 0 }}
+                      initial={{ x: '100vw', opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.15, type: 'tween' }}
                       style={{ width: '100%' }}
                       sx={{
