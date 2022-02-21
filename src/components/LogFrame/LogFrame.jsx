@@ -16,9 +16,10 @@ const LogFrame = () => {
   return (
     <div style={{ position: 'relative' }}>
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 0 }}
+        transition={{ delay: 0, type: 'string', stiffness: 300 }}
         src={ellipseViolet}
         alt=""
         style={{
@@ -31,9 +32,10 @@ const LogFrame = () => {
         }}
       />
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 0.2 }}
+        transition={{ delay: 0.2, type: 'string', stiffness: 300 }}
         src={bigShadow}
         alt=""
         style={{
@@ -44,9 +46,10 @@ const LogFrame = () => {
         }}
       />
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.4, type: 'string', stiffness: 300 }}
         src={cellphone}
         alt=""
         style={{
@@ -58,9 +61,10 @@ const LogFrame = () => {
         }}
       />
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 0.6 }}
+        transition={{ delay: 0.6, type: 'string', stiffness: 300 }}
         src={dollar}
         alt=""
         style={{
@@ -71,9 +75,10 @@ const LogFrame = () => {
         }}
       />
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 0.8 }}
+        transition={{ delay: 0.8, type: 'string', stiffness: 300 }}
         src={flowerpot}
         alt=""
         style={{
@@ -85,9 +90,10 @@ const LogFrame = () => {
         }}
       />
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 1, type: 'string', stiffness: 300 }}
         src={creditCard}
         alt=""
         style={{
@@ -98,9 +104,10 @@ const LogFrame = () => {
         }}
       />
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 1.2 }}
+        transition={{ delay: 1.2, type: 'string', stiffness: 300 }}
         src={man}
         alt=""
         style={{
@@ -113,9 +120,10 @@ const LogFrame = () => {
       />
 
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 1, type: 'string', stiffness: 300 }}
         src={shopping}
         alt=""
         style={{
@@ -127,9 +135,10 @@ const LogFrame = () => {
       />
 
       <motion.img
+        whileHover={{ scale: 1.3 }}
         initial={{ y: '-100vw' }}
         animate={{ y: 0 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 1, type: 'string', stiffness: 300 }}
         src={smallShadow}
         alt=""
         style={{
