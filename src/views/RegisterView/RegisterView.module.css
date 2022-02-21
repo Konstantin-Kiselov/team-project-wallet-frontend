@@ -55,6 +55,8 @@
 }
 
 .formContainer {
+  overflow: hidden;
+
   position: relative;
 
   width: 540px;
