@@ -126,7 +126,7 @@
 
 .buttonLogin {
   cursor: pointer;
-
+  margin-top: 40px;
   margin-bottom: 20px;
 
   padding-left: 122px;
@@ -180,6 +180,7 @@
 .error {
   color: red;
   font-style: italic;
+  font-size: 12px;
 }
 
 @media screen and (max-width: 767px) {

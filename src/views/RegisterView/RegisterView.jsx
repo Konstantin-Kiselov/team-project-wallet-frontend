@@ -121,14 +121,14 @@ export default function RegisterView() {
                   dirty,
                 }) => (
                   <>
-                    {touched.email && errors.email && (
-                      <p className={s.error}>{errors.email}</p>
-                    )}
                     <motion.Box
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
                       transition={{ delay: 0, type: 'tween' }}
-                      style={{ marginBottom: '40px', width: '100%' }}
+                      style={{
+                        marginBottom: '20px',
+                        width: '100%',
+                      }}
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -166,9 +166,11 @@ export default function RegisterView() {
                         placeholder="E-mail"
                       />
                     </motion.Box>
-                    {touched.password && errors.password && (
-                      <p className={s.error}>{errors.password}</p>
+
+                    {touched.email && errors.email && (
+                      <p className={s.error}>{errors.email}</p>
                     )}
+
                     <motion.Box
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
@@ -177,6 +179,7 @@ export default function RegisterView() {
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
+                        marginTop: '20px',
                         mb: '',
                         width: '100%',
                       }}
@@ -233,15 +236,18 @@ export default function RegisterView() {
                     </motion.Box>
 
                     <PasswordStrengthMeter password={password} />
-
-                    {touched.confirmPassword && errors.confirmPassword && (
-                      <p className={s.error}>{errors.confirmPassword}</p>
+                    {touched.password && errors.password && (
+                      <p className={s.error}>{errors.password}</p>
                     )}
+
                     <motion.Box
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
                       transition={{ delay: 0.3, type: 'tween' }}
-                      style={{ marginBottom: '40px', width: '100%' }}
+                      style={{
+                        width: '100%',
+                        marginBottom: '20px',
+                      }}
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -279,14 +285,19 @@ export default function RegisterView() {
                         placeholder="Подтвердите пароль"
                       />
                     </motion.Box>
-                    {touched.name && errors.name && (
-                      <p className={s.error}>{errors.name}</p>
+
+                    {touched.confirmPassword && errors.confirmPassword && (
+                      <p className={s.error}>{errors.confirmPassword}</p>
                     )}
+
                     <motion.Box
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
                       transition={{ delay: 0.35, type: 'tween' }}
-                      style={{ marginBottom: '40px', width: '100%' }}
+                      style={{
+                        marginBottom: '40px',
+                        width: '100%',
+                      }}
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -324,6 +335,9 @@ export default function RegisterView() {
                         placeholder="Ваше имя"
                       />
                     </motion.Box>
+                    {touched.name && errors.name && (
+                      <p className={s.error}>{errors.name}</p>
+                    )}
 
                     <NavLink
                       disabled={!isValid && !dirty}

@@ -19,12 +19,13 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import s from './LoginView.module.css';
 
 import walletIcon from '../../img/log&reg/wallet.svg';
-import loginFrame from '../../img/log&reg/login/frame-log.png';
+import LogFrame from '../../components/LogFrame/LogFrame';
 import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
 import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 
 import Container from '../../components/Container/Container';
 import SectionAuthNav from '../../components/SectionAuthNav';
+import SectionLogin from '../../components/Login/Login';
 
 const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
 
@@ -72,16 +73,18 @@ export default function LoginView() {
   };
 
   return (
-    <SectionAuthNav>
+    <SectionLogin>
       <Container>
         <div className={s.commonContainer}>
           <div className={s.leftSide}>
-            <img alt="login frame" src={loginFrame} className={s.frameLog} />
+            <LogFrame />
+            {/* <img alt="login frame" src={loginFrame} className={s.frameLog} />
             <img
               alt="violet ellipse"
               src={violetEllipse}
               className={s.violetEllipse}
-            />
+            /> */}
+
             <h1 className={s.titleLeftSide}>Finance App</h1>
           </div>
 
@@ -119,14 +122,11 @@ export default function LoginView() {
                   dirty,
                 }) => (
                   <>
-                    {touched.email && errors.email && (
-                      <p className={s.error}>{errors.email}</p>
-                    )}
                     <Box
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
-                        mb: '40px',
+                        mb: '20px',
                         width: '100%',
                       }}
                     >
@@ -160,10 +160,10 @@ export default function LoginView() {
                         placeholder="E-mail"
                       />
                     </Box>
-
-                    {touched.password && errors.password && (
-                      <p className={s.error}>{errors.password}</p>
+                    {touched.email && errors.email && (
+                      <p className={s.error}>{errors.email}</p>
                     )}
+
                     <Box
                       sx={{
                         display: 'flex',
@@ -219,6 +219,10 @@ export default function LoginView() {
                         placeholder="Пароль"
                       />
                     </Box>
+
+                    {touched.password && errors.password && (
+                      <p className={s.error}>{errors.password}</p>
+                    )}
 
                     <NavLink
                       disabled={!isValid && !dirty}
@@ -278,6 +282,6 @@ export default function LoginView() {
           </div>
         </div>
       </Container>
-    </SectionAuthNav>
+    </SectionLogin>
   );
 }
