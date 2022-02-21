@@ -68,20 +68,6 @@ export default function RegisterView() {
           <div className={s.leftSide}>
             <RegFrame />
 
-            {/*<motion.img
-              alt="register frame"
-              src={registerFrame}
-              className={s.frameReg}
-              initial={{ y: -250 }}
-              animate={{ y: 0 }}
-            />
-            <motion.img
-              alt="violet ellipse"
-              src={violetEllipse}
-              className={s.violetEllipse}
-              initial={{ y: -350 }}
-              animate={{ y: 0 }}
-            />*/}
             <h1 className={s.titleLeftSide}>Finance App</h1>
           </div>
 
@@ -96,7 +82,12 @@ export default function RegisterView() {
             />
             <div className={s.formContainer}>
               <div className={s.titleRightSideContainer}>
-                <img src={walletIcon} alt="wallet icon" />
+                <motion.img
+                  src={walletIcon}
+                  alt="wallet icon"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ yoyo: Infinity }}
+                />
                 <h2 className={s.titleRightSide}>Wallet</h2>
               </div>
 
