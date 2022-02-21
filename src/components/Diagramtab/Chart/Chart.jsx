@@ -1,10 +1,14 @@
 import React from 'react';
 import 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
-import { DoughnatStat, DoughnatPie, H2, BalancePie } from './styles';
+import { DoughnatStat, DoughnatPie, Title, BalancePie } from './styles';
+
+// import { useSelector } from 'react-redux';
+// import { getStatistics } from '';
 
 export default function Chart() {
   const content = [31376, 51118, 63199, 41567, 21456, 55151, 31272, 21545];
+  // const content = useSelector(state => getStatistics(state));
 
   const ChartData = {
     datasets: [
@@ -38,16 +42,11 @@ export default function Chart() {
   const pieChart = (
     <>
       <DoughnatStat>
-        <H2>Статистика</H2>
+        <Title>Статистика</Title>
         <DoughnatPie>
           <Doughnut
             data={ChartData}
-            // options={{
-            //     responsive: false,
-            //     maintainAspectRatio: false,
-            //     tooltips: true,
-            //     height: "2",
-            // }}
+          
           />
           <BalancePie>
             ₴<StatsBalance />
