@@ -93,7 +93,16 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    /* ============== Branch DiagramTab ==============*/
+    /* width: 100%;
+    height: 100%; */
+    /* ============== END Branch DiagramTab ==============*/
     width: 465px;
+    
+    border-right: 1px solid #e7e5f2;
+    box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+      1px 0px 0px rgba(255, 255, 255, 0.6);
+    
     background: none;
   }
 
