@@ -21,7 +21,8 @@
 }
 
 .violetEllipse,
-.pinkEllipse {
+.pinkEllipse,
+.divider {
   display: none;
 }
 
@@ -87,6 +88,7 @@
   }
 
   .leftSide {
+    position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -96,10 +98,11 @@
     height: 100%; */
     /* ============== END Branch DiagramTab ==============*/
     width: 465px;
-
+    
     border-right: 1px solid #e7e5f2;
     box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
       1px 0px 0px rgba(255, 255, 255, 0.6);
+    
     background: none;
   }
 
@@ -112,6 +115,16 @@
   .flexContainer {
     flex-direction: row;
     width: 100%;
+  }
+
+  .divider {
+    display: block;
+    width: 1px;
+    position: absolute;
+    top: -80px;
+    right: 0px;
+    height: 100vh;
+    box-shadow: -1px 0px 0px rgb(0 0 0 / 5%), 1px 0px 0px rgb(255 255 255 / 60%);
   }
 
   .violetEllipse {
