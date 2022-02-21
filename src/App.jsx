@@ -12,7 +12,6 @@ import PublicRoute from './components/PublicRoute';
 
 import Hometab from './components/Diagramtab/Diagramtab';
 
-import { TailSpin } from 'react-loader-spinner';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const HomeView = lazy(() => import('./views/HomeView'));

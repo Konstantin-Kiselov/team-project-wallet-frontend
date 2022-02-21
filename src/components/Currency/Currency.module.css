@@ -1,11 +1,22 @@
 .container {
+  position: relative;
   width: 280px;
   height: 174px;
   background-color: #4a56e2;
+  background-image: url('./Vector7_mob.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
   border-radius: 30px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .table {
@@ -51,16 +62,10 @@ tbody:before {
   text-align: center;
 }
 
-.decoration {
-  height: 93px;
-  width: 280px;
-  position: absolute;
-  bottom: 0px;
-}
-
 @media screen and (min-width: 768px) {
   .container {
     width: 334px;
+    background-image: url('./Vector7_tablet.png');
   }
 
   .table {
@@ -74,11 +79,6 @@ tbody:before {
   .buyCell {
     text-align: left;
   }
-
-  .decoration {
-    height: 111px;
-    width: 334px;
-  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -86,6 +86,7 @@ tbody:before {
     width: 350px;
     height: 347px;
     margin-right: 20px;
+    background-image: url('./Vector7_desc.png');
   }
 
   .table {
@@ -99,10 +100,5 @@ tbody:before {
 
   .buyCell {
     text-align: left;
-  }
-
-  .decoration {
-    height: 134px;
-    width: 350px;
   }
 }
