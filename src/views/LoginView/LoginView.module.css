@@ -11,6 +11,10 @@
   margin-bottom: 15px;
 }
 
+.textFieldLabel {
+  color: #4a56e2 !important;
+}
+
 .inputEmail {
   margin-bottom: 40px;
 }
@@ -35,11 +39,18 @@
   padding-right: 20px;
 
   text-align: center;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 45px;
 }
 
 .titleRightSide {
   margin-left: 20px;
 
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
@@ -92,6 +103,7 @@
   position: relative;
 
   width: 560px;
+  min-height: 916px;
 
   padding-top: 150px;
 
@@ -164,7 +176,7 @@
 
 .violetEllipse {
   position: absolute;
-  bottom: 46px;
+  bottom: 200px;
   left: -68px;
 }
 
@@ -276,6 +288,7 @@
     align-items: center;
 
     width: 100%;
+    min-height: 0px;
 
     padding-left: 74px;
     padding-right: 74px;

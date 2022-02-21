@@ -1,19 +1,14 @@
 .homeviewSection {
   min-width: 320px;
   background-color: #e7eaf2;
-  height: 100vh;
-  padding: 70px 20px;
-  /* border: 2px solid red; */
+  min-height: 100vh;
+  padding-top: 70px;
 }
 
 .flexContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.imageContainer {
-  display: none;
 }
 
 .navIcons {
@@ -25,74 +20,69 @@
   margin-bottom: 30px;
 }
 
-.futureBalance {
-  width: 280px;
-  height: 80px;
-  background-color: white;
-  border-radius: 30px;
-  margin: 0 auto 30px;
+.violetEllipse,
+.pinkEllipse {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
   .homeviewSection {
-    width: 768px;
+    min-width: 768px;
+    min-height: 100vh;
     background-color: #e7eaf2;
-    padding: 100px 40px;
+    padding-top: 100px;
     margin: 0 auto;
   }
 
   .flexContainer {
     position: relative;
     z-index: 100;
-    flex-direction: row;
+    margin: 0 auto;
   }
 
-  .imageContainer {
+  .leftSide {
+    width: 688px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .rightSide {
+    margin: 0 auto;
+  }
+
+  .navIcons {
     display: block;
+    width: 150px;
+    margin: 10px 0px 37px 0px;
   }
 
-  .violetContainer {
-    width: 618px;
-    overflow: hidden;
-    height: 547px;
-    position: absolute;
-    bottom: -50px;
-    left: -53.3px;
-  }
-
-  .violetEllipse {
-    display: block;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    filter: blur(50px);
-  }
-
-  /* .pinkContainer {
-    width: 618px;
-    overflow: hidden;
-    height: 547px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-  } */
-
+  .violetEllipse,
   .pinkEllipse {
     display: block;
     position: absolute;
+    filter: blur(50px);
+  }
+
+  .violetEllipse {
+    top: 440px;
+    left: -53px;
+  }
+
+  .pinkEllipse {
     top: -53px;
     right: 0px;
-    filter: blur(50px);
   }
 }
 
 @media screen and (min-width: 1280px) {
   .homeviewSection {
-    width: 1280px;
+    min-width: 1280px;
     background-color: #e7eaf2;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: row;
-    padding: 126px 85px;
+    padding-top: 126px;
     margin: 0 auto;
   }
 
@@ -101,23 +91,30 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    border-right: 1px solid #e7e5f2;
+    /* ============== Branch DiagramTab ==============*/
+    /* width: 100%;
+    height: 100%; */
+    /* ============== END Branch DiagramTab ==============*/
+    width: 465px;
 
+    border-right: 1px solid #e7e5f2;
     box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
       1px 0px 0px rgba(255, 255, 255, 0.6);
-    /* padding: 126px 0px; */
     background: none;
   }
 
   .rightSide {
-    /* position: static; */
     display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100%;
-    /* padding: 126px 0px; */
     background: none;
+  }
+
+  .flexContainer {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .violetEllipse {
+    top: 271px;
   }
 }

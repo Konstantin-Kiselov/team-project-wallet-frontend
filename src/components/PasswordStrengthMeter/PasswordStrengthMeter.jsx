@@ -54,7 +54,7 @@ const PasswordStrengthMeter = ({ password }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ width: '100%', marginTop: '6px' }}>
+      <Box sx={{ width: '100%', marginTop: '6px', mb: '30px' }}>
         <LinearProgress
           variant="determinate"
           value={num}

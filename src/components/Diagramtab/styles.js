@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import { css } from 'styled-components';
 
 const breakpoints = {
@@ -14,7 +13,6 @@ export const mediaQuery = {
   l: `(min-width: ${breakpoints.l})`,
 };
 
-
 export const breakpoint = Object.keys(breakpoints).reduce((acc, label) => {
   acc[label] = (...args) => css`
     @media (min-width: ${breakpoints[label]}) {
@@ -25,9 +23,9 @@ export const breakpoint = Object.keys(breakpoints).reduce((acc, label) => {
 }, {});
 
 export const StatisticBox = styled.div`
-position: relative;
+  position: relative;
 
-${breakpoint.m`
+  ${breakpoint.m`
 display: flex;
 flex-direction: row;
 `}

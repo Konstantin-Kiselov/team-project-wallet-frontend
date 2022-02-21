@@ -16,7 +16,7 @@ export default function Navigation() {
             matches.small ? (
               <img className={s.icon} src={homeMobileIcon} alt="homepage" />
             ) : (
-              <div>
+              <div className={s.navItem}>
                 <img className={s.icon} src={homeDescIcon} alt="homepage" />
                 <p>Главная</p>
               </div>
@@ -30,7 +30,7 @@ export default function Navigation() {
             matches.small ? (
               <img className={s.icon} src={statsMoileIcon} alt="diagram" />
             ) : (
-              <div>
+              <div className={s.navItem}>
                 <img className={s.icon} src={statsTabletIcon} alt="diagram" />
                 <p>Статистика</p>
               </div>
@@ -41,7 +41,7 @@ export default function Navigation() {
       <Media
         query="(max-width: 767px)"
         render={() => (
-          <NavLink to="/currency">
+          <NavLink to="/home/currency">
             <img className={s.icon} src={currencyMobileIcon} alt="currency" />
           </NavLink>
         )}
