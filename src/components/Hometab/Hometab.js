@@ -1,5 +1,12 @@
 import s from './Hometab.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import classNames from 'classnames';
+import { fetchTransactions } from '../../redux/transactions/transactions-operations';
+import {
+  getAllTransactions,
+  getAddedTransactions,
+} from '../../redux/transactions/transactions-selector';
 
 import React from 'react';
 import SimpleBarReact from 'simplebar-react';
@@ -14,17 +21,24 @@ import 'simplebar/src/simplebar.css';
 // }
 
 export default function Hometab() {
+  const addedTransaction = useSelector(getAddedTransactions);
+  const allTransactions = useSelector(getAllTransactions);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+  }, [dispatch, addedTransaction]);
+  console.log(addedTransaction);
+
   return (
     <div className={s.container}>
-      {/* <SimpleBarReact style={{ maxHeight: 319, width: 700 }}> */}
       <SimpleBarReact className={s.scroll_container}>
         <table className={s.table}>
           <thead className={s.titles}>
             <tr className={s.row}>
               <th className={s.titles_head}>Дата</th>
-              <th className={classNames(s.titles_head, s.body_item_type)}>
-                Тип
-              </th>
+              <th className={classNames(s.titles_head, s.body_item_type)}>Тип</th>
               <th className={classNames(s.titles_head, s.titles_head_category)}>
                 Категория
               </th>
@@ -38,328 +52,48 @@ export default function Hometab() {
             </tr>
           </thead>
           <tbody className={s.body}>
-            <>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
+            {allTransactions.map(
+              ({ _id, income, category, comment, amount, total, createdAt }) => (
+                <tr
+                  key={_id}
+                  className={income === false ? s.row_red : s.row_green}
+                >
+                  <td aria-label="Дата" className={s.body_item}>
+                    {createdAt}
                 </td>
                 <td
                   aria-label="Тип"
                   className={classNames(s.body_item, s.body_item_type)}
                 >
-                  -
+                  {income ? '+' : '-'}
                 </td>
                 <td
                   aria-label="Категория"
                   className={classNames(s.body_item, s.body_item_category)}
                 >
-                  машина
+                  {category}
                 </td>
                 <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
+                  {comment ? comment : ''}
                 </td>
                 <td
                   aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
+                  className={classNames(
+                    s.body_item,
+                    income ? s.type_green : s.type_red
+                  )}
                 >
-                  12 600.00
+                  {amount}
                 </td>
                 <td
                   aria-label="Баланс"
                   className={classNames(s.body_item, s.body_item_balance)}
                 >
-                  96 750.00
+                  {total}
                 </td>
               </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2023
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  +
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-              <tr className={s.row}>
-                <td aria-label="Дата" className={s.body_item}>
-                  12.02.2022
-                </td>
-                <td
-                  aria-label="Тип"
-                  className={classNames(s.body_item, s.body_item_type)}
-                >
-                  -
-                </td>
-                <td
-                  aria-label="Категория"
-                  className={classNames(s.body_item, s.body_item_category)}
-                >
-                  машина
-                </td>
-                <td aria-label="Комментарий" className={s.body_item}>
-                  что-то важное
-                </td>
-                <td
-                  aria-label="Сумма"
-                  className={classNames(s.body_item, s.body_item_sum)}
-                >
-                  12 600.00
-                </td>
-                <td
-                  aria-label="Баланс"
-                  className={classNames(s.body_item, s.body_item_balance)}
-                >
-                  96 750.00
-                </td>
-              </tr>
-            </>
+              )
+            )}
           </tbody>
         </table>
       </SimpleBarReact>
