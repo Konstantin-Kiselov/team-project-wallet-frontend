@@ -1,14 +1,16 @@
 import Table from '../Diagramtab/TableTab/TableTab';
 import Chart from '../Diagramtab/Chart/Chart';
-import { StatsSheet } from './styles';
+import { StatisticBox, StatisticsWrapper } from './styles';
 
 export default function Hometab() {
   return (
     <>
-      <StatsSheet>
+      <StatisticBox>
       <Chart />
-      <Table />
-      </StatsSheet>
+      <StatisticsWrapper>
+        <Table />
+      </StatisticsWrapper>
+      </StatisticBox>
     </>
   );
 }
