@@ -8,6 +8,18 @@ import {
   getAddedTransactions,
 } from '../../redux/transactions/transactions-selector';
 
+import React from 'react';
+import SimpleBarReact from 'simplebar-react';
+
+import 'simplebar/src/simplebar.css';
+// classNames: {
+//   // defaults
+//   content: 'simplebar-content',
+//   scrollContent: 'simplebar-scroll-content',
+//   scrollbar: 'simplebar-scrollbar',
+//   track: 'simplebar-track'
+// }
+
 export default function Hometab() {
   const addedTransaction = useSelector(getAddedTransactions);
   const allTransactions = useSelector(getAllTransactions);
@@ -21,32 +33,33 @@ export default function Hometab() {
 
   return (
     <div className={s.container}>
-      <table className={s.table}>
-        <thead className={s.titles}>
-          <tr className={s.row}>
-            <th className={s.titles_head}>Дата</th>
-            <th className={classNames(s.titles_head, s.body_item_type)}>Тип</th>
-            <th className={classNames(s.titles_head, s.titles_head_category)}>
-              Категория
-            </th>
-            <th className={s.titles_head}>Комментарий</th>
-            <th className={classNames(s.titles_head, s.body_item_type)}>
-              Сумма
-            </th>
-            <th className={classNames(s.titles_head, s.body_item_type)}>
-              Баланс
-            </th>
-          </tr>
-        </thead>
-        <tbody className={s.body}>
-          {allTransactions.map(
-            ({ _id, income, category, comment, amount, total, createdAt }) => (
-              <tr
-                key={_id}
-                className={income === false ? s.row_red : s.row_green}
-              >
-                <td aria-label="Дата" className={s.body_item}>
-                  {createdAt}
+      <SimpleBarReact className={s.scroll_container}>
+        <table className={s.table}>
+          <thead className={s.titles}>
+            <tr className={s.row}>
+              <th className={s.titles_head}>Дата</th>
+              <th className={classNames(s.titles_head, s.body_item_type)}>Тип</th>
+              <th className={classNames(s.titles_head, s.titles_head_category)}>
+                Категория
+              </th>
+              <th className={s.titles_head}>Комментарий</th>
+              <th className={classNames(s.titles_head, s.body_item_type)}>
+                Сумма
+              </th>
+              <th className={classNames(s.titles_head, s.body_item_type)}>
+                Баланс
+              </th>
+            </tr>
+          </thead>
+          <tbody className={s.body}>
+            {allTransactions.map(
+              ({ _id, income, category, comment, amount, total, createdAt }) => (
+                <tr
+                  key={_id}
+                  className={income === false ? s.row_red : s.row_green}
+                >
+                  <td aria-label="Дата" className={s.body_item}>
+                    {createdAt}
                 </td>
                 <td
                   aria-label="Тип"
@@ -79,10 +92,11 @@ export default function Hometab() {
                   {total}
                 </td>
               </tr>
-            )
-          )}
-        </tbody>
-      </table>
+              )
+            )}
+          </tbody>
+        </table>
+      </SimpleBarReact>
     </div>
   );
 }

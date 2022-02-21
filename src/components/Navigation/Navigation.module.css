@@ -1,1 +1,13 @@
+.navItem {
+  display: flex;
+  margin-bottom: 10px;
+  color: #000000;
+}
 
+.icon {
+  margin-right: 20px;
+  text-decoration: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 18px;
+}
