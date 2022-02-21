@@ -60,7 +60,7 @@ export const Title = styled.h2`
 
 export const BalancePie = styled.div`
   position: absolute;
-  text-align: center;
+ 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
