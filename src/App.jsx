@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Container from './components/Container/Container';
 
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { authOperations } from './redux/auth/';
 
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute';
@@ -22,6 +23,11 @@ const NotFoundView = lazy(() => import('./views/NotFoundView'));
 
 export default function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <>
@@ -63,7 +69,7 @@ export default function App() {
             <Route
               path="home/*"
               element={
-                <PrivateRoute restricted redirectTo="/login">
+                <PrivateRoute restricted redirectTo="/register">
                   <HomeView />
                 </PrivateRoute>
               }
