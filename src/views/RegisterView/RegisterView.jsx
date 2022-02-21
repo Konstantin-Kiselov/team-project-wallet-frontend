@@ -18,6 +18,8 @@ import registerSchema from '../../validationSchemas/registerSchema';
 
 import s from './RegisterView.module.css';
 
+import RegFrame from '../../components/RegFrame/RegFrame';
+
 import walletIcon from '../../img/log&reg/wallet.svg';
 import registerFrame from '../../img/log&reg/registration/frame-reg.png';
 import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
@@ -26,6 +28,8 @@ import pinkEllipse from '../../img/log&reg/ellipse_pink.svg';
 import PasswordStrengthMeter from '../../components/PasswordStrengthMeter/PasswordStrengthMeter';
 import Container from '../../components/Container/Container';
 import SectionRegistration from '../../components/Registration/Registration';
+
+import { motion } from 'framer-motion';
 
 const setActiveClass = ({ isActive }) => (isActive ? 'active-link' : 'link');
 
@@ -62,16 +66,22 @@ export default function RegisterView() {
       <Container>
         <div className={s.commonContainer}>
           <div className={s.leftSide}>
-            <img
+            <RegFrame />
+
+            {/*<motion.img
               alt="register frame"
               src={registerFrame}
               className={s.frameReg}
+              initial={{ y: -250 }}
+              animate={{ y: 0 }}
             />
-            <img
+            <motion.img
               alt="violet ellipse"
               src={violetEllipse}
               className={s.violetEllipse}
-            />
+              initial={{ y: -350 }}
+              animate={{ y: 0 }}
+            />*/}
             <h1 className={s.titleLeftSide}>Finance App</h1>
           </div>
 
@@ -114,7 +124,11 @@ export default function RegisterView() {
                     {touched.email && errors.email && (
                       <p className={s.error}>{errors.email}</p>
                     )}
-                    <Box
+                    <motion.Box
+                      initial={{ x: '100vw' }}
+                      animate={{ x: 0 }}
+                      transition={{ delay: 0, type: 'tween' }}
+                      style={{ marginBottom: '40px', width: '100%' }}
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -151,11 +165,15 @@ export default function RegisterView() {
                         }}
                         placeholder="E-mail"
                       />
-                    </Box>
+                    </motion.Box>
                     {touched.password && errors.password && (
                       <p className={s.error}>{errors.password}</p>
                     )}
-                    <Box
+                    <motion.Box
+                      initial={{ x: '100vw' }}
+                      animate={{ x: 0 }}
+                      transition={{ delay: 0.15, type: 'tween' }}
+                      style={{ width: '100%' }}
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -212,14 +230,18 @@ export default function RegisterView() {
                         }}
                         placeholder="Пароль"
                       />
-                    </Box>
+                    </motion.Box>
 
                     <PasswordStrengthMeter password={password} />
 
                     {touched.confirmPassword && errors.confirmPassword && (
                       <p className={s.error}>{errors.confirmPassword}</p>
                     )}
-                    <Box
+                    <motion.Box
+                      initial={{ x: '100vw' }}
+                      animate={{ x: 0 }}
+                      transition={{ delay: 0.3, type: 'tween' }}
+                      style={{ marginBottom: '40px', width: '100%' }}
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -256,11 +278,15 @@ export default function RegisterView() {
                         }}
                         placeholder="Подтвердите пароль"
                       />
-                    </Box>
+                    </motion.Box>
                     {touched.name && errors.name && (
                       <p className={s.error}>{errors.name}</p>
                     )}
-                    <Box
+                    <motion.Box
+                      initial={{ x: '100vw' }}
+                      animate={{ x: 0 }}
+                      transition={{ delay: 0.35, type: 'tween' }}
+                      style={{ marginBottom: '40px', width: '100%' }}
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -297,7 +323,7 @@ export default function RegisterView() {
                         }}
                         placeholder="Ваше имя"
                       />
-                    </Box>
+                    </motion.Box>
 
                     <NavLink
                       disabled={!isValid && !dirty}
