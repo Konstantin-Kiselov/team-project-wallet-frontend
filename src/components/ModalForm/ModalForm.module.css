@@ -179,7 +179,7 @@
   background-color: rgb(218, 49, 49);
 } */
 
-.inputComent {
+.inputComment {
   /* padding: 10px 20px; */
   border: none;
   border-bottom: 1px solid #e0e0e0;
@@ -193,28 +193,28 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .inputComent {
+  .inputComment {
     width: 280px;
     padding: 10px 20px 50px 20px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .inputComent {
+  .inputComment {
     width: 410px;
     padding: 10px 20px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .inputComent {
+  .inputComment {
     width: 410px;
     padding: 10px 20px;
   }
 }
 
-.inputComent:hover,
-.inputComent:focus {
+.inputComment:hover,
+.inputComment:focus {
   outline: 0;
   border-bottom: 1px solid #17b391;
 }
