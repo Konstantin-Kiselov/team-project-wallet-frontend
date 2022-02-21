@@ -4,8 +4,10 @@ import axios from 'axios';
 export async function getCategory() {
   try {
     console.log('Get Expenditure Category');
-    const response = await axios.get('/categories');
-    console.log(response);
+    const response = await axios.get('/transactions/categories');
+    console.log('bbbbbbbbbbbbbbbbbbbbbbbb', response);
+
+    return response;
   } catch (error) {
     console.error(error);
   }
@@ -22,7 +24,7 @@ export async function getCategory() {
 export async function addTransaction(requestBody) {
   try {
     console.log('Post request', requestBody);
-    const response = await axios.post('/', { requestBody });
+    const response = await axios.post('/transactions', { requestBody });
     console.log(response);
   } catch (error) {
     console.error(error);
