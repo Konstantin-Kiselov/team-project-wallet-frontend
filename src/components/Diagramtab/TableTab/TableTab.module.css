@@ -3,11 +3,16 @@
   margin: 0;
 }
 
-.filter {
+.table__input__wrapper {
   width: 350px;
 }
 
-.filter__input {
+.table__input {
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
   width: 100%;
   margin-bottom: 20px;
   height: 50px;
@@ -16,83 +21,109 @@
   border-radius: 30px;
 }
 
-.statistics {
+.table__stat__list {
   width: 100%;
 }
 
-.statistics__title__wrapper {
+.table__stat__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
   width: 100%;
-  height: 68px;
+  height: 58px;
   background-color: white;
   border-radius: 30px;
 }
 
-.statistics__title__part {
-  font-weight: 700;
+.table__stat__title {
+  font-family: Circe;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
 }
 
-.statistics__item {
+.table__stat__item {
   display: flex;
   align-items: center;
   height: 54px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
   align-items: center;
   border-bottom: 1px solid #dcdcdf;
 }
 
-.statistics__item:first-of-type {
+.table__stat__item:first-of-type {
   margin-top: 9px;
 }
 
-.statistics__color {
+.table__stat__color {
   width: 24px;
   height: 24px;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin-right: 16px;
 }
 
-.statistics__costs {
+.table__stat__category {
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.table__stat__sum {
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
   margin-left: auto;
-  margin-right: 15px;
   min-width: 60px;
   text-align: right;
 }
 
-.outcome {
+.table__results__list {
   width: 100%;
   margin-top: 15px;
 }
 
-.outcome__item {
+.table__results__item {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
 }
 
-.outcome__type {
+.table__results__type {
+  font-family: Circe;
+  font-style: normal;
   font-weight: bold;
-  margin-left: 15px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
-.outcome__total__expenses {
-  margin-right: 15px;
+.table__results__expenses {
+  font-family: Circe;
+  font-style: normal;
   font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
   color: #ff6596;
 }
 
-.outcome__total__income {
-  margin-right: 15px;
+.table__results__income {
+  font-family: Circe;
+  font-style: normal;
   font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
   color: #24cca7;
 }
 
 @media screen and (min-width: 768px) {
-  .filter__input {
+  .table__input {
     width: 166px;
     height: 50px;
     padding-left: 21px;
@@ -101,11 +132,15 @@
     margin-bottom: 0;
   }
 
-  .statistics {
+  .table__stat__list {
     margin-top: 20px;
   }
 
-  .filter__input:last-of-type {
+  .table__input:last-of-type {
     margin-left: 18px;
+  }
+
+  .table__stat__category {
+    line-height: 24px;
   }
 }
