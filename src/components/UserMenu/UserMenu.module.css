@@ -63,3 +63,15 @@
 
 @media screen and (min-width: 1280px) {
 }
+
+/*///////////////////////*/
+.buttonContainer {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  /* outline: 1px solid #a31444; */
+}
+
+.buttonExit {
+  margin-bottom: 20px;
+}
