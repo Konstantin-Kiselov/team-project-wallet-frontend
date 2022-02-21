@@ -70,7 +70,7 @@ export default function ModalForm({ allCategory, onClick }) {
   let profitOptions = [];
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
-  allCategory1.map(element =>
+  allCategory.map(element =>
     element.income
       ? profitOptions.push(element)
       : expenditureOptions.push(element)
@@ -106,19 +106,17 @@ export default function ModalForm({ allCategory, onClick }) {
     category: category,
     amount: sum,
     comment: comment,
+    // data: today,
   };
   console.log(requestBody);
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    // console.log('Post request', requestBody);
     // dispatch(authOperations.logIn({ email, password }));
-    // setEmail("");
-    // setPassword("");
 
     addTransaction(requestBody)
-      .then(response => console.log(response))
+      .then(response => console.log('77777777777777777777', response))
       .catch(error => console.log(error));
 
     onClick(false);
@@ -200,6 +198,11 @@ export default function ModalForm({ allCategory, onClick }) {
                     className={s.dropdownItem}
                     onClick={e => {
                       setCategory(option);
+                      // setCategory({
+                      //   income: option.income,
+                      //   name: option.name,
+                      //   _id: option._id,
+                      // });
                       setSelect(option.name);
                       setItemselect(false);
                     }}
@@ -342,3 +345,4 @@ export default function ModalForm({ allCategory, onClick }) {
 //               }}
 //             /> */
 //  }
+// mongodb+srv://Kirill:Y1JFioqkTigXn9xQ@cluster0.guodi.mongodb.net/db_wallet?retryWrites=true&w=majority
