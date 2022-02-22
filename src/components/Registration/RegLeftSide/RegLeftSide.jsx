@@ -20,6 +20,8 @@ export default function RegLeftSide() {
           transition={{ delay: 0.2, duration: 1.5 }}
         />
       </div>
+
+      <h1 className={s.titleLeftSide}>Finance App</h1>
     </div>
   );
 }
