@@ -11,4 +11,17 @@
     left: 0;
     bottom: 0;
   }
+
+  .titleLeftSide {
+    position: relative;
+
+    top: 40px;
+    left: 130px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 45px;
+  }
 }
