@@ -50,13 +50,11 @@ function Currency() {
           <tbody>
             {actualCurrencies.map(item => {
               return (
-                <>
-                  <tr key={item.ccy} className={styles.tableRow}>
-                    <td>{item.ccy}</td>
-                    <td className={styles.buyCell}>{item.buy.slice(0, 5)}</td>
-                    <td className={styles.saleCell}>{item.sale.slice(0, 5)}</td>
-                  </tr>
-                </>
+                <tr key={item.ccy} className={styles.tableRow}>
+                  <td>{item.ccy}</td>
+                  <td className={styles.buyCell}>{item.buy.slice(0, 5)}</td>
+                  <td className={styles.saleCell}>{item.sale.slice(0, 5)}</td>
+                </tr>
               );
             })}
           </tbody>
