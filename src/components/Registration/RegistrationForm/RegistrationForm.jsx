@@ -78,17 +78,10 @@ export default function RegistrationForm() {
           {touched.email && errors.email && (
             <p className={s.error}>{errors.email}</p>
           )}
-          <motion.Box
+          <motion.div
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0, type: 'tween' }}
-            style={{ marginBottom: '40px', width: '100%' }}
-            sx={{
-              display: 'flex',
-              alignItems: 'flex-end',
-
-              width: '100%',
-            }}
           >
             <TextField
               className={s.TextField}
@@ -122,21 +115,14 @@ export default function RegistrationForm() {
               }}
               placeholder="E-mail"
             />
-          </motion.Box>
+          </motion.div>
           {touched.password && errors.password && (
             <p className={s.error}>{errors.password}</p>
           )}
-          <motion.Box
+          <motion.div
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0.15, type: 'tween' }}
-            style={{ width: '100%' }}
-            sx={{
-              display: 'flex',
-              alignItems: 'flex-end',
-              mb: '40px',
-              width: '100%',
-            }}
           >
             <TextField
               className={s.TextField}
@@ -185,24 +171,17 @@ export default function RegistrationForm() {
               }}
               placeholder="Пароль"
             />
-          </motion.Box>
+          </motion.div>
 
           <PasswordStrengthMeter password={password} />
 
           {touched.confirmPassword && errors.confirmPassword && (
             <p className={s.error}>{errors.confirmPassword}</p>
           )}
-          <motion.Box
+          <motion.div
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0.3, type: 'tween' }}
-            style={{ marginBottom: '40px', width: '100%' }}
-            sx={{
-              display: 'flex',
-              alignItems: 'flex-end',
-              mb: '40px',
-              width: '100%',
-            }}
           >
             <TextField
               className={s.TextField}
@@ -234,21 +213,14 @@ export default function RegistrationForm() {
               }}
               placeholder="Подтвердите пароль"
             />
-          </motion.Box>
+          </motion.div>
           {touched.name && errors.name && (
             <p className={s.error}>{errors.name}</p>
           )}
-          <motion.Box
+          <motion.div
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0.35, type: 'tween' }}
-            style={{ marginBottom: '40px', width: '100%' }}
-            sx={{
-              display: 'flex',
-              alignItems: 'flex-end',
-              mb: '40px',
-              width: '100%',
-            }}
           >
             <TextField
               className={s.TextField}
@@ -280,7 +252,7 @@ export default function RegistrationForm() {
               }}
               placeholder="Ваше имя"
             />
-          </motion.Box>
+          </motion.div>
 
           <NavLink
             disabled={!isValid && !dirty}
