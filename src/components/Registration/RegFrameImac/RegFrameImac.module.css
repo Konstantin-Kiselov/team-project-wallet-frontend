@@ -1,54 +1,76 @@
 @media (min-width: 768px) and (max-width: 1279px) {
+  .RegFrameImac {
+    position: relative;
+
+    border: 1px solid red;
+
+    width: 273.93px;
+    height: 250px;
+  }
+
   .bigShadow {
+    position: absolute;
     z-index: 7;
 
-    top: -94px;
-    left: 100px;
+    bottom: 0;
+    left: 25px;
 
     width: 239.94px;
+    height: 34.54px;
   }
 
   .cellphone {
+    position: absolute;
     z-index: 9;
 
-    width: 121.36px;
+    bottom: 30px;
+    left: 92px;
 
-    bottom: 90px;
-    left: 160px;
+    width: 121.36px;
+    height: 215.95px;
   }
 
   .dollar {
+    position: absolute;
     z-index: 9;
 
-    width: 44.78px;
+    top: 2px;
+    right: 4px;
 
-    bottom: 269px;
-    right: -348px;
+    width: 44.78px;
+    height: 44.78px;
   }
 
   .flowerpot {
-    width: 74.41px;
+    position: absolute;
 
-    bottom: 105px;
-    left: 98px;
+    bottom: 52px;
+    left: 32px;
+
+    width: 74.41px;
+    height: 145.94px;
   }
 
   .sheetOfPaper {
+    position: absolute;
     z-index: 10;
 
-    width: 81.19px;
+    left: 40px;
+    bottom: 18px;
 
-    left: 103px;
-    bottom: 76px;
+    width: 81.19px;
+    height: 108.58px;
   }
 
   .woman {
+    position: absolute;
     z-index: 10;
 
-    bottom: 73px;
-    left: 250px;
+    bottom: 14px;
+    left: 180px;
 
     width: 86.62px;
+    height: 217.12px;
   }
 }
 
