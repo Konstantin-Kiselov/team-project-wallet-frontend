@@ -6,6 +6,8 @@
 
 @media (min-width: 1280px) {
   .formContainer {
+    position: absolute;
+
     width: 540px;
 
     display: inline-block;
@@ -44,5 +46,14 @@
     justify-content: center;
 
     margin-bottom: 48px;
+  }
+
+  .pinkEllipse {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    filter: blur(50px);
   }
 }
