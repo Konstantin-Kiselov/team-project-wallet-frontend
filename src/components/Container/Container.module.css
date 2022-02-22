@@ -23,10 +23,7 @@
 
 @media (min-width: 1280px) {
   .container {
-    display: flex;
-
     width: 1280px;
-    min-height: 720px;
 
     padding-left: 85px;
     padding-right: 85px;
