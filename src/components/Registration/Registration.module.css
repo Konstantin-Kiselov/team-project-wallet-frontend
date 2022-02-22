@@ -20,3 +20,11 @@
     min-height: 0;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .containerImac {
+    display: flex;
+
+    min-height: 720px;
+  }
+}
