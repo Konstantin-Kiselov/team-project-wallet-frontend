@@ -1,8 +1,5 @@
 .sectionRegistration {
-  overflow: hidden;
-
-  background: linear-gradient(to right, #e5e5e5 40%, #e7eaf2 9%);
-  min-height: 916px;
+  background: linear-gradient(to right, #e5e5e5 45.5%, #e7eaf2 9%);
 }
 
 @media screen and (max-width: 767px) {
@@ -15,8 +12,6 @@
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .sectionRegistration {
-    position: relative;
-
     padding-top: 360px;
     padding-bottom: 48px;
 
