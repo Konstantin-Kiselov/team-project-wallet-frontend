@@ -185,14 +185,18 @@ export default function RegistrationForm() {
           >
             <TextField
               className={s.TextField}
-              type="password"
+              type={passwordValues.showPassword ? 'text' : 'password'}
               id="input-with-sx"
               //label="Подтвердите пароль"
               variant="standard"
               fullWidth
               required
               name="confirmPassword"
-              onChange={handleChange}
+              onChange={e => {
+                setPassword(e.target.value);
+                handleChange(e);
+                handleChangePassword('password');
+              }}
               onBlur={handleBlur}
               value={values.confirmPassword}
               sx={{
@@ -209,6 +213,21 @@ export default function RegistrationForm() {
                 },
                 startAdornment: (
                   <LockIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {passwordValues.showPassword ? (
+                        <VisibilityOff />
+                      ) : (
+                        <Visibility />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
                 ),
               }}
               placeholder="Подтвердите пароль"
