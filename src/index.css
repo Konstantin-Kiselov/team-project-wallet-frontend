@@ -33,7 +33,8 @@ code {
 }
 
 body {
-  overflow: '';
+  /* overflow: ''; */
+  overflow: hidden;
 }
 
 h1,
