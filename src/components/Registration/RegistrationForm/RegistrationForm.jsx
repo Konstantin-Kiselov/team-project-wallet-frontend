@@ -15,7 +15,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import PasswordStrengthMeter from '../../Registration/PasswordStrengthMeter';
+import PasswordStrengthMeter from '../../Registration/PasswordStrengthMeter/PasswordStrengthMeter';
 
 import s from './RegistrationForm.module.css';
 
@@ -86,14 +86,14 @@ export default function RegistrationForm() {
             sx={{
               display: 'flex',
               alignItems: 'flex-end',
-              mb: '40px',
+
               width: '100%',
             }}
           >
             <TextField
               className={s.TextField}
               id="input-with-sx"
-              label="E-mail"
+              //label="E-mail"
               type="email"
               variant="standard"
               fullWidth
@@ -102,6 +102,9 @@ export default function RegistrationForm() {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.email}
+              sx={{
+                mb: '40px',
+              }}
               InputProps={{
                 style: {
                   color: '#BDBDBD',
@@ -131,7 +134,7 @@ export default function RegistrationForm() {
             sx={{
               display: 'flex',
               alignItems: 'flex-end',
-              mb: '',
+              mb: '40px',
               width: '100%',
             }}
           >
@@ -140,7 +143,7 @@ export default function RegistrationForm() {
               type={passwordValues.showPassword ? 'text' : 'password'}
               //value={values.password}
               id="input-with-sx"
-              label="Пароль"
+              //label="Пароль"
               variant="standard"
               fullWidth
               required
@@ -184,7 +187,7 @@ export default function RegistrationForm() {
             />
           </motion.Box>
 
-          {/*<PasswordStrengthMeter password={password} />*/}
+          <PasswordStrengthMeter password={password} />
 
           {touched.confirmPassword && errors.confirmPassword && (
             <p className={s.error}>{errors.confirmPassword}</p>
@@ -205,7 +208,7 @@ export default function RegistrationForm() {
               className={s.TextField}
               type="password"
               id="input-with-sx"
-              label="Подтвердите пароль"
+              //label="Подтвердите пароль"
               variant="standard"
               fullWidth
               required
@@ -213,6 +216,9 @@ export default function RegistrationForm() {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.confirmPassword}
+              sx={{
+                mb: '40px',
+              }}
               InputProps={{
                 style: {
                   color: '#BDBDBD',
@@ -247,7 +253,7 @@ export default function RegistrationForm() {
             <TextField
               className={s.TextField}
               id="input-with-sx"
-              label="Ваше имя"
+              //label="Ваше имя"
               type="text"
               variant="standard"
               fullWidth
@@ -256,6 +262,9 @@ export default function RegistrationForm() {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.name}
+              sx={{
+                mb: '50px',
+              }}
               InputProps={{
                 style: {
                   color: '#BDBDBD',
