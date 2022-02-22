@@ -263,7 +263,7 @@ export default function RegistrationForm() {
             data-name={'login'}
             id="login"
             style={({ isActive }) => ({
-              marginBottom: isActive ? '20px' : '0px',
+              marginBottom: isActive ? '180px' : '0px',
             })}
           >
             Вход
@@ -277,7 +277,7 @@ export default function RegistrationForm() {
             data-name={'register'}
             id="register"
             style={({ isActive }) => ({
-              marginTop: isActive ? '20px' : '0px',
+              marginTop: isActive ? '18px' : '0px',
               marginBottom: '0px',
             })}
           >
