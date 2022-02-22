@@ -16,14 +16,12 @@ import 'simplebar/src/simplebar.css';
 export default function Hometab() {
   const addedTransaction = useSelector(getAddedTransactions);
   const allTransactions = useSelector(getAllTransactions);
-  console.log(allTransactions);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch, addedTransaction]);
-  console.log(addedTransaction);
 
   return (
     <div className={s.container}>
@@ -52,15 +50,7 @@ export default function Hometab() {
             </thead>
             <tbody className={s.body}>
               {allTransactions.map(
-                ({
-                  _id,
-                  income,
-                  category,
-                  comment,
-                  amount,
-                  total,
-                  createdAt,
-                }) => (
+                ({ _id, income, category, comment, amount, total, date }) => (
                   <tr
                     key={_id}
                     className={classNames(
@@ -69,7 +59,7 @@ export default function Hometab() {
                     )}
                   >
                     <td aria-label="Дата" className={s.body_item}>
-                      {createdAt}
+                      {date}
                     </td>
                     <td
                       aria-label="Тип"
