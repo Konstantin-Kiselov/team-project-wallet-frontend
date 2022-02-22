@@ -11,10 +11,10 @@ import React, { useState } from 'react';
 import AppBar from '../../components/AppBar/AppBar';
 import Currency from '../../components/Currency/Currency';
 import ButtonAddTransaction from '../../components/ButtonAddTransaction';
-import ModalAddTransaction from '../../components/ModalAddTransaction';
+// import ModalAddTransaction from '../../components/ModalAddTransaction';
 import Modal from '../../components/Modal';
 import ModalContainer from '../../components/ModalContainer';
-import Toggle from '../../components/Toggle';
+// import Toggle from '../../components/Toggle';
 import ModalForm from '../../components/ModalForm';
 import AddTransactContainer from '../../components/AddTransactContainer';
 import { useLocation } from 'react-router-dom';
@@ -24,11 +24,13 @@ import TotalBalance from '../../components/TotalBalance/TotalBalance';
 export default function HomeView() {
   /*========== Получение всех категорий по клику на кнопку ButtonAddTransaction */
   const [allCategory, setAllCategory] = useState([]);
+  console.log('5555555555555555', allCategory);
+
   const getAllCategory = () => {
     getCategory()
       .then(response => {
-        console.log(response);
-        setAllCategory(response);
+        console.log('ffffffffffffffffffff', response.data);
+        setAllCategory(response.data);
       })
       .catch(error => console.log(error));
   };
@@ -52,6 +54,7 @@ export default function HomeView() {
           <Container>
             <div className={s.flexContainer}>
               <div className={s.leftSide}>
+                <div className={s.divider}></div>
                 <div>
                   <div className={s.navIcons}>
                     <Navigation />
