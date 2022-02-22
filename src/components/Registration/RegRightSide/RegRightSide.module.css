@@ -13,16 +13,14 @@
     padding-left: 65px;
     padding-top: 40px;
     padding-right: 65px;
-    padding-bottom: 62px;
+    padding-bottom: 44px;
 
     background-color: #fff;
     border-radius: 20px;
   }
 
   .RegRightSide {
-    right: -363px;
-
-    padding-left: 95px;
+    padding-left: 77px;
     padding-top: 52px;
 
     padding-bottom: 52px;
@@ -45,6 +43,6 @@
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 50px;
+    margin-bottom: 48px;
   }
 }
