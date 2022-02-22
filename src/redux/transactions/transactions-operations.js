@@ -23,12 +23,38 @@ export const fetchTransactions = createAsyncThunk(
 
 export const getStatistics = createAsyncThunk(
   'transactions/getStatistics',
-  async () => {
+  async ({ month, year }) => {
+    console.log(month);
+    let monthNumber = getNumericMonth(month);
+    if (monthNumber === '-1') {
+      const now = new Date();
+      monthNumber = now.getMonth().toString().padStart(2, '0');
+    }
+    console.log(monthNumber);
     const { data } = await axios.get(
       // '/transactions/stats'
-      '/transactions/stats?year=2022&month=1'
+      `/transactions/stats?year=${year}&month=${monthNumber}`
     );
     console.log(data);
     return data;
   }
 );
+
+function getNumericMonth(monthAbbr) {
+  return String(
+    [
+      'Январь',
+      'Февраль',
+      'Март',
+      'Апрель',
+      'Май',
+      'Июнь',
+      'Июль',
+      'Август',
+      'Сентябрь',
+      'Октябрь',
+      'Ноябрь',
+      'Декабрь',
+    ].indexOf(monthAbbr)
+  ).padStart(2, '0');
+}

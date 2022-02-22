@@ -17,34 +17,30 @@ export default function Table() {
     '#00AD84',
   ];
 
+  const now = new Date();
+
   const [inputData, setInputData] = useState({
     month: '',
     year: '',
   });
 
   const queryStatistics = useSelector(getAllQueryStatistics);
-  console.log(queryStatistics);
-  console.log(queryStatistics.stats);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getStatistics());
-  }, [dispatch]);
+    dispatch(getStatistics(inputData));
+  }, [dispatch, inputData]);
   // console.log(queryStatistics);
 
-  const onClick = useCallback(e => {
-    e.currentTarget.value = '';
-    const {
-      currentTarget: { name, value },
-    } = e;
+  const handleChange = useCallback(e => {
+    const { name, value } = e.currentTarget;
     setInputData(prev => ({ ...prev, [name]: value }));
   }, []);
 
-  const handleChange = useCallback(e => {
-    const {
-      currentTarget: { name, value },
-    } = e;
+  const onClick = useCallback(e => {
+    e.currentTarget.value = '';
+    const { name, value } = e.currentTarget;
     setInputData(prev => ({ ...prev, [name]: value }));
   }, []);
 
@@ -53,8 +49,8 @@ export default function Table() {
       <div className={s.table__input__wrapper}>
         <input
           className={s.table__input}
-          name="months"
-          //   value={inputData.month}
+          name="month"
+          value={inputData.month}
           list="months"
           placeholder="Месяц"
           onClick={onClick}
@@ -82,8 +78,8 @@ export default function Table() {
 
         <input
           className={s.table__input}
-          name="years"
-          //   value={inputData.year}
+          name="year"
+          value={inputData.year}
           list="years"
           placeholder="Год"
           onClick={onClick}
