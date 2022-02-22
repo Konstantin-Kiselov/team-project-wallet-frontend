@@ -141,7 +141,7 @@ export default function RegistrationForm() {
             <TextField
               className={s.TextField}
               type={passwordValues.showPassword ? 'text' : 'password'}
-              //value={values.password}
+              value={values.password}
               id="input-with-sx"
               //label="Пароль"
               variant="standard"
