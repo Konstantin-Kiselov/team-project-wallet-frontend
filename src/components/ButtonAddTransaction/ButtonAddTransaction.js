@@ -1,5 +1,6 @@
 import s from './ButtonAddTransaction.module.css';
 import { getCategory } from '../../services/walletAPI';
+import { ReactComponent as Plus } from '../../img/icons/plus.svg';
 
 function ButtonAddTransaction({ onClick }) {
   const onClickBtn = e => {
@@ -12,7 +13,9 @@ function ButtonAddTransaction({ onClick }) {
     onClick(true);
   };
   return (
-    <button type="button" className={s.button} onClick={onClickBtn}></button>
+    <button type="button" className={s.button} onClick={onClickBtn}>
+      <Plus className={s.iconPlus} />
+    </button>
   );
 }
 

@@ -3,6 +3,8 @@
 
   background-color: #fff;
   overflow: hidden;
+  /* background: none repeat scroll 0 0 #666666; */
+  /* overflow: scroll; */
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {

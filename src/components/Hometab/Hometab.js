@@ -13,7 +13,7 @@ import SimpleBarReact from 'simplebar-react';
 
 import 'simplebar/src/simplebar.css';
 
-export default function Hometab() {
+export default function Hometab({ children }) {
   const addedTransaction = useSelector(getAddedTransactions);
   const allTransactions = useSelector(getAllTransactions);
   console.log(allTransactions);
@@ -112,6 +112,7 @@ export default function Hometab() {
           Нет данных по операциям. Добавьте транзакции :)
         </div>
       )}
+      {children}
     </div>
   );
 }

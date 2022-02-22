@@ -1,23 +1,16 @@
 import s from './ModalForm.module.css';
-// import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import Button from '../Button';
-// import moment from 'moment';
-import { getCategory, addTransaction } from '../../services/walletAPI';
+import { addTransaction } from '../../services/walletAPI';
 import { ReactComponent as Plus } from '../../img/icons/plus.svg';
 import { ReactComponent as Minus } from '../../img/icons/minus.svg';
 import { ReactComponent as DateIcon } from '../../img/icons/data.svg';
 
 export default function ModalForm({ allCategory, onClick }) {
-  // const Today = new Date();
   const today = new Date().toLocaleDateString();
   console.log(today);
   const [sum, setSum] = useState('');
   const [comment, setComment] = useState('');
-
-  // const [data, setData] = useState(
-  //   `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
-  // );
   const [select, setSelect] = useState('');
   const [toggle, setToggle] = useState(true);
   const [itemselect, setItemselect] = useState(false);
@@ -30,10 +23,6 @@ export default function ModalForm({ allCategory, onClick }) {
     if (e.currentTarget.name === 'comment') {
       setComment(e.currentTarget.value);
     }
-
-    // if (e.currentTarget.name === 'data') {
-    //   setData(e.currentTarget.value);
-    // }
 
     // if (e.currentTarget.name === 'select') {
     //   setSelect(e.currentTarget.value);
@@ -69,26 +58,19 @@ export default function ModalForm({ allCategory, onClick }) {
   let expenditureOptions = [];
   let profitOptions = [];
 
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
   allCategory.map(element =>
     element.income
       ? profitOptions.push(element)
       : expenditureOptions.push(element)
   );
 
-  // allCategory1.map(element =>
+  // allCategory.map(element =>
   //   element.income
   //     ? profitOptions.push({ name: element.name, id: element.id })
   //     : expenditureOptions.push({ name: element.name, id: element.id })
   // );
 
-  // allCategory1.map(element =>
-  //   element.income
-  //     ? profitOptions.push(element)
-  //     : expenditureOptions.push(element)
-  // );
-
-  console.log('111111111111', allCategory);
+  console.log(allCategory);
 
   let categoryOptions = [];
   if (!toggle) {
@@ -122,26 +104,13 @@ export default function ModalForm({ allCategory, onClick }) {
     onClick(false);
   };
 
-  // Удалить
-  // const getAllCategory = () => {
-  //   getCategory()
-  //     .then(response => console.log(response))
-  //     .catch(error => console.log(error));
-  // };
-
-  // toggle && getExpendCategory();
-
   return (
     <div className={s.container}>
       <form onSubmit={handleSubmit}>
         {/* /*============================================================ Toggle =================================== */}
         <div className={s.containerToggle}>
-          {/* <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
-        <use href="./images/sprite.svg#sun"></use>
-      </svg> */}
-
           <span className={toggle ? s.noActive : s.profit}>Доход</span>
-          <Plus className={s.iconPlus} height={20} width={20} fill="#000000" />
+          {!toggle && <Plus className={s.iconPlus} />}
 
           <div className={s.switchControl}>
             <input
@@ -166,13 +135,14 @@ export default function ModalForm({ allCategory, onClick }) {
           </div>
           <span className={toggle ? s.expenditure : s.noActive}>Расход</span>
 
-          <Minus width={30} height={30} fill="#000000" />
-          {/* <svg className={s.iconPlus} role="img" aria-label="iconPlus"> */}
-          {/* <use
-              className={s.iconPlus}
-              href="../../img/sprite.svg#icon-minus"
-            ></use> */}
-          {/* </svg> */}
+          {toggle && (
+            <Minus
+              className={s.iconMinus}
+              width={30}
+              height={30}
+              fill="#000000"
+            />
+          )}
         </div>
         {/* ============================================================== Toggle ===================== */}
 
@@ -229,7 +199,6 @@ export default function ModalForm({ allCategory, onClick }) {
               ></input>
             </label>
 
-            {/* <div> */}
             <div
               className={s.date}
               id="date"
@@ -240,7 +209,6 @@ export default function ModalForm({ allCategory, onClick }) {
               {today}
               <DateIcon className={s.dateIcon} width={24} height={24} />
             </div>
-            {/* </div> */}
           </div>
 
           <label for="comment">
@@ -279,70 +247,10 @@ export default function ModalForm({ allCategory, onClick }) {
   );
 }
 
-////////////////////////
-// {
-//   /* <FormControl fullWidth>
-//             <InputLabel id="demo-simple-select-label">
-//               Выберите категорию
-//             </InputLabel>
-//             <Select
-//               className={s.select}
-//               labelId="demo-simple-select-label"
-//               id="demo-simple-select"
-//               value={select}
-//               label="Select"
-//               onChange={handleChange}
-//             >
-//               <MenuItem value={10}>Регулярный доход</MenuItem>
-//               <MenuItem value={20}>Нерегулярный доход</MenuItem>
-//             </Select>
-//           </FormControl> */
-// }
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// const Today = new Date();
+// const [data, setData] = useState(
+//   `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
+// );
 
-//  <div className={s.selectContainer}>
-//    <select
-//      required
-//      // defaultValue
-//      name="select"
-//      className={s.select}
-//      placeholder="Выберите категорию"
-//      onChange={handleChange}
-//    >
-//      <option value="" disabled selected>
-//        Выберите категорию
-//      </option>
-//      <option className={s.option} value={select}>
-//        Регулярный доход
-//      </option>
-//      <option className={s.option} value={select}>
-//        Нерегулярный доход
-//      </option>
-//    </select>
-//  </div>;
-
-// const expenditureOptions = ['Авто', 'Еда', 'Одежда', 'Комуналка'];
-
-// const profitOptions = [
-//   'Нерегулярный доход',
-//   'Регулярный доход',
-//   'Нерегулярный доход',
-//   'Регулярный доход',
-// ];
-
-//  {
-//    /* <TextField
-//               className={s.data}
-//               name="data"
-//               value={data}
-//               onChange={handleChange}
-//               id="date"
-//               label=""
-//               type="date"
-//               // defaultValue="2017-05-24"
-//               variant="standard"
-//               InputLabelProps={{
-//                 shrink: true,
-//               }}
-//             /> */
-//  }
 // mongodb+srv://Kirill:Y1JFioqkTigXn9xQ@cluster0.guodi.mongodb.net/db_wallet?retryWrites=true&w=majority

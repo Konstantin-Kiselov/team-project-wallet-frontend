@@ -477,15 +477,22 @@
 
 .iconPlus {
   /* color: currentColor; */
-  /* fill: #ffffff;*/
-  fill: #6b1212;
-  color: #17b391;
 
+  position: absolute;
   height: 20px;
   width: 20px;
-  /* margin-right: 8px;
-  margin-left: 8px; */
-  outline: 1px solid #14a32c;
+  right: 295px;
+  z-index: 111;
+  /* outline: 1px solid #14a32c; */
+}
+
+.iconMinus {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 250px;
+  z-index: 111;
+  /* outline: 1px solid #14a32c; */
 }
 
 .switchControl {
