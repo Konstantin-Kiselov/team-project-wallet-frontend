@@ -23,13 +23,15 @@ export default function Table() {
   });
 
   const queryStatistics = useSelector(getAllQueryStatistics);
+  console.log(queryStatistics);
+  console.log(queryStatistics.stats);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getStatistics());
-  }, [dispatch, queryStatistics]);
-  console.log(queryStatistics);
+  }, [dispatch]);
+  // console.log(queryStatistics);
 
   const onClick = useCallback(e => {
     e.currentTarget.value = '';
@@ -105,63 +107,33 @@ export default function Table() {
           <span className={s.table__stat__title}>Сумма</span>
         </li>
 
-        {/* {queryStatistics &&
-          Object.keys(queryStatistics).map((category, index, amount) => ( */}
-        <li
-          className={s.table__stat__item}
-          //  key={index}
-        >
-          <span
-            className={s.table__stat__color}
-            style={{ backgroundColor: backgroundColor[0] }}
-            // style={{ backgroundColor: backgroundColor[index] }}
-          ></span>
-          <span className={s.table__stat__category}>Категория_01</span>
-          {/* {category} */}
-          <span className={s.table__stat__sum}>
-            Сумма_01
-            {/* {amount} */}
-          </span>
-        </li>
-        <li className={s.table__stat__item}>
-          <span
-            className={s.table__stat__color}
-            style={{ backgroundColor: backgroundColor[1] }}
-          ></span>
-          <span className={s.table__stat__category}>Категория_02</span>
-          <span className={s.table__stat__sum}>Сумма_02</span>
-        </li>
-        <li className={s.table__stat__item}>
-          <span
-            className={s.table__stat__color}
-            style={{ backgroundColor: backgroundColor[2] }}
-          ></span>
-          <span className={s.table__stat__category}>Категория_03</span>
-          <span className={s.table__stat__sum}>Сумма_03</span>
-        </li>
-        <li className={s.table__stat__item}>
-          <span
-            className={s.table__stat__color}
-            style={{ backgroundColor: backgroundColor[3] }}
-          ></span>
-          <span className={s.table__stat__category}>Категория_04</span>
-          <span className={s.table__stat__sum}>Сумма_04</span>
-        </li>
+        {queryStatistics.stats &&
+          queryStatistics.stats.map((item, index) => {
+            console.log(item);
+            return (
+              <li className={s.table__stat__item}>
+                <span
+                  className={s.table__stat__color}
+                  style={{ backgroundColor: backgroundColor[index] }}
+                ></span>
+                <span className={s.table__stat__category}>{item.name}</span>
+                <span className={s.table__stat__sum}>{item.amount}</span>
+              </li>
+            );
+          })}
       </ul>
 
       <ul className={s.table__results__list}>
         <li className={s.table__results__item}>
           <span className={s.table__results__type}>Расходы:</span>
           <span className={s.table__results__expenses}>
-            {/* {totalExpenses} */}
-            Сумма расходов
+            {queryStatistics.expense}
           </span>
         </li>
         <li className={s.table__results__item}>
           <span className={s.table__results__type}>Доходы:</span>
           <span className={s.table__results__income}>
-            {/* {totalIncome} */}
-            Сумма доходов
+            {queryStatistics.income}
           </span>
         </li>
       </ul>

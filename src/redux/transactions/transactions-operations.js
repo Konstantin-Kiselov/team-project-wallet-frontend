@@ -24,7 +24,10 @@ export const fetchTransactions = createAsyncThunk(
 export const getStatistics = createAsyncThunk(
   'transactions/getStatistics',
   async () => {
-    const { data } = await axios.get('/transactions/stats');
+    const { data } = await axios.get(
+      // '/transactions/stats'
+      '/transactions/stats?year=2022&month=1'
+    );
     console.log(data);
     return data;
   }
