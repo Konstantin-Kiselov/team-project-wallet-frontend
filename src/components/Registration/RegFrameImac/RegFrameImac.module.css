@@ -64,6 +64,7 @@
 
   .bigShadow {
     position: absolute;
+    z-index: 2;
 
     width: 396px;
     height: 57px;
@@ -74,6 +75,7 @@
 
   .woman {
     position: absolute;
+    z-index: 5;
 
     width: 142.96px;
     height: 358.33px;
@@ -84,6 +86,7 @@
 
   .sheetOfPaper {
     position: absolute;
+    z-index: 4;
 
     width: 134px;
     height: 179.2px;
@@ -94,6 +97,7 @@
 
   .cellphone {
     position: absolute;
+    z-index: 3;
 
     width: 200.3px;
     height: 356.4px;
@@ -104,6 +108,7 @@
 
   .flowerpot {
     position: absolute;
+    z-index: 1;
 
     width: 122.8px;
     height: 240.85px;
