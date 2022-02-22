@@ -15,7 +15,9 @@ export default function RegRightSide() {
             src={walletIcon}
             alt="wallet icon"
             whileHover={{ scale: 1.1 }}
-            transition={{ yoyo: Infinity }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
           />
           <h2 className={s.titleRightSide}>Wallet</h2>
         </div>
