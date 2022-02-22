@@ -1,28 +1,29 @@
 import s from './ModalForm.module.css';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import Button from '../Button';
-import moment from 'moment';
+// import moment from 'moment';
 import { getCategory, addTransaction } from '../../services/walletAPI';
+import { ReactComponent as Plus } from '../../img/icons/plus.svg';
+import { ReactComponent as Minus } from '../../img/icons/minus.svg';
+import { ReactComponent as DateIcon } from '../../img/icons/data.svg';
 
 export default function ModalForm({ allCategory, onClick }) {
-  const Today = new Date();
-  // const m = moment.now();
-  // const a = moment().format('L');
-  // console.log(a);
+  // const Today = new Date();
+  const today = new Date().toLocaleDateString();
+  console.log(today);
   const [sum, setSum] = useState('');
   const [comment, setComment] = useState('');
-  const [data, setData] = useState(
-    `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
-  );
-  // const [data, setData] = useState(a);
+
+  // const [data, setData] = useState(
+  //   `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
+  // );
   const [select, setSelect] = useState('');
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const [itemselect, setItemselect] = useState(false);
   const [category, setCategory] = useState('');
 
   console.log(toggle);
-  console.log(data);
   console.log(select);
 
   const handleChange = e => {
@@ -30,9 +31,9 @@ export default function ModalForm({ allCategory, onClick }) {
       setComment(e.currentTarget.value);
     }
 
-    if (e.currentTarget.name === 'data') {
-      setData(e.currentTarget.value);
-    }
+    // if (e.currentTarget.name === 'data') {
+    //   setData(e.currentTarget.value);
+    // }
 
     // if (e.currentTarget.name === 'select') {
     //   setSelect(e.currentTarget.value);
@@ -58,17 +59,22 @@ export default function ModalForm({ allCategory, onClick }) {
     { name: 'Одежда', income: false, id: '5' },
     { name: 'Комуналка', income: false, id: '6' },
     { name: 'Образование', income: false, id: '7' },
+    { name: 'Авто', income: false, id: '3' },
+    { name: 'Еда', income: false, id: '4' },
+    { name: 'Одежда', income: false, id: '5' },
+    { name: 'Комуналка', income: false, id: '6' },
+    { name: 'Образование', income: false, id: '7' },
   ];
 
   let expenditureOptions = [];
   let profitOptions = [];
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Раскоментировать когда будет приходит ответ
-  // allCategory.map(element =>
-  //   element.income
-  //     ? profitOptions.push(element)
-  //      : expenditureOptions.push(element)
-  // );
+  allCategory.map(element =>
+    element.income
+      ? profitOptions.push(element)
+      : expenditureOptions.push(element)
+  );
 
   // allCategory1.map(element =>
   //   element.income
@@ -76,11 +82,13 @@ export default function ModalForm({ allCategory, onClick }) {
   //     : expenditureOptions.push({ name: element.name, id: element.id })
   // );
 
-  allCategory1.map(element =>
-    element.income
-      ? profitOptions.push(element)
-      : expenditureOptions.push(element)
-  );
+  // allCategory1.map(element =>
+  //   element.income
+  //     ? profitOptions.push(element)
+  //     : expenditureOptions.push(element)
+  // );
+
+  console.log('111111111111', allCategory);
 
   let categoryOptions = [];
   if (!toggle) {
@@ -96,22 +104,20 @@ export default function ModalForm({ allCategory, onClick }) {
   const requestBody = {
     income: !toggle,
     category: category,
-    amount: sum,
+    amount: Number(sum),
     comment: comment,
+    // data: today,
   };
   console.log(requestBody);
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    // console.log('Post request', requestBody);
     // dispatch(authOperations.logIn({ email, password }));
-    // setEmail("");
-    // setPassword("");
 
     addTransaction(requestBody)
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
+      .then(response => console.log('77777777777777777777', response))
+      .catch(error => console.log(error.message));
 
     onClick(false);
   };
@@ -133,7 +139,9 @@ export default function ModalForm({ allCategory, onClick }) {
           {/* <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
         <use href="./images/sprite.svg#sun"></use>
       </svg> */}
+
           <span className={toggle ? s.noActive : s.profit}>Доход</span>
+          <Plus className={s.iconPlus} height={20} width={20} fill="#000000" />
 
           <div className={s.switchControl}>
             <input
@@ -158,12 +166,13 @@ export default function ModalForm({ allCategory, onClick }) {
           </div>
           <span className={toggle ? s.expenditure : s.noActive}>Расход</span>
 
-          <svg className={s.iconPlus} role="img" aria-label="iconPlus">
-            {/* <use
+          <Minus width={30} height={30} fill="#000000" />
+          {/* <svg className={s.iconPlus} role="img" aria-label="iconPlus"> */}
+          {/* <use
               className={s.iconPlus}
               href="../../img/sprite.svg#icon-minus"
             ></use> */}
-          </svg>
+          {/* </svg> */}
         </div>
         {/* ============================================================== Toggle ===================== */}
 
@@ -189,6 +198,11 @@ export default function ModalForm({ allCategory, onClick }) {
                     className={s.dropdownItem}
                     onClick={e => {
                       setCategory(option);
+                      // setCategory({
+                      //   income: option.income,
+                      //   name: option.name,
+                      //   _id: option._id,
+                      // });
                       setSelect(option.name);
                       setItemselect(false);
                     }}
@@ -215,33 +229,20 @@ export default function ModalForm({ allCategory, onClick }) {
               ></input>
             </label>
 
-            {/* <label for="data">
-              <input
-                required
-                id="data"
-                type="data"
-                name="data"
-                value={data}
-                className={s.data}
-                // placeholder="0.00"
-                onChange={handleChange}
-              ></input>
-            </label> */}
-            <TextField
-              className={s.data}
-              name="data"
-              value={data}
-              onChange={handleChange}
+            {/* <div> */}
+            <div
+              className={s.date}
               id="date"
-              label=""
-              type="date"
-              // defaultValue="2017-05-24"
-              variant="standard"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+              name="date"
+              // value={data}
+              // onChange={handleChange}
+            >
+              {today}
+              <DateIcon className={s.dateIcon} width={24} height={24} />
+            </div>
+            {/* </div> */}
           </div>
+
           <label for="comment">
             <input
               id="comment"
@@ -327,3 +328,21 @@ export default function ModalForm({ allCategory, onClick }) {
 //   'Нерегулярный доход',
 //   'Регулярный доход',
 // ];
+
+//  {
+//    /* <TextField
+//               className={s.data}
+//               name="data"
+//               value={data}
+//               onChange={handleChange}
+//               id="date"
+//               label=""
+//               type="date"
+//               // defaultValue="2017-05-24"
+//               variant="standard"
+//               InputLabelProps={{
+//                 shrink: true,
+//               }}
+//             /> */
+//  }
+// mongodb+srv://Kirill:Y1JFioqkTigXn9xQ@cluster0.guodi.mongodb.net/db_wallet?retryWrites=true&w=majority
