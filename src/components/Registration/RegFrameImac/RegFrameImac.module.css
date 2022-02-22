@@ -1,0 +1,124 @@
+@media (min-width: 768px) and (max-width: 1279px) {
+  .bigShadow {
+    z-index: 7;
+
+    top: -94px;
+    left: 100px;
+
+    width: 239.94px;
+  }
+
+  .cellphone {
+    z-index: 9;
+
+    width: 121.36px;
+
+    bottom: 90px;
+    left: 160px;
+  }
+
+  .dollar {
+    z-index: 9;
+
+    width: 44.78px;
+
+    bottom: 269px;
+    right: -348px;
+  }
+
+  .flowerpot {
+    width: 74.41px;
+
+    bottom: 105px;
+    left: 98px;
+  }
+
+  .sheetOfPaper {
+    z-index: 10;
+
+    width: 81.19px;
+
+    left: 103px;
+    bottom: 76px;
+  }
+
+  .woman {
+    z-index: 10;
+
+    bottom: 73px;
+    left: 250px;
+
+    width: 86.62px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .RegFrameImac {
+    position: relative;
+
+    border: 1px solid red;
+
+    width: 452.1px;
+    height: 412.6px;
+  }
+
+  .bigShadow {
+    position: absolute;
+
+    width: 396px;
+    height: 57px;
+
+    bottom: 0px;
+    left: 20px;
+  }
+
+  .woman {
+    position: absolute;
+
+    width: 142.96px;
+    height: 358.33px;
+
+    bottom: 26px;
+    left: 270px;
+  }
+
+  .sheetOfPaper {
+    position: absolute;
+
+    width: 134px;
+    height: 179.2px;
+
+    bottom: 27px;
+    left: 32px;
+  }
+
+  .cellphone {
+    position: absolute;
+
+    width: 200.3px;
+    height: 356.4px;
+
+    bottom: 50px;
+    left: 122px;
+  }
+
+  .flowerpot {
+    position: absolute;
+
+    width: 122.8px;
+    height: 240.85px;
+
+    bottom: 76px;
+    left: 22px;
+  }
+
+  .dollar {
+    position: absolute;
+
+    width: 73.9px;
+    height: 73.9px;
+
+    top: 0px;
+    right: 22px;
+  }
+}
