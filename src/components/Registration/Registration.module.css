@@ -1,8 +1,5 @@
 .sectionRegistration {
-  overflow: hidden;
-
-  background: linear-gradient(to right, #e5e5e5 40%, #e7eaf2 9%);
-  min-height: 916px;
+  background: linear-gradient(to right, #e5e5e5 45.5%, #e7eaf2 9%);
 }
 
 @media screen and (max-width: 767px) {
@@ -15,10 +12,21 @@
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .sectionRegistration {
-    position: relative;
+    padding-top: 60px;
+    padding-bottom: 48px;
+    padding-left: 74px;
+    padding-right: 74px;
 
     background: #e7eaf2;
 
-    min-height: 0;
+    min-height: 1024px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .containerImac {
+    display: flex;
+
+    min-height: 720px;
   }
 }

@@ -1,11 +1,10 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { animated, useTransition } from 'react-spring';
-
 import Container from './components/Container/Container';
 
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { authOperations } from './redux/auth/';
 
 import PrivateRoute from './components/PrivateRoute.js';
 import PublicRoute from './components/PublicRoute';
@@ -14,20 +13,20 @@ import Hometab from './components/Diagramtab/Diagramtab';
 
 import CircularProgress from '@mui/material/CircularProgress';
 
+import { AnimatePresence } from 'framer-motion';
+
 const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView'));
 const LoginView = lazy(() => import('./views/LoginView'));
 const NotFoundView = lazy(() => import('./views/NotFoundView'));
 
 export default function App() {
-  // add ANIMATION
   const location = useLocation();
+  const dispatch = useDispatch();
 
-  const transitions = useTransition(location, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-  });
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <>
@@ -47,43 +46,36 @@ export default function App() {
           />
         }
       >
-        {/*<main style={{ position: 'relative' }}>
-          {transitions((props, item) => (
-            <animated.div style={props}>
-              <div style={{ position: 'absolute', width: '100%' }}>
-                <Routes location={item}>*/}
-        <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
-          <Route
-            path="/register"
-            element={
-              <PublicRoute restricted>
-                <RegisterView />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <PublicRoute restricted redirectTo="/home/hometab">
-                <LoginView />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="home/*"
-            element={
-              <PrivateRoute restricted redirectTo="/login">
-                <HomeView />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<NotFoundView />} />
-        </Routes>
-        {/*</div>
-            </animated.div>
-          ))}
-        </main>*/}
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={location.key}>
+            <Route path="/" element={<Navigate to="/login" />} />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute restricted>
+                  <RegisterView />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute restricted redirectTo="/home/hometab">
+                  <LoginView />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="home/*"
+              element={
+                <PrivateRoute restricted redirectTo="/register">
+                  <HomeView />
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<NotFoundView />} />
+          </Routes>
+        </AnimatePresence>
       </Suspense>
     </>
   );

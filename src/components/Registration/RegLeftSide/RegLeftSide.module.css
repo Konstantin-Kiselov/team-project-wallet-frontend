@@ -1,0 +1,50 @@
+@media (min-width: 1280px) {
+  .RegLeftSide {
+    padding-top: 153px;
+    padding-right: 42px;
+    padding-bottom: 154px;
+  }
+
+  .violetEllipse {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+  }
+
+  .titleLeftSide {
+    position: relative;
+
+    top: 40px;
+    left: 130px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .titleLeftSide {
+    position: relative;
+    z-index: 10;
+
+    left: 328px;
+    bottom: 150px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  .violetEllipse {
+    position: absolute;
+
+    left: 0;
+    bottom: 0px;
+  }
+}
