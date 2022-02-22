@@ -1,17 +1,15 @@
 .form {
   width: 409px;
 
-  margin-bottom: 50px;
-
   display: flex;
   flex-direction: column;
 }
 
-/* .label {
+.label {
   display: flex;
 
   margin-bottom: 15px;
-} */
+}
 
 .textFieldLabel {
   color: #4a56e2 !important;
@@ -35,7 +33,8 @@
 
 .titleLeftSide {
   position: inherit;
-  top: 640px;
+  /* top: 640px; */
+  margin-top: 28px;
   padding-left: 20px;
   padding-right: 20px;
 
@@ -69,7 +68,7 @@
 
 .formContainer {
   position: relative;
-
+  margin: 0;
   width: 540px;
 
   display: flex;
@@ -104,11 +103,12 @@
   position: relative;
   min-height: 916px;
   width: 560px;
+  /* margin: 0; */
 
   padding-top: 150px;
 
   padding-bottom: 78px;
-
+  padding-bottom: 0px;
   background: #e5e5e5;
 }
 
@@ -169,16 +169,15 @@
   z-index: 100;
 
   left: -14px;
-  top: 88px;
 
-  width: 452.1px;
-  height: 412.6px;
+  width: 435.2px;
+  height: 419.5px;
 }
 
 .violetEllipse {
   position: absolute;
-  bottom: 172px;
-  left: -66px;
+  bottom: 200px;
+  left: -68px;
 }
 
 .pinkEllipse {
@@ -190,11 +189,11 @@
   filter: blur(50px);
 }
 
-.error {
+/* .error {
   color: red;
   font-style: italic;
   font-size: 12px;
-}
+} */
 
 /* .label {
   display: flex;
@@ -222,8 +221,8 @@
 
     padding-left: 0px;
     padding-right: 0px;
-    padding-top: 36px;
-    padding-bottom: 36px;
+    padding-top: 110px;
+    padding-bottom: 110px;
   }
 
   .pinkEllipse,
@@ -262,7 +261,7 @@
     display: block;
 
     padding-top: 60px;
-    padding-bottom: 48px;
+    padding-bottom: 196px;
   }
 
   .frameLog {
@@ -270,7 +269,7 @@
 
     display: inline-block;
 
-    width: 273.93px;
+    width: 260.26px;
     height: 250px;
   }
 
@@ -292,12 +291,12 @@
 
   .leftSide {
     position: static;
-
+    margin-top: 60px;
     display: flex;
     align-items: center;
 
     width: 100%;
-    /* min-height: 0px; */
+    min-height: 0px;
 
     padding-left: 74px;
     padding-right: 74px;
@@ -325,8 +324,9 @@
   .titleLeftSide {
     position: relative;
     z-index: 10000;
-
+    /* top: 0px; */
     margin-left: 40px;
+
     margin-top: 0px;
     padding-left: 0px;
     padding-right: 0px;

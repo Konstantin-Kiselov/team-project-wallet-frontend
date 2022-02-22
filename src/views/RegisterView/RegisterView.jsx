@@ -122,11 +122,12 @@ export default function RegisterView() {
                 }) => (
                   <>
                     <motion.Box
+                      className={s.box}
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
                       transition={{ delay: 0, type: 'tween' }}
                       style={{
-                        marginBottom: '20px',
+                        marginBottom: '30px',
                         width: '100%',
                       }}
                       sx={{
@@ -168,10 +169,11 @@ export default function RegisterView() {
                     </motion.Box>
 
                     {touched.email && errors.email && (
-                      <p className={s.error}>{errors.email}</p>
+                      <p className={s.errorEmail}>{errors.email}</p>
                     )}
 
                     <motion.Box
+                      className={s.box}
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
                       transition={{ delay: 0.15, type: 'tween' }}
@@ -237,16 +239,17 @@ export default function RegisterView() {
 
                     <PasswordStrengthMeter password={password} />
                     {touched.password && errors.password && (
-                      <p className={s.error}>{errors.password}</p>
+                      <p className={s.errorPassword}>{errors.password}</p>
                     )}
 
                     <motion.Box
+                      className={s.box}
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
                       transition={{ delay: 0.3, type: 'tween' }}
                       style={{
                         width: '100%',
-                        marginBottom: '20px',
+                        marginBottom: '30px',
                       }}
                       sx={{
                         display: 'flex',
@@ -287,10 +290,11 @@ export default function RegisterView() {
                     </motion.Box>
 
                     {touched.confirmPassword && errors.confirmPassword && (
-                      <p className={s.error}>{errors.confirmPassword}</p>
+                      <p className={s.errorConfirm}>{errors.confirmPassword}</p>
                     )}
 
                     <motion.Box
+                      className={s.box}
                       initial={{ x: '100vw' }}
                       animate={{ x: 0 }}
                       transition={{ delay: 0.35, type: 'tween' }}

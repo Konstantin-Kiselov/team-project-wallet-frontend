@@ -177,7 +177,35 @@
   filter: blur(50px);
 }
 
-.error {
+.errorEmail {
+  position: absolute;
+  bottom: 420px;
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+}
+.box {
+  position: relative;
+}
+
+.errorEmail {
+  position: absolute;
+  bottom: 440px;
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+}
+.errorPassword {
+  position: absolute;
+  bottom: 360px;
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.errorConfirm {
+  position: absolute;
+  bottom: 290px;
   color: red;
   font-style: italic;
   font-size: 12px;
@@ -232,6 +260,29 @@
 
     display: flex;
     flex-direction: column;
+  }
+
+  .errorEmail {
+    position: absolute;
+    bottom: 420px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+  .errorPassword {
+    position: absolute;
+    bottom: 340px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .errorConfirm {
+    position: absolute;
+    bottom: 270px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
   }
 }
 

@@ -11,6 +11,7 @@ import shopping from '../../img/log&reg/login/frame/shopping.svg';
 import smallShadow from '../../img/log&reg/login/frame/small_shadow.svg';
 
 import { motion } from 'framer-motion';
+import classNames from 'classnames';
 
 const LogFrame = () => {
   return (
@@ -26,9 +27,7 @@ const LogFrame = () => {
           position: 'absolute',
           maxWidth: 'none',
           bottom: '-745px',
-          // bottom: '-742px',
           right: '86px',
-          // right: '86px',
         }}
       />
       <motion.img
