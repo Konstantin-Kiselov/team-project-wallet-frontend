@@ -1,0 +1,25 @@
+.empty {
+  width: 280px;
+  height: 282px;
+  text-align: center;
+
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media (min-width: 768px) {
+  .empty {
+    width: 688px;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .empty {
+    width: 700px;
+    height: 319px;
+  }
+}

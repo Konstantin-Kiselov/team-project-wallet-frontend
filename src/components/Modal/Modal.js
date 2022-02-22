@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom';
 import s from './Modal.module.css';
+import { ReactComponent as Close } from '../../img/icons/close.svg';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -18,14 +19,12 @@ export default function Modal({ active, setActive, children }) {
           className={s.modalCloseBtn}
           onClick={() => setActive(false)}
         >
-          {/* <svg
-            class="modal-close-btn__icon"
-            width="30"
-            height="30"
-            viewBox="0 0 30 30"
-          >
-            <use href="./images/icons/sprite.svg#close-modal"></use>
-          </svg> */}
+          <Close
+            className={s.closeIcon}
+            width={16}
+            height={16}
+            fill="#000000"
+          />
         </button>
         {children}
       </div>

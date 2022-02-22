@@ -15,10 +15,9 @@
   color: #000000;
 }
 
-/* .titles {
-  position: fixed;
-  width: 700px;
-} */
+.head_date {
+  width: 50px;
+}
 
 .body_item {
   font-family: Circe;
@@ -42,19 +41,27 @@
 .body {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   margin-top: 58px;
-  /* display: ; */
   width: 700px;
 }
 
 .table {
   margin-left: auto;
-  /* border-collapse: collapse; */
   border-spacing: 0;
-  /* width: calc(100vw - 300px); */
 }
 
-/* @media (min-width: 576px) { */
-@media (min-width: 767px) {
+/* .empty {
+  width: 280px;
+  height: 282px;
+  text-align: center;
+
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+} */
+
+@media (min-width: 768px) {
   .row:not(:last-child) .body_item {
     border-bottom: 2px solid #dcdcdf;
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
@@ -62,8 +69,8 @@
 
   .body_item,
   .titles_head {
-    padding: 20px;
-    /* width: 20%; */
+    padding: 15px;
+    max-width: 50px;
     background-color: white;
     text-align: start;
   }
@@ -93,9 +100,12 @@
   .body_item_type {
     text-align: center;
   }
-}
 
-@media screen and (min-width: 768px) {
+  /* .empty {
+    width: 688px;
+    margin-top: 50px;
+  } */
+
   .body {
     filter: none;
   }
@@ -103,11 +113,7 @@
   .body_item:first-child,
   .titles_head:first-child {
     padding-left: 20px;
-    width: 100px;
-  }
-
-  .titles_head {
-    text-align: center;
+    min-width: 80px;
   }
 
   .scroll_container {
@@ -115,9 +121,13 @@
     width: 688px;
     overflow-x: hidden;
   }
+
+  .body_item_type {
+    width: 15%;
+  }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .table {
     width: 700px;
   }
@@ -126,12 +136,16 @@
     height: 45vh;
     width: 700px;
   }
+
+  /* .empty {
+    width: 700px;
+    height: 319px;
+  } */
 }
 
 @media (max-width: 767px) {
   .table {
     margin: auto;
-
     width: 0%;
   }
   .titles {
@@ -185,20 +199,18 @@
 
   .body_item::before {
     content: attr(aria-label);
-    /* border: 1px solid black; */
     padding: 10px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 0;
-    /* width: 60px; */
     float: left;
     font-weight: bold;
     color: #000000;
   }
 
   .scroll_container {
-    height: 35vh;
+    height: 55vh;
     width: 280px;
     overflow-x: hidden;
   }
