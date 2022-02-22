@@ -7,10 +7,10 @@ import {
   getAllTransactions,
   getAddedTransactions,
 } from '../../redux/transactions/transactions-selector';
+import NoTransactions from '../NoTransactions/NoTransactions';
 
 import React from 'react';
 import SimpleBarReact from 'simplebar-react';
-
 import 'simplebar/src/simplebar.css';
 
 export default function Hometab() {
@@ -98,9 +98,7 @@ export default function Hometab() {
           </table>
         </SimpleBarReact>
       ) : (
-        <div className={s.empty}>
-          Нет данных по операциям. Добавьте транзакции :)
-        </div>
+        <NoTransactions />
       )}
     </div>
   );
