@@ -167,12 +167,10 @@ export default function ModalForm({ allCategory, onClick }) {
                   <div
                     className={s.dropdownItem}
                     onClick={e => {
-                      setCategory(option);
-                      // setCategory({
-                      //   income: option.income,
-                      //   name: option.name,
-                      //   _id: option._id,
-                      // });
+                      // setCategory(option);
+                      setCategory({
+                        _id: option._id,
+                      });
                       setSelect(option.name);
                       setItemselect(false);
                     }}

@@ -1,0 +1,135 @@
+.modalContainer {
+  /* position: absolute; */
+
+  background-color: #fff;
+  overflow: hidden;
+  /* background: none repeat scroll 0 0 #666666; */
+  /* overflow: scroll; */
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .modalContainer {
+    width: 100vw;
+    min-height: calc(100vh - 60px);
+    padding-top: 20px;
+    /* position: sticky; */
+    bottom: 0;
+    left: 0;
+    /* background-color: rgb(228, 121, 238); */
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .modalContainer {
+    width: 540px;
+    /* min-height: 617px; */
+    border-radius: 20px;
+    padding: 40px 65px 60px 65px;
+    /* overflow: auto; */
+    /* background-color: rgb(255, 255, 255); */
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .modalContainer {
+    width: 540px;
+    /* min-height: 540px; */
+    border-radius: 20px;
+    padding: 40px 65px 60px 65px;
+    /* overflow: auto; */
+    /* background-color: rgb(115, 187, 130); */
+  }
+}
+
+.title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  color: #000000;
+
+  margin: 0 auto;
+  margin-bottom: 40px;
+  /* outline: 1px solid red; */
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .title {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .title {
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
+
+/*////////////////////////////*/
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listItem {
+  flex-basis: calc(100% / 3 - 20px);
+}
+
+/* .modal-team-list_item {
+  margin-bottom: 12px;
+  // @media screen and (min-width: 320px) {
+
+  // }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    & {
+      margin-left: 20px;
+      flex-basis: calc(100% / 3 - 20px);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    & {
+      margin-left: 20px;
+      flex-basis: calc(100% / 3 - 20px);
+    }
+  }
+   outline: 1px solid rgb(11, 114, 57);
+} */
+
+.modal-team-img {
+  width: 150px;
+  height: 187px;
+  margin: 0 auto;
+  border-radius: 20px;
+  object-fit: cover;
+  outline: 1px solid rgb(183, 212, 17);
+}
+
+.modal-team-list_thumb {
+  margin-top: 4px;
+}
+
+.modal-team-name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.33;
+  text-align: center;
+}
+
+.modal-team-icon-github {
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+}
