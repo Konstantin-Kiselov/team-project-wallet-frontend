@@ -94,3 +94,13 @@
     position: absolute;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .pinkEllipse {
+    display: none;
+  }
+
+  .formContainer {
+    width: 100%;
+  }
+}
