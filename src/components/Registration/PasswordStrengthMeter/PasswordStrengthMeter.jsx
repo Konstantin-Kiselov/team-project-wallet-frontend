@@ -2,9 +2,11 @@ import React from 'react';
 
 import zxcvbn from 'zxcvbn';
 
-import { Box, LinearProgress } from '@mui/material';
+import { LinearProgress } from '@mui/material';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import { motion } from 'framer-motion';
 
 const PasswordStrengthMeter = ({ password }) => {
   const testResult = zxcvbn(password);
@@ -54,7 +56,12 @@ const PasswordStrengthMeter = ({ password }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ width: '100%', marginTop: '6px', mb: '10px' }}>
+      <motion.div
+        style={{ width: '100%', marginTop: '6px', marginBottom: '30px' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+      >
         <LinearProgress
           variant="determinate"
           value={num}
@@ -64,7 +71,7 @@ const PasswordStrengthMeter = ({ password }) => {
             borderRadius: '2px',
           }}
         />
-      </Box>
+      </motion.div>
       {/*<p style={{ color: progressColor() }}>{createPasswordLabel()}</p>*/}
     </ThemeProvider>
   );

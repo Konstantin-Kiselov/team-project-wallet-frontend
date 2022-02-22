@@ -9,22 +9,22 @@ import woman from '../../img/log&reg/registration/frame/woman.svg';
 
 import { motion } from 'framer-motion';
 
+import s from './RegFrameTablet.module.css';
+
 const RegFrame = () => {
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{}} className={s.regFrameTablet}>
       <motion.img
-        whileHover={{ scale: 1.3 }}
-        initial={{ y: '-100vw' }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0, type: 'string', stiffness: 300 }}
+        initial={{ x: '-100vw' }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.2, duration: 1.5 }}
         src={ellipseViolet}
         alt=""
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          bottom: '-752px',
-          right: '86px',
         }}
+        className={s.ellipseViolet}
       />
       <motion.img
         whileHover={{ scale: 1.3 }}
@@ -33,7 +33,8 @@ const RegFrame = () => {
         transition={{ delay: 0.2, type: 'string', stiffness: 300 }}
         src={bigShadow}
         alt=""
-        style={{ position: 'absolute', maxWidth: 'none', top: '554px' }}
+        style={{ position: 'absolute', maxWidth: 'none' }}
+        className={s.bigShadow}
       />
       <motion.img
         whileHover={{ scale: 1.3 }}
@@ -45,9 +46,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '202px',
-          left: '96px',
         }}
+        className={s.cellphone}
       />
       <motion.img
         whileHover={{ scale: 1.3 }}
@@ -59,9 +59,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '188px',
-          left: '310px',
         }}
+        className={s.dollar}
       />
       <motion.img
         whileHover={{ scale: 1.3 }}
@@ -70,7 +69,8 @@ const RegFrame = () => {
         transition={{ delay: 0.8, type: 'string', stiffness: 300 }}
         src={flowerpot}
         alt=""
-        style={{ position: 'absolute', maxWidth: 'none', top: '300px' }}
+        style={{ position: 'absolute', maxWidth: 'none' }}
+        className={s.flowerpot}
       />
       <motion.img
         whileHover={{ scale: 1.3 }}
@@ -82,9 +82,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '402px',
-          left: '2px',
         }}
+        className={s.sheetOfPaper}
       />
       <motion.img
         whileHover={{ scale: 1.3 }}
@@ -96,9 +95,8 @@ const RegFrame = () => {
         style={{
           position: 'absolute',
           maxWidth: 'none',
-          top: '234px',
-          left: '240px',
         }}
+        className={s.woman}
       />
     </div>
   );
