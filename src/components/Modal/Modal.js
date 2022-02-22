@@ -11,6 +11,7 @@ export default function Modal({ active, setActive, children }) {
     window.addEventListener('keydown', handleKeydown);
     /////////////
     // const body = document.querySelector('body');
+    // body.classList.remove('noScroll');
     // body.classList.add('noScroll');
     return () => {
       ////////////
@@ -19,17 +20,13 @@ export default function Modal({ active, setActive, children }) {
     };
   }, []);
 
-  if (active) {
-    const body = document.querySelector('body');
-    body.classList.add('noScroll');
-  }
-
   function handleKeydown(e) {
     if (e.code === 'Escape') {
       console.log('Нажали Esc');
       setActive(false);
     }
   }
+
   return createPortal(
     <div
       className={active ? s.backdrop : s.backdrop.isHidden}

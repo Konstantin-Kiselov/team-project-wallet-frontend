@@ -309,7 +309,7 @@
 
 /* .dropdownContent:hover,
 .dropdownContent:focus {
-  transform: scale(1.1);
+  overflow-y: scroll;
 } */
 
 @media screen and (min-width: 320px) and (max-width: 767px) {

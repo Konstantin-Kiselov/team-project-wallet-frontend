@@ -58,7 +58,7 @@ export default function ModalForm({ allCategory, onClick }) {
   let expenditureOptions = [];
   let profitOptions = [];
 
-  allCategory.map(element =>
+  allCategory1.map(element =>
     element.income
       ? profitOptions.push(element)
       : expenditureOptions.push(element)
