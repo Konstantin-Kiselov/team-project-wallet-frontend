@@ -1,0 +1,24 @@
+@media (min-width: 1280px) {
+  .formContainer {
+    width: 540px;
+
+    display: inline-block;
+
+    padding-left: 65px;
+    padding-top: 40px;
+    padding-right: 65px;
+    padding-bottom: 62px;
+
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  .RegRightSide {
+    right: -363px;
+
+    padding-left: 95px;
+    padding-top: 52px;
+
+    padding-bottom: 52px;
+  }
+}
