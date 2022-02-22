@@ -21,4 +21,24 @@
 
     padding-bottom: 52px;
   }
+
+  .titleRightSide {
+    margin-left: 20px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 45px;
+
+    color: #000000;
+  }
+
+  .titleRightSideContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 50px;
+  }
 }
