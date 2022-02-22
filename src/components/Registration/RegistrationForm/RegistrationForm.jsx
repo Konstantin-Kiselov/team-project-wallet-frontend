@@ -235,7 +235,7 @@ export default function RegistrationForm() {
               onBlur={handleBlur}
               value={values.name}
               sx={{
-                mb: '50px',
+                mb: '40px',
               }}
               InputProps={{
                 style: {
