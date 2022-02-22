@@ -80,4 +80,15 @@
   .titleRightSide {
     margin-left: 20px;
   }
+
+  .pinkEllipse {
+    position: absolute;
+
+    right: -190px;
+    top: 0;
+  }
+
+  .formContainer {
+    position: absolute;
+  }
 }
