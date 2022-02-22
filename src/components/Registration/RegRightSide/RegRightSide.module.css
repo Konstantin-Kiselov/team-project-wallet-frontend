@@ -57,3 +57,27 @@
     filter: blur(50px);
   }
 }
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .formContainer {
+    width: 540px;
+
+    padding-left: 65px;
+    padding-top: 40px;
+    padding-right: 65px;
+    padding-bottom: 60px;
+
+    background: #ffffff;
+    border-radius: 20px;
+  }
+
+  .titleRightSideContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .titleRightSide {
+    margin-left: 20px;
+  }
+}
