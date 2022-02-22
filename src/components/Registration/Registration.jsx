@@ -9,8 +9,10 @@ export default function Registration() {
   return (
     <section className={s.sectionRegistration}>
       <Container>
-        <RegLeftSide />
-        <RegRightSide />
+        <div className={s.containerImac}>
+          <RegLeftSide />
+          <RegRightSide />
+        </div>
       </Container>
     </section>
   );
