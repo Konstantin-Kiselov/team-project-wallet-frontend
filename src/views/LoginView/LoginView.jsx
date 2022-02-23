@@ -16,11 +16,14 @@ export default function LoginView() {
         <div className={s.commonContainer}>
           <div className={s.leftSide}>
             <img alt="login frame" src={loginFrame} className={s.frameLog} />
-            <img
-              alt="violet ellipse"
-              src={violetEllipse}
-              className={s.violetEllipse}
-            />
+            <div className={s.containerVioletEllipse}>
+              <img
+                alt="violet ellipse"
+                src={violetEllipse}
+                className={s.violetEllipse}
+              />
+            </div>
+
             <h1 className={s.titleLeftSide}>Finance App</h1>
           </div>
           <LoginForm />
