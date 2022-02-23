@@ -11,7 +11,7 @@
   .modalContainer {
     width: 100vw;
     min-height: calc(100vh - 60px);
-    padding-top: 20px;
+    padding-top: 40px;
     /* position: sticky; */
     bottom: 0;
     left: 0;
@@ -77,58 +77,57 @@
 /*////////////////////////////*/
 
 .list {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  outline: 1px solid rgb(26, 11, 114);
 }
 
 .listItem {
-  flex-basis: calc(100% / 3 - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: calc(100% / 4 - 20px);
+  margin: 5px;
+  outline: 1px solid rgb(11, 114, 57);
 }
 
-/* .modal-team-list_item {
-  margin-bottom: 12px;
-  // @media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
+}
 
-  // }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+}
 
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    & {
-      margin-left: 20px;
-      flex-basis: calc(100% / 3 - 20px);
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    & {
-      margin-left: 20px;
-      flex-basis: calc(100% / 3 - 20px);
-    }
-  }
-   outline: 1px solid rgb(11, 114, 57);
-} */
+@media screen and (min-width: 1280px) {
+}
 
 .img {
-  width: 150px;
-  height: 187px;
+  width: 80px;
+  height: 100px;
   margin: 0 auto;
   border-radius: 20px;
   object-fit: cover;
   outline: 1px solid rgb(183, 212, 17);
 }
 
-.modal-team-list_thumb {
+.thumb {
   margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-team-name {
+.name {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.33;
   text-align: center;
 }
 
-.modal-team-icon-github {
+.iconGithub {
   margin: 0 auto;
   width: 20px;
   height: 20px;
