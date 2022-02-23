@@ -1,0 +1,104 @@
+.box {
+  position: relative;
+}
+
+/* p {
+  text-align: center;
+} */
+
+.errorEmail {
+  position: absolute;
+  bottom: 420px;
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+  /* text-align: center; */
+}
+.errorPassword {
+  position: absolute;
+  bottom: 340px;
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.errorConfirm {
+  position: absolute;
+  bottom: 270px;
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+}
+.errorName {
+  position: absolute;
+  bottom: 195px;
+  color: red;
+  font-style: italic;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .errorEmail {
+    position: absolute;
+    bottom: 375px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
+  }
+  .errorPassword {
+    position: absolute;
+    bottom: 295px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .errorConfirm {
+    position: absolute;
+    bottom: 225px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+  .errorName {
+    position: absolute;
+    bottom: 150px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .errorEmail {
+    position: absolute;
+    bottom: 435px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+    /* text-align: center; */
+  }
+  .errorPassword {
+    position: absolute;
+    bottom: 355px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .errorConfirm {
+    position: absolute;
+    bottom: 285px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+  .errorName {
+    position: absolute;
+    bottom: 205px;
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+  }
+}

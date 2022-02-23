@@ -217,6 +217,7 @@
   color: red;
   font-style: italic;
   font-size: 12px;
+  text-align: left;
 }
 .errorPassword {
   position: absolute;
