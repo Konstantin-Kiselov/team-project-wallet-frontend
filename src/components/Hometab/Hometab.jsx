@@ -77,7 +77,7 @@ export default function Hometab({ children }) {
                       aria-label="Комментарий"
                       className={classNames(s.body_item, s.body_item_comment)}
                     >
-                      <span className={s.comment}>
+                      <span title={comment} className={s.comment}>
                         {comment ? comment : ''}
                       </span>
                     </td>

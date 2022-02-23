@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:3001/api';
+axios.defaults.baseURL =
+  'https://wallet-team-project-group-3.herokuapp.com/api';
 
 const token = {
   set(token) {
@@ -53,7 +54,6 @@ const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      console.log(data);
       return data;
     } catch (error) {
       alert(error.message);

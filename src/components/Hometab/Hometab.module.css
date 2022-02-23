@@ -31,12 +31,11 @@
 }
 
 .body_item_comment {
-  word-break: break-all;
+  padding-left: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
-/* .comment {
-  word-break: break-all;
-} */
 
 .type_green {
   color: #24cca7;

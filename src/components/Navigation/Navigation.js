@@ -1,23 +1,27 @@
 import { NavLink } from 'react-router-dom';
-import homeMobileIcon from '../../img/homeview/homeMobileIcon.svg';
-import statsMoileIcon from '../../img/homeview/statsMobileIcon.svg';
-import statsTabletIcon from '../../img/homeview/statsTabletIcon.svg';
-import currencyMobileIcon from '../../img/homeview/currencyMobileIcon.svg';
-import homeDescIcon from '../../img/homeview/homeDescIcon.svg';
 import s from './Navigation.module.css';
 import Media from 'react-media';
+import sprite from '../../img/homeview/svg_sprite.svg';
 
 export default function Navigation() {
   return (
     <>
-      <NavLink to="/home/hometab">
+      <NavLink
+        to="/home/hometab"
+        className={s.link}
+        activeClassName={s.activelink}
+      >
         <Media queries={{ small: { maxWidth: 767 } }}>
           {matches =>
             matches.small ? (
-              <img className={s.icon} src={homeMobileIcon} alt="homepage" />
+              <svg className={s.icon} width="44" height="44" fill="#6E78E8">
+                <use href={sprite + '#icon-home'}></use>
+              </svg>
             ) : (
               <div className={s.navItem}>
-                <img className={s.icon} src={homeDescIcon} alt="homepage" />
+                <svg className={s.icon} width="18" height="18" fill="#6E78E8">
+                  <use href={sprite + '#icon-home'}></use>
+                </svg>
                 <p>Главная</p>
               </div>
             )
@@ -28,10 +32,14 @@ export default function Navigation() {
         <Media queries={{ small: { maxWidth: 767 } }}>
           {matches =>
             matches.small ? (
-              <img className={s.icon} src={statsMoileIcon} alt="diagram" />
+              <svg className={s.icon} width="44" height="44" fill="#6E78E8">
+                <use href={sprite + '#icon-stats'}></use>
+              </svg>
             ) : (
               <div className={s.navItem}>
-                <img className={s.icon} src={statsTabletIcon} alt="diagram" />
+                <svg className={s.icon} width="18" height="18" fill="#6E78E8">
+                  <use href={sprite + '#icon-stats'}></use>
+                </svg>
                 <p>Статистика</p>
               </div>
             )
@@ -42,7 +50,15 @@ export default function Navigation() {
         query="(max-width: 767px)"
         render={() => (
           <NavLink to="/home/currency">
-            <img className={s.icon} src={currencyMobileIcon} alt="currency" />
+            <svg
+              className={s.icon}
+              width="44"
+              height="44"
+              fill="#6E78E8"
+              margin-bottom="20"
+            >
+              <use href={sprite + '#icon-currency'}></use>
+            </svg>
           </NavLink>
         )}
       />
