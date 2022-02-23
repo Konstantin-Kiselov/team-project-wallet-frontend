@@ -29,3 +29,12 @@ export const getStatistics = createAsyncThunk(
     return data;
   }
 );
+
+// export const getTotalBalance = createAsyncThunk(
+//   'transactions/getTotalBalance',
+//   async () => {
+//     const { data } = await axios.get('/transactions');
+//     console.log(data);
+//     return data;
+//   }
+// );

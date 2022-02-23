@@ -62,6 +62,9 @@ export default function HomeView() {
                   <Media
                     query="(min-width: 768px)"
                     render={() => <TotalBalance />}
+                    // render={() => (
+                    //   <TotalBalance allTransactions={allTransactions} />
+                    // )}
                   />
                 </div>
                 <Media
@@ -92,7 +95,21 @@ export default function HomeView() {
                       {matches.small && (
                         <div>
                           <Routes>
-                            <Route path="/hometab" element={<Hometab />} />
+                            {/* <Route path="/hometab" element={<Hometab />} /> */}
+                            <Route
+                              path="/hometab"
+                              element={
+                                <Hometab>
+                                  <ButtonAddTransaction
+                                    onClick={() => {
+                                      setModalActive(true);
+                                      getAllCategory();
+                                    }}
+                                  />
+                                </Hometab>
+                              }
+                            />
+
                             <Route
                               path="/diagramtab"
                               element={<Diagramtab />}
@@ -163,3 +180,28 @@ export default function HomeView() {
     </>
   );
 }
+
+// Люда
+////////////////////
+// import { useSelector, useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { fetchTransactions } from '../../redux/transactions/transactions-operations';
+// import {
+//   getAllTransactions,
+//   getAddedTransactions,
+// } from '../../redux/transactions/transactions-selector';
+
+// // const [allTrans, setAllTrans] = useState([]);
+
+//   const addedTransaction = useSelector(getAddedTransactions);
+//   const allTransactions = useSelector(getAllTransactions);
+
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(fetchTransactions());
+//     // setAllTrans(allTransactions);
+//   }, [dispatch, allTransactions]);
+
+//   // console.log('Это тоталлллллллллллллллллллл', allTrans);
+//   //////////////////////////////////////////////////////////////////////////

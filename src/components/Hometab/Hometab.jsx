@@ -23,6 +23,8 @@ export default function Hometab({ children }) {
     dispatch(fetchTransactions());
   }, [dispatch, addedTransaction]);
 
+  // console.log('Это тоталлллллллллллллллллллл', allTransactions[0].total);
+
   return (
     <div className={s.container}>
       {allTransactions.length > 0 ? (

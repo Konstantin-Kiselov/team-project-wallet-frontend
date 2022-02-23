@@ -1,12 +1,18 @@
 import s from './ModalForm.module.css';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Button from '../Button';
-import { addTransaction } from '../../services/walletAPI';
+// import { addTransaction } from '../../services/walletAPI';
+import { addTransaction } from '../../redux/transactions/transactions-operations';
+// import { addTransaction } from '../../redux/transactions/transactions-operations';
+
 import { ReactComponent as Plus } from '../../img/icons/plus.svg';
 import { ReactComponent as Minus } from '../../img/icons/minus.svg';
 import { ReactComponent as DateIcon } from '../../img/icons/data.svg';
 
 export default function ModalForm({ allCategory, onClick }) {
+  const dispatch = useDispatch();
+
   const today = new Date().toLocaleDateString();
   console.log(today);
   const [sum, setSum] = useState('');
@@ -95,11 +101,12 @@ export default function ModalForm({ allCategory, onClick }) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    // dispatch(authOperations.logIn({ email, password }));
+    dispatch(addTransaction(requestBody));
+    // dispatch(addTransaction(requestBody));
 
-    addTransaction(requestBody)
-      .then(response => console.log('77777777777777777777', response))
-      .catch(error => console.log(error.message));
+    // addTransaction(requestBody)
+    //   .then(response => console.log('77777777777777777777', response))
+    //   .catch(error => console.log(error.message));
 
     onClick(false);
   };

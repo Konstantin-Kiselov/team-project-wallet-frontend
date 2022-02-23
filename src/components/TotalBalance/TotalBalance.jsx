@@ -1,7 +1,7 @@
 import s from './TotalBalance.module.css';
 import { useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { authSelectors } from '../../redux/auth';
+// import { authSelectors, authOperations } from '../../redux/auth';
 import { fetchTransactions } from '../../redux/transactions/transactions-operations';
 import { getAllTransactions } from '../../redux/transactions/transactions-selector';
 
@@ -33,6 +33,40 @@ export default function TotalBalance() {
 //       <p className={s.balanceText}>ВАШ БАЛАНС:</p>
 //       <p className={s.balanceValue}>
 //         <span>$</span> {balance}
+//       </p>
+//     </div>
+//   );
+// }
+
+// Люда
+
+// export default function TotalBalance({ allTransactions }) {
+//   // const allTransactions = useSelector(getAllTransactions);
+
+//   // const dispatch = useDispatch();
+
+//   // useEffect(() => {
+//   //   dispatch(fetchTransactions());
+//   // }, [dispatch, allTransactions]);
+
+//   // const balance = allTransactions[0];
+
+//   // let balance;
+//   // useEffect(() => {
+//   //   balance = allTransactions;
+//   // }, []);
+//   const balance = allTransactions;
+
+//   console.log('Это тотал', balance);
+
+//   return (
+//     <div className={s.balanceLabel}>
+//       <p className={s.balanceText}>ВАШ БАЛАНС:</p>
+//       <p className={s.balanceValue}>
+//         {/* {balance && <span>$</span>} {balance} */}
+//         {/* <span>$</span> {balance} */}
+//         {/* `${total}$` */}
+//         {/* {balance.total && <span>$</span>} {balance.total} */}
 //       </p>
 //     </div>
 //   );
