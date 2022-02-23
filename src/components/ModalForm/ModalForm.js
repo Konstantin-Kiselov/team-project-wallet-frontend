@@ -124,6 +124,7 @@ export default function ModalForm({ allCategory, onClick }) {
               <div className={s.dropdownContent}>
                 {categoryOptions.map(option => (
                   <div
+                    key={option._id}
                     className={s.dropdownItem}
                     onClick={e => {
                       setCategory(option._id);

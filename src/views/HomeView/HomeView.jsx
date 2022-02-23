@@ -24,12 +24,10 @@ import TotalBalance from '../../components/TotalBalance/TotalBalance';
 export default function HomeView() {
   // /*========== Получение всех категорий по клику на кнопку ButtonAddTransaction */
   const [allCategory, setAllCategory] = useState([]);
-  console.log('5555555555555555', allCategory);
 
   const getAllCategory = () => {
     getCategory()
       .then(response => {
-        console.log('ffffffffffffffffffff', response.data);
         setAllCategory(response.data);
       })
       .catch(error => console.log(error));
@@ -39,10 +37,8 @@ export default function HomeView() {
   const [modalActive, setModalActive] = useState(false);
 
   const windowInnerWidth = document.documentElement.clientWidth;
-  console.log('windowInnerWidth', windowInnerWidth);
 
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <>
