@@ -73,7 +73,7 @@ export default function Hometab({ children }) {
                       aria-label="Категория"
                       className={classNames(s.body_item, s.body_item_category)}
                     >
-                      {/* {category.name} */}
+                      {category.name}
                     </td>
                     <td
                       aria-label="Комментарий"
