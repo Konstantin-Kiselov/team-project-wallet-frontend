@@ -101,7 +101,6 @@ export default function ModalForm({ allCategory, onClick }) {
             ></div>
           </div>
           <span className={toggle ? s.expenditure : s.noActive}>Расход</span>
-
           {toggle && <Minus className={s.iconMinus} />}
         </div>
         {/* ============================================================== Toggle ===================== */}
