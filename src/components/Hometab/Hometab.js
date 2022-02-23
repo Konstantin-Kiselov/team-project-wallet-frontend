@@ -7,21 +7,23 @@ import {
   getAllTransactions,
   getAddedTransactions,
 } from '../../redux/transactions/transactions-selector';
-import NoTransactions from '../NoTransactions/NoTransactions';
 
 import React from 'react';
 import SimpleBarReact from 'simplebar-react';
+
 import 'simplebar/src/simplebar.css';
 
 export default function Hometab({ children }) {
   const addedTransaction = useSelector(getAddedTransactions);
   const allTransactions = useSelector(getAllTransactions);
+  console.log(allTransactions);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch, addedTransaction]);
+  console.log(addedTransaction);
 
   return (
     <div className={s.container}>
@@ -50,7 +52,15 @@ export default function Hometab({ children }) {
             </thead>
             <tbody className={s.body}>
               {allTransactions.map(
-                ({ _id, income, category, comment, amount, total, date }) => (
+                ({
+                  _id,
+                  income,
+                  category,
+                  comment,
+                  amount,
+                  total,
+                  createdAt,
+                }) => (
                   <tr
                     key={_id}
                     className={classNames(
@@ -59,7 +69,7 @@ export default function Hometab({ children }) {
                     )}
                   >
                     <td aria-label="Дата" className={s.body_item}>
-                      {date}
+                      {createdAt}
                     </td>
                     <td
                       aria-label="Тип"
@@ -98,7 +108,9 @@ export default function Hometab({ children }) {
           </table>
         </SimpleBarReact>
       ) : (
-        <NoTransactions />
+        <div className={s.empty}>
+          Нет данных по операциям. Добавьте транзакции :)
+        </div>
       )}
       {children}
     </div>

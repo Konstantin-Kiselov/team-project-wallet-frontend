@@ -73,3 +73,63 @@
     line-height: 45px;
   }
 }
+
+/*////////////////////////////*/
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listItem {
+  flex-basis: calc(100% / 3 - 20px);
+}
+
+/* .modal-team-list_item {
+  margin-bottom: 12px;
+  // @media screen and (min-width: 320px) {
+
+  // }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    & {
+      margin-left: 20px;
+      flex-basis: calc(100% / 3 - 20px);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    & {
+      margin-left: 20px;
+      flex-basis: calc(100% / 3 - 20px);
+    }
+  }
+   outline: 1px solid rgb(11, 114, 57);
+} */
+
+.img {
+  width: 150px;
+  height: 187px;
+  margin: 0 auto;
+  border-radius: 20px;
+  object-fit: cover;
+  outline: 1px solid rgb(183, 212, 17);
+}
+
+.modal-team-list_thumb {
+  margin-top: 4px;
+}
+
+.modal-team-name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.33;
+  text-align: center;
+}
+
+.modal-team-icon-github {
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+}

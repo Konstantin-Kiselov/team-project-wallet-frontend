@@ -22,7 +22,7 @@ import { getCategory } from '../../services/walletAPI';
 import TotalBalance from '../../components/TotalBalance/TotalBalance';
 
 export default function HomeView() {
-  /*========== Получение всех категорий по клику на кнопку ButtonAddTransaction */
+  // /*========== Получение всех категорий по клику на кнопку ButtonAddTransaction */
   const [allCategory, setAllCategory] = useState([]);
   console.log('5555555555555555', allCategory);
 
@@ -108,7 +108,19 @@ export default function HomeView() {
                       {matches.other && (
                         <div>
                           <Routes>
-                            <Route path="/hometab" element={<Hometab />} />
+                            <Route
+                              path="/hometab"
+                              element={
+                                <Hometab>
+                                  <ButtonAddTransaction
+                                    onClick={() => {
+                                      setModalActive(true);
+                                      getAllCategory();
+                                    }}
+                                  />
+                                </Hometab>
+                              }
+                            />
                             <Route
                               path="/diagramtab"
                               element={<Diagramtab />}
@@ -127,13 +139,6 @@ export default function HomeView() {
                     </>
                   )}
                 </Media>
-
-                <ButtonAddTransaction
-                  onClick={() => {
-                    setModalActive(true);
-                    getAllCategory();
-                  }}
-                />
               </div>
             </div>
           </Container>
