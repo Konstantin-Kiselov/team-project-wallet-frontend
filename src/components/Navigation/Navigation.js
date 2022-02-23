@@ -9,7 +9,7 @@ export default function Navigation() {
       <NavLink
         to="/home/hometab"
         className={s.link}
-        activeClassName={s.activelink}
+        activeclassname={s.activelink}
       >
         <Media queries={{ small: { maxWidth: 767 } }}>
           {matches =>
