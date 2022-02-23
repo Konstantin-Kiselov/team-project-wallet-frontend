@@ -73,8 +73,13 @@ export default function Hometab({ children }) {
                     >
                       {/* {category.name} */}
                     </td>
-                    <td aria-label="Комментарий" className={s.body_item}>
-                      {comment ? comment : ''}
+                    <td
+                      aria-label="Комментарий"
+                      className={classNames(s.body_item, s.body_item_comment)}
+                    >
+                      <span className={s.comment}>
+                        {comment ? comment : ''}
+                      </span>
                     </td>
                     <td
                       aria-label="Сумма"
