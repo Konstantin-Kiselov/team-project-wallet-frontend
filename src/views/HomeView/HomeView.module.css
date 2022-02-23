@@ -3,6 +3,7 @@
   background-color: #e7eaf2;
   min-height: 100vh;
   padding-top: 40px;
+  overflow: hidden;
 }
 
 .noScroll {
@@ -79,7 +80,7 @@
   }
 
   .violetEllipse {
-    top: 440px;
+    bottom: 0px;
     left: -53px;
   }
 
