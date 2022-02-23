@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-// import {
-//   addTransactionSuccess,
-//   fetchTransactionsSuccess,
-//   getStatisticsSuccess,
-// } from './transactions-actions';
+import { getStatisticsSuccess } from './transactions-actions';
 
 import {
   fetchTransactions,
@@ -23,8 +19,8 @@ const addedTransactions = createReducer([], {
 });
 
 const queryStatistics = createReducer([], {
-  [getStatistics.fulfilled]: (_, { payload }) => payload,
-  //   [getStatisticsSuccess]: (_, { payload }) => payload,
+  // [getStatistics.fulfilled]: (_, { payload }) => payload,
+  [getStatisticsSuccess]: (_, { payload }) => payload,
 });
 
 const loading = createReducer(false, {

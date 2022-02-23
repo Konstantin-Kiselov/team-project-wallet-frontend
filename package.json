@@ -30,6 +30,7 @@
     "redux-persist": "^6.0.0",
     "simplebar-react": "^2.3.6",
     "styled-components": "^5.3.3",
+    "uuidv4": "^6.2.12",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11",
     "zxcvbn": "^4.4.2"

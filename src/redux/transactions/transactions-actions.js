@@ -1,4 +1,4 @@
-// import { createAction } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 
 // export const addTransactionRequest = createAction(
 //   'transactions/addTransactionRequest'
@@ -20,12 +20,12 @@
 //   'transactions/fetchTransactionsError'
 // );
 
-// export const getStatisticsRequest = createAction(
-//   'transactions/getStatisticsRequest'
-// );
-// export const getStatisticsSuccess = createAction(
-//   'transactions/getStatisticsSuccess'
-// );
-// export const getStatisticsError = createAction(
-//   'transactions/getStatisticsError'
-// );
+export const getStatisticsRequest = createAction(
+  'transactions/getStatisticsRequest'
+);
+export const getStatisticsSuccess = createAction(
+  'transactions/getStatisticsSuccess'
+);
+export const getStatisticsError = createAction(
+  'transactions/getStatisticsError'
+);
