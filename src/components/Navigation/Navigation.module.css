@@ -2,12 +2,33 @@
   display: flex;
   margin-bottom: 10px;
   color: #000000;
+  height: 45px;
 }
 
 .icon {
-  margin-right: 20px;
   text-decoration: none;
   font-family: Poppins;
   font-style: normal;
   font-size: 18px;
+}
+
+.icon:not(:last-child) {
+  margin-right: 20px;
+}
+
+.icon:hover {
+  fill: #4a56e2;
+  filter: drop-shadow(3px 4px 2px rgba(74, 86, 226, 0.5));
+}
+
+@media screen and (min-width: 768px) {
+  .navItem {
+    height: 20px;
+  }
+
+  .icon {
+    margin-right: 20px;
+    height: 20px;
+    margin-top: 0;
+  }
 }
