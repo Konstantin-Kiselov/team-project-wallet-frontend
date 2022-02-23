@@ -3,17 +3,13 @@ import { authSelectors, authOperations } from '../../redux/auth';
 import exitIcon from '../../img/appBar/Group 7.svg';
 import s from './UserMenu.module.css';
 
-/////////////////////////////
 import React, { useState } from 'react';
 import Modal from '../../components/Modal';
 import ModalLogoutContainer from '../../components/ModalLogoutContainer';
 import Button from '../Button';
-////////////////////////
 
 export default function UserMenu() {
-  //////////////////////////////
   const [modalActive, setModalActive] = useState(false);
-  /////////////////////
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUsername);
 
