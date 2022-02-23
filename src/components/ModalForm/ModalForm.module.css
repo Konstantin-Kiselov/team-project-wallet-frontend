@@ -309,7 +309,7 @@
 
 /* .dropdownContent:hover,
 .dropdownContent:focus {
-  transform: scale(1.1);
+  overflow-y: scroll;
 } */
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -332,7 +332,7 @@
 }
 
 .dropdownItem {
-  padding: 10px 0;
+  padding: 5px 0;
   color: #000000;
   transition: all 200ms;
 }
@@ -477,15 +477,22 @@
 
 .iconPlus {
   /* color: currentColor; */
-  /* fill: #ffffff;*/
-  fill: #6b1212;
-  color: #17b391;
 
+  position: absolute;
   height: 20px;
   width: 20px;
-  /* margin-right: 8px;
-  margin-left: 8px; */
-  outline: 1px solid #14a32c;
+  right: 295px;
+  z-index: 111;
+  /* outline: 1px solid #14a32c; */
+}
+
+.iconMinus {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 250px;
+  z-index: 111;
+  /* outline: 1px solid #14a32c; */
 }
 
 .switchControl {

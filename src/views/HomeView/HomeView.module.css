@@ -2,7 +2,17 @@
   min-width: 320px;
   background-color: #e7eaf2;
   min-height: 100vh;
-  padding-top: 70px;
+  padding-top: 40px;
+}
+
+.noScroll {
+  min-width: 320px;
+  background-color: #e7eaf2;
+  min-height: 100vh;
+  padding-top: 40px;
+  overflow: hidden;
+  position: fixed;
+  outline: 1px solid red;
 }
 
 .flexContainer {
@@ -98,11 +108,11 @@
     height: 100%; */
     /* ============== END Branch DiagramTab ==============*/
     width: 465px;
-    
+
     border-right: 1px solid #e7e5f2;
     box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
       1px 0px 0px rgba(255, 255, 255, 0.6);
-    
+
     background: none;
   }
 

@@ -11,6 +11,7 @@
 }
 
 .container {
+  position: relative;
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -65,4 +66,13 @@
   .container {
     width: 100%;
   }
+}
+
+.copyrightIcon {
+  position: absolute;
+  top: 0px;
+  left: 185px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }

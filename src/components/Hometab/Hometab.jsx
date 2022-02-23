@@ -7,23 +7,21 @@ import {
   getAllTransactions,
   getAddedTransactions,
 } from '../../redux/transactions/transactions-selector';
+import NoTransactions from '../NoTransactions/NoTransactions';
 
 import React from 'react';
 import SimpleBarReact from 'simplebar-react';
-
 import 'simplebar/src/simplebar.css';
 
-export default function Hometab() {
+export default function Hometab({ children }) {
   const addedTransaction = useSelector(getAddedTransactions);
   const allTransactions = useSelector(getAllTransactions);
-  console.log(allTransactions);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch, addedTransaction]);
-  console.log(addedTransaction);
 
   return (
     <div className={s.container}>
@@ -52,15 +50,7 @@ export default function Hometab() {
             </thead>
             <tbody className={s.body}>
               {allTransactions.map(
-                ({
-                  _id,
-                  income,
-                  category,
-                  comment,
-                  amount,
-                  total,
-                  createdAt,
-                }) => (
+                ({ _id, income, category, comment, amount, total, date }) => (
                   <tr
                     key={_id}
                     className={classNames(
@@ -69,7 +59,7 @@ export default function Hometab() {
                     )}
                   >
                     <td aria-label="Дата" className={s.body_item}>
-                      {createdAt}
+                      {date}
                     </td>
                     <td
                       aria-label="Тип"
@@ -83,8 +73,13 @@ export default function Hometab() {
                     >
                       {/* {category.name} */}
                     </td>
-                    <td aria-label="Комментарий" className={s.body_item}>
-                      {comment ? comment : ''}
+                    <td
+                      aria-label="Комментарий"
+                      className={classNames(s.body_item, s.body_item_comment)}
+                    >
+                      <span className={s.comment}>
+                        {comment ? comment : ''}
+                      </span>
                     </td>
                     <td
                       aria-label="Сумма"
@@ -108,10 +103,9 @@ export default function Hometab() {
           </table>
         </SimpleBarReact>
       ) : (
-        <div className={s.empty}>
-          Нет данных по операциям. Добавьте транзакции :)
-        </div>
+        <NoTransactions />
       )}
+      {children}
     </div>
   );
 }

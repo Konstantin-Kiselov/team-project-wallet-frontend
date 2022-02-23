@@ -4,8 +4,7 @@ const registerSchema = yup.object().shape({
   name: yup
     .string()
     .min(1, 'Must be 1 characters or more')
-    .max(12, 'Must be 12 characters or less')
-    .required('Name is required'),
+    .max(12, 'Must be 12 characters or less'),
 
   email: yup
     .string()

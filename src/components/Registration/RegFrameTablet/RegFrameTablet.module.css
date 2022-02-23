@@ -1,0 +1,87 @@
+@media (min-width: 768px) and (max-width: 1279px) {
+  .regFrameTablet {
+    position: relative;
+  }
+
+  .bigShadow {
+    z-index: 7;
+
+    top: -94px;
+    left: 100px;
+
+    width: 239.94px;
+  }
+
+  .cellphone {
+    z-index: 9;
+
+    width: 121.36px;
+
+    bottom: 90px;
+    left: 160px;
+  }
+
+  .dollar {
+    z-index: 9;
+
+    width: 44.78px;
+
+    bottom: 269px;
+    right: -348px;
+  }
+
+  .flowerpot {
+    width: 74.41px;
+
+    bottom: 105px;
+    left: 98px;
+  }
+
+  .sheetOfPaper {
+    z-index: 10;
+
+    width: 81.19px;
+
+    left: 103px;
+    bottom: 76px;
+  }
+
+  .woman {
+    z-index: 10;
+
+    bottom: 73px;
+    left: 250px;
+
+    width: 86.62px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bigShadow {
+    top: 554px;
+  }
+
+  .woman {
+    top: 234px;
+    left: 240px;
+  }
+
+  .sheetOfPaper {
+    top: 402px;
+    left: 2px;
+  }
+
+  .cellphone {
+    top: 202px;
+    left: 96px;
+  }
+
+  .flowerpot {
+    top: 300px;
+  }
+
+  .dollar {
+    top: 189px;
+    right: 80px;
+  }
+}
