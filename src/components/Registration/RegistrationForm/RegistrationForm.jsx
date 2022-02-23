@@ -252,7 +252,6 @@ export default function RegistrationForm() {
               type="text"
               variant="standard"
               fullWidth
-              required
               name="name"
               onChange={handleChange}
               onBlur={handleBlur}
