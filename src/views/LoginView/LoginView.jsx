@@ -5,7 +5,7 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import s from '../../views/LoginView/LoginView.module.css';
 
 // import LogFrame from '../../components/LogFrame/LogFrame';
-import violetEllipse from '../../img/log&reg/ellipse_violet.svg';
+import violetEllipse from '../../img/log&reg/violet_ellipse_full_v.svg';
 
 import loginFrame from '../../img/log&reg/login/frame-log.png';
 
@@ -15,7 +15,6 @@ export default function LoginView() {
       <Container>
         <div className={s.commonContainer}>
           <div className={s.leftSide}>
-            {/* <LogFrame /> */}
             <img alt="login frame" src={loginFrame} className={s.frameLog} />
             <img
               alt="violet ellipse"
