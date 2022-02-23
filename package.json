@@ -36,6 +36,8 @@
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

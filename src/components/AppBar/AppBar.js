@@ -1,7 +1,4 @@
-import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
-
-import { authSelectors } from '../../redux/auth';
 import { Link } from 'react-router-dom';
 import s from './AppBar.module.css';
 import walletIcon from '../../img/log&reg/wallet.svg';
@@ -10,7 +7,7 @@ import copyrightIcon from '../../img/icons/copyright.png';
 
 import UserMenu from '../UserMenu/UserMenu.js';
 import Container from '../Container/Container';
-import Modal from '../Modal';
+import Modal from '../Modal/Modal';
 import ModalTeamContainer from '../ModalTeamContainer';
 
 export default function AppBar() {
