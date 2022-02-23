@@ -10,11 +10,16 @@
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .modalContainer {
     width: 100vw;
-    min-height: calc(100vh - 60px);
-    padding-top: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* min-height: calc(100vh - 60px); */
+    /* padding-top: 20px; */
     /* position: sticky; */
-    bottom: 0;
-    left: 0;
+    /* bottom: 0;
+    left: 0; */
     /* background-color: rgb(228, 121, 238); */
   }
 }

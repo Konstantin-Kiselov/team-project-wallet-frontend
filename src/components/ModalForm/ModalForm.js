@@ -2,9 +2,7 @@ import s from './ModalForm.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '../Button';
-// import { addTransaction } from '../../services/walletAPI';
 import { addTransaction } from '../../redux/transactions/transactions-operations';
-// import { addTransaction } from '../../redux/transactions/transactions-operations';
 
 import { ReactComponent as Plus } from '../../img/icons/plus.svg';
 import { ReactComponent as Minus } from '../../img/icons/minus.svg';
@@ -14,7 +12,7 @@ export default function ModalForm({ allCategory, onClick }) {
   const dispatch = useDispatch();
 
   const today = new Date().toLocaleDateString();
-  console.log(today);
+
   const [sum, setSum] = useState('');
   const [comment, setComment] = useState('');
   const [select, setSelect] = useState('');
@@ -22,17 +20,10 @@ export default function ModalForm({ allCategory, onClick }) {
   const [itemselect, setItemselect] = useState(false);
   const [category, setCategory] = useState('');
 
-  console.log(toggle);
-  console.log(select);
-
   const handleChange = e => {
     if (e.currentTarget.name === 'comment') {
       setComment(e.currentTarget.value);
     }
-
-    // if (e.currentTarget.name === 'select') {
-    //   setSelect(e.currentTarget.value);
-    // }
 
     if (e.currentTarget.name === 'sum') {
       setSum(e.currentTarget.value);
@@ -45,22 +36,6 @@ export default function ModalForm({ allCategory, onClick }) {
   };
 
   // category sorting
-  // Закоментировать
-  const allCategory1 = [
-    { name: 'Регулярный доход', income: true, id: '1' },
-    { name: 'Нерегулярный доход', income: true, id: '2' },
-    { name: 'Авто', income: false, id: '3' },
-    { name: 'Еда', income: false, id: '4' },
-    { name: 'Одежда', income: false, id: '5' },
-    { name: 'Комуналка', income: false, id: '6' },
-    { name: 'Образование', income: false, id: '7' },
-    { name: 'Авто', income: false, id: '3' },
-    { name: 'Еда', income: false, id: '4' },
-    { name: 'Одежда', income: false, id: '5' },
-    { name: 'Комуналка', income: false, id: '6' },
-    { name: 'Образование', income: false, id: '7' },
-  ];
-
   let expenditureOptions = [];
   let profitOptions = [];
 
@@ -70,20 +45,12 @@ export default function ModalForm({ allCategory, onClick }) {
       : expenditureOptions.push(element)
   );
 
-  // allCategory.map(element =>
-  //   element.income
-  //     ? profitOptions.push({ name: element.name, id: element.id })
-  //     : expenditureOptions.push({ name: element.name, id: element.id })
-  // );
-
   console.log(allCategory);
 
   let categoryOptions = [];
   if (!toggle) {
-    // profitOptions.map(option => categoryOptions.push(option.name));
     categoryOptions = profitOptions;
   } else {
-    // expenditureOptions.map(option => categoryOptions.push(option.name));
     categoryOptions = expenditureOptions;
   }
   console.log(categoryOptions);
@@ -94,19 +61,13 @@ export default function ModalForm({ allCategory, onClick }) {
     category: category,
     amount: Number(sum),
     comment: comment,
-    // data: today,
   };
-  console.log(requestBody);
+  // console.log(requestBody);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     dispatch(addTransaction(requestBody));
-    // dispatch(addTransaction(requestBody));
-
-    // addTransaction(requestBody)
-    //   .then(response => console.log('77777777777777777777', response))
-    //   .catch(error => console.log(error.message));
 
     onClick(false);
   };
@@ -122,7 +83,6 @@ export default function ModalForm({ allCategory, onClick }) {
           <div className={s.switchControl}>
             <input
               checked={toggle}
-              // value={value}
               onChange={handleChange}
               className={s.switchToggle}
               type="checkbox"
@@ -142,14 +102,7 @@ export default function ModalForm({ allCategory, onClick }) {
           </div>
           <span className={toggle ? s.expenditure : s.noActive}>Расход</span>
 
-          {toggle && (
-            <Minus
-              className={s.iconMinus}
-              width={30}
-              height={30}
-              fill="#000000"
-            />
-          )}
+          {toggle && <Minus className={s.iconMinus} />}
         </div>
         {/* ============================================================== Toggle ===================== */}
 
@@ -174,7 +127,6 @@ export default function ModalForm({ allCategory, onClick }) {
                   <div
                     className={s.dropdownItem}
                     onClick={e => {
-                      // setCategory(option);
                       setCategory(option._id);
                       setSelect(option.name);
                       setItemselect(false);
@@ -202,13 +154,7 @@ export default function ModalForm({ allCategory, onClick }) {
               ></input>
             </label>
 
-            <div
-              className={s.date}
-              id="date"
-              name="date"
-              // value={data}
-              // onChange={handleChange}
-            >
+            <div className={s.date} id="date" name="date">
               {today}
               <DateIcon className={s.dateIcon} width={24} height={24} />
             </div>
@@ -250,10 +196,19 @@ export default function ModalForm({ allCategory, onClick }) {
   );
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// const Today = new Date();
-// const [data, setData] = useState(
-//   `${Today.getFullYear()}-0${Today.getMonth() + 1}-${Today.getDate()}`
-// );
-
 // mongodb+srv://Kirill:Y1JFioqkTigXn9xQ@cluster0.guodi.mongodb.net/db_wallet?retryWrites=true&w=majority
+// Закоментировать
+// const allCategory1 = [
+//   { name: 'Регулярный доход', income: true, id: '1' },
+//   { name: 'Нерегулярный доход', income: true, id: '2' },
+//   { name: 'Авто', income: false, id: '3' },
+//   { name: 'Еда', income: false, id: '4' },
+//   { name: 'Одежда', income: false, id: '5' },
+//   { name: 'Комуналка', income: false, id: '6' },
+//   { name: 'Образование', income: false, id: '7' },
+//   { name: 'Авто', income: false, id: '3' },
+//   { name: 'Еда', income: false, id: '4' },
+//   { name: 'Одежда', income: false, id: '5' },
+//   { name: 'Комуналка', income: false, id: '6' },
+//   { name: 'Образование', income: false, id: '7' },
+// ];

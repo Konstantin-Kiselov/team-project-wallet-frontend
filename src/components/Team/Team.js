@@ -18,7 +18,6 @@ export default function Team() {
         <li className={s.listItem}>
           <img
             className={s.img}
-            // src="./images/team/konstantin-kiselov.jpg"
             src={kiselov}
             alt="Konstantin Kiselov"
           />

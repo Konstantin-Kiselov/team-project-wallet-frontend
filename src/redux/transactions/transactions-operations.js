@@ -12,7 +12,7 @@ export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async transaction => {
     const { data } = await axios.post('/transactions', transaction);
-    console.log(data);
+    // console.log(data);
     return data;
   }
 );
@@ -21,7 +21,7 @@ export const fetchTransactions = createAsyncThunk(
   'transactions/fetchTransactions',
   async () => {
     const { data } = await axios.get('/transactions');
-    console.log(data);
+    // console.log(data);
     return data;
   }
 );
