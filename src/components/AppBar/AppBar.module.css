@@ -34,6 +34,20 @@
   width: 74px;
 }
 
+.copyrightIcon {
+  position: absolute;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .copyrightIcon {
+    width: 12px;
+    height: 12px;
+    top: 0px;
+    left: 122px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .header {
     height: 80px;
@@ -60,19 +74,17 @@
     height: 40px;
     width: 120px;
   }
+
+  .copyrightIcon {
+    width: 16px;
+    height: 16px;
+    top: 0px;
+    left: 185px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     width: 100%;
   }
-}
-
-.copyrightIcon {
-  position: absolute;
-  top: 0px;
-  left: 185px;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
 }

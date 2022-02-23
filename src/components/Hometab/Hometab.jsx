@@ -23,6 +23,8 @@ export default function Hometab({ children }) {
     dispatch(fetchTransactions());
   }, [dispatch, addedTransaction]);
 
+  // console.log('Это тоталлллллллллллллллллллл', allTransactions[0].total);
+
   return (
     <div className={s.container}>
       {allTransactions.length > 0 ? (
@@ -71,7 +73,7 @@ export default function Hometab({ children }) {
                       aria-label="Категория"
                       className={classNames(s.body_item, s.body_item_category)}
                     >
-                      {/* {category.name} */}
+                      {category.name}
                     </td>
                     <td
                       aria-label="Комментарий"
