@@ -7,30 +7,13 @@ import { useSelector } from 'react-redux';
 import { getAllQueryStatistics } from '../../../redux/transactions/transactions-selector';;
 
 export default function Chart() {
-  // const content = [31376, 51118, 63199, 41567, 21456, 55151, 31272, 21545];
   const queryStatistics = useSelector(getAllQueryStatistics);
-// console.log (queryStatistics.stats.amount)
   let amount = [];
-
  if(queryStatistics.stats) {
-  queryStatistics.stats.map((item, index) => {
-    // console.log (item)
+  queryStatistics.stats.map((item) => {
     amount.push(item.amount)
   })
  }
-console.log(amount)
-  // queryStatistics.stats &&
-  // const result = queryStatistics.stats.map((item, index) => {
-  //   console.log (item)
-  //   return item;
-  // })
-
-
-// const result = queryStatistics.stats.map((item, index) => {
-//   return item;
-// })
-// console.log (item)
-
   const ChartData = {
     datasets: [
       {
@@ -47,25 +30,27 @@ console.log(amount)
           '#00AD84',
         ],
         borderWidth: 1,
-        cutout: 99,
+        cutout: 105,
+        hoverOffset: 4,
       },
     ],
   };
-
-  // const result = content.reduce(function (sum, elem) {
-  //   return sum + elem;
-  // }, 0);
-
-  // const StatsBalance = () => {
-  //   return <>{result}</>;
-  // };
-
   const pieChart = (
     <>
       <DoughnatStat>
         <Title>Статистика</Title>
         <DoughnatPie>
           <Doughnut
+          type="pie"
+          width={130}
+          height={50}
+          options={{
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+          }}
             data={ChartData}
           
           />
