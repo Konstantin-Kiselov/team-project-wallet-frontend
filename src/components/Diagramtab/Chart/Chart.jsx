@@ -11,6 +11,7 @@ export default function Chart() {
   // const content = useSelector(state => getStatistics(state));
 
   const ChartData = {
+    labels: ["Основные расходы", "Машина", "Продукты", 'Забота о себе', 'Забота о детях', 'Товары для дома', 'Образование', 'Другое'],
     datasets: [
       {
         data: content,
@@ -26,7 +27,9 @@ export default function Chart() {
           '#00AD84',
         ],
         borderWidth: 1,
-        cutout: 99,
+        cutout: 105,
+        hoverOffset: 4,
+        
       },
     ],
   };
@@ -45,6 +48,19 @@ export default function Chart() {
         <Title>Статистика</Title>
         <DoughnatPie>
           <Doughnut
+           type="pie"
+           width={130}
+           height={50}
+           options={{
+             plugins: {
+                 legend: {
+                     display: false,
+                     labels: {
+                         color: 'rgb(255, 99, 132)'
+                     }
+                 }
+             }
+           }}
             data={ChartData}
           
           />

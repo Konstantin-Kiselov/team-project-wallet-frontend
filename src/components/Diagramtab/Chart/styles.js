@@ -39,10 +39,11 @@ export const DoughnatPie = styled.div`
   height: 280px;
   width: 280px;
   margin: 10px 0 30px;
+  
 
   ${breakpoint.m`
     flex-direction: row;
-  
+    width: 320px;
     height: 320px;
   `}
 `;
@@ -67,8 +68,11 @@ export const BalancePie = styled.div`
   font-size: 18px;
   line-height: 1.5;
   font-weight: bold;
+
+ 
+  
   ${breakpoint.m`
-  top: 45%;
+  top: 50%;
   `}
 
 `;
