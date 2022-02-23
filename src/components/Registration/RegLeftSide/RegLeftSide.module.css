@@ -1,3 +1,7 @@
+.RegLeftSide {
+  position: relative;
+}
+
 @media (min-width: 1280px) {
   .RegLeftSide {
     padding-top: 153px;
@@ -8,7 +12,7 @@
   .violetEllipse {
     position: absolute;
 
-    left: 0;
+    left: -74px;
     bottom: 0;
   }
 
@@ -31,7 +35,7 @@
     position: relative;
     z-index: 10;
 
-    left: 328px;
+    left: 463px;
     bottom: 150px;
 
     font-family: 'Poppins';
@@ -44,8 +48,8 @@
   .violetEllipse {
     position: absolute;
 
-    left: 0;
-    bottom: 0px;
+    left: -30px;
+    bottom: -667px;
   }
 }
 
