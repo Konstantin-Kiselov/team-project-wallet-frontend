@@ -33,6 +33,8 @@
 
 .titleLeftSide {
   position: inherit;
+  left: -66px;
+
   /* top: 640px; */
   margin-top: 28px;
   padding-left: 20px;
@@ -101,7 +103,7 @@
 
 .leftSide {
   position: relative;
-  min-height: 916px;
+  min-height: 100vh;
   width: 560px;
   /* margin: 0; */
 
@@ -175,9 +177,11 @@
 }
 
 .violetEllipse {
-  position: absolute;
-  bottom: 200px;
-  left: -68px;
+  position: fixed;
+  bottom: -166px;
+  left: -142px;
+  width: 633px;
+  height: 518px;
 }
 
 .pinkEllipse {
@@ -308,8 +312,8 @@
 
   .violetEllipse {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: -163px;
+    left: -144px;
   }
 
   .pinkEllipse {
