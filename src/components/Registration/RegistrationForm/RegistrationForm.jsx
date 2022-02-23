@@ -75,8 +75,10 @@ export default function RegistrationForm() {
         dirty,
       }) => (
         <>
+          {touched.email && errors.email && (
+            <p className={s.error}>{errors.email}</p>
+          )}
           <motion.div
-            className={s.box}
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0, type: 'tween' }}
@@ -114,13 +116,10 @@ export default function RegistrationForm() {
               placeholder="E-mail"
             />
           </motion.div>
-
-          {touched.email && errors.email && (
-            <p className={s.errorEmail}>{errors.email}</p>
+          {touched.password && errors.password && (
+            <p className={s.error}>{errors.password}</p>
           )}
-
           <motion.div
-            className={s.box}
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0.15, type: 'tween' }}
@@ -175,12 +174,11 @@ export default function RegistrationForm() {
           </motion.div>
 
           <PasswordStrengthMeter password={password} />
-          {touched.password && errors.password && (
-            <p className={s.errorPassword}>{errors.password}</p>
-          )}
 
+          {touched.confirmPassword && errors.confirmPassword && (
+            <p className={s.error}>{errors.confirmPassword}</p>
+          )}
           <motion.div
-            className={s.box}
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0.3, type: 'tween' }}
@@ -235,12 +233,10 @@ export default function RegistrationForm() {
               placeholder="Подтвердите пароль"
             />
           </motion.div>
-          {touched.confirmPassword && errors.confirmPassword && (
-            <p className={s.errorConfirm}>{errors.confirmPassword}</p>
+          {touched.name && errors.name && (
+            <p className={s.error}>{errors.name}</p>
           )}
-
           <motion.div
-            className={s.box}
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ delay: 0.35, type: 'tween' }}
@@ -276,9 +272,6 @@ export default function RegistrationForm() {
               placeholder="Ваше имя"
             />
           </motion.div>
-          {touched.name && errors.name && (
-            <p className={s.errorName}>{errors.name}</p>
-          )}
 
           <NavLink
             disabled={!isValid && !dirty}
