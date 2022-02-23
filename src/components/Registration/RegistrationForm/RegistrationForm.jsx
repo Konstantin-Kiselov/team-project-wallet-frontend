@@ -252,7 +252,6 @@ export default function RegistrationForm() {
               type="text"
               variant="standard"
               fullWidth
-              required
               name="name"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -282,20 +281,6 @@ export default function RegistrationForm() {
 
           <NavLink
             disabled={!isValid && !dirty}
-            onClick={''}
-            type={`submit`}
-            to="/login"
-            className={setActiveClass}
-            data-name={'login'}
-            id="login"
-            style={({ isActive }) => ({
-              marginBottom: isActive ? '180px' : '0px',
-            })}
-          >
-            Вход
-          </NavLink>
-          <NavLink
-            disabled={!isValid && !dirty}
             onClick={handleSubmit}
             type={`submit`}
             to="/register"
@@ -303,11 +288,26 @@ export default function RegistrationForm() {
             data-name={'register'}
             id="register"
             style={({ isActive }) => ({
-              marginTop: isActive ? '18px' : '0px',
-              marginBottom: '0px',
+              marginTop: isActive ? '0px' : '0px',
+              marginBottom: '20px',
             })}
           >
             Регистрация
+          </NavLink>
+
+          <NavLink
+            disabled={!isValid && !dirty}
+            onClick={''}
+            type={`submit`}
+            to="/login"
+            className={setActiveClass}
+            data-name={'login'}
+            id="login"
+            style={({ isActive }) => ({
+              marginBottom: isActive ? '18px' : '0px',
+            })}
+          >
+            Вход
           </NavLink>
         </>
       )}

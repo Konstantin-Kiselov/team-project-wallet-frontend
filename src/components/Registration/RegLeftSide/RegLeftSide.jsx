@@ -1,6 +1,6 @@
 import RegFrameImac from '../RegFrameImac/RegFrameImac';
 
-import violetEllipse from '../../../img/log&reg/ellipse_violet.svg';
+import violetEllipse from '../../../img/log&reg/violet_ellipse_full_v.svg';
 
 import { motion } from 'framer-motion';
 

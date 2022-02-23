@@ -6,14 +6,16 @@
   .RegLeftSide {
     padding-top: 153px;
     padding-right: 42px;
-    padding-bottom: 154px;
   }
 
   .violetEllipse {
     position: absolute;
 
-    left: -74px;
-    bottom: 0;
+    width: 618px;
+    height: 547px;
+
+    left: -209px;
+    bottom: -205px;
   }
 
   .titleLeftSide {
@@ -48,8 +50,8 @@
   .violetEllipse {
     position: absolute;
 
-    left: -30px;
-    bottom: -667px;
+    left: -167px;
+    top: 633px;
   }
 }
 

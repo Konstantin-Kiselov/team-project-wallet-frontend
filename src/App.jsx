@@ -37,12 +37,12 @@ export default function App() {
               position: 'absolute',
               left: '50%',
               right: 0,
-              top: '50%',
+              top: '20%',
               bottom: 0,
               alignItems: 'center',
               justifyContent: 'center',
             }}
-            size="140px"
+            size="100px"
           />
         }
       >
