@@ -1,11 +1,15 @@
 @font-face {
   font-family: 'Circe';
-  src: local('Circe-Bold'), url(./fonts/Circe-Bold.otf) format('otf');
+  src: url(../src/fonts/Circe-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Circe';
-  src: local('Circe-Regular'), url(./fonts/Circe-Regular.otf) format('otf');
+  src: url(../src/fonts/Circe-Regular.otf);
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
@@ -118,6 +122,15 @@ a {
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.link:hover {
+  color: #060f6d;
+  border: 1px solid #060f6d;
+}
+
+.active-link:hover {
+  background-color: #17b391;
 }
 
 @media screen and (max-width: 767px) {
