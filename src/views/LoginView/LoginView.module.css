@@ -1,3 +1,11 @@
+.containerVioletEllipse {
+  position: absolute;
+  width: 618px;
+  height: 547px;
+  left: -209px;
+  bottom: -108px;
+}
+
 .form {
   width: 409px;
 
@@ -177,11 +185,7 @@
 }
 
 .violetEllipse {
-  position: fixed;
-  bottom: -166px;
-  left: -142px;
-  width: 633px;
-  height: 518px;
+  width: 100%;
 }
 
 .pinkEllipse {
