@@ -2,7 +2,7 @@
   overflow: hidden;
 
   background: linear-gradient(to right, #e5e5e5 45%, #e7eaf2 9%);
-  min-height: 916px;
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 767px) {
