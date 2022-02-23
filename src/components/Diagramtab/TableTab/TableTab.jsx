@@ -31,7 +31,7 @@ export default function Table() {
         {queryStatistics.stats &&
           queryStatistics.stats.map((item, index) => {
             return (
-              <li className={s.table__stat__item}>
+              <li key={index} className={s.table__stat__item}>
                 <span
                   className={s.table__stat__color}
                   style={{ backgroundColor: backgroundColor[index] }}
