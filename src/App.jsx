@@ -52,7 +52,7 @@ export default function App() {
             <Route
               path="/register"
               element={
-                <PublicRoute restricted>
+                <PublicRoute restricted redirectTo="/home">
                   <RegisterView />
                 </PublicRoute>
               }
@@ -60,7 +60,7 @@ export default function App() {
             <Route
               path="/login"
               element={
-                <PublicRoute restricted redirectTo="/home/hometab">
+                <PublicRoute restricted redirectTo="/home">
                   <LoginView />
                 </PublicRoute>
               }
@@ -68,12 +68,12 @@ export default function App() {
             <Route
               path="home/*"
               element={
-                <PrivateRoute restricted redirectTo="/register">
+                <PrivateRoute redirectTo="/register">
                   <HomeView />
                 </PrivateRoute>
               }
             />
-            <Route path="*" element={<NotFoundView />} />
+            <Route path="*" element={<Navigate to="/login" />} />
           </Routes>
         </AnimatePresence>
       </Suspense>

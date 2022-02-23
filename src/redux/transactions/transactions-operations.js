@@ -6,13 +6,13 @@ import {
   getStatisticsError,
 } from './transactions-actions';
 
-axios.defaults.baseURL = 'http://localhost:3001/api';
+axios.defaults.baseURL =
+  'https://wallet-team-project-group-3.herokuapp.com/api';
 
 export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async transaction => {
     const { data } = await axios.post('/transactions', transaction);
-    console.log(data);
     return data;
   }
 );
@@ -21,7 +21,6 @@ export const fetchTransactions = createAsyncThunk(
   'transactions/fetchTransactions',
   async () => {
     const { data } = await axios.get('/transactions');
-    console.log(data);
     return data;
   }
 );
