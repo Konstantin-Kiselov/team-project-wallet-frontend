@@ -10,8 +10,8 @@ import copyrightIcon from '../../img/icons/copyright.png';
 
 import UserMenu from '../UserMenu/UserMenu.js';
 import Container from '../Container/Container';
-import Modal from '../../components/Modal';
-import ModalTeamContainer from '../../components/ModalTeamContainer';
+import Modal from '../Modal';
+import ModalTeamContainer from '../ModalTeamContainer';
 
 export default function AppBar() {
   const [modalActive, setModalActive] = useState(false);
